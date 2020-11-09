@@ -8,6 +8,7 @@ import Error from './pages/Error'
 import Navbar from './modules/navbar/index'
 
 function App() {
+
   return (
     <BrowserRouter>
     <div className="App">

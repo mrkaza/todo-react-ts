@@ -18,5 +18,6 @@ var firebaseConfig = {
 
   export const firestore = firebase.firestore();
   export const firebaseAuth = firebase.auth();
+  export const provider = new firebase.auth.FacebookAuthProvider();
 
   export default firebase;
