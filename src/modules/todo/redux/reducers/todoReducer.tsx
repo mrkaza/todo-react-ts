@@ -1,13 +1,15 @@
-import {GET_TODOS, ADD_TODO_ERROR, ADD_TODO, DELETE_TODO, COMPLETE_TODO} from '../../index';
+import {GET_TODOS, ADD_TODO_ERROR, ADD_TODO, DELETE_TODO, COMPLETE_TODO, TODO_DETAILS} from '../../index';
 
 type InitState = {
     todos: null | object[],
-    crudMessage: null | string
+    crudMessage: null | string,
+    todo: null | object
 }
 
 const initState: InitState = {
     todos: null,
-    crudMessage: null
+    crudMessage: null,
+    todo: null
 }
 
 export const todoReducer = (state:InitState=initState, action:any) => {
@@ -34,10 +36,14 @@ export const todoReducer = (state:InitState=initState, action:any) => {
                 crudMessage: action.payload
             }
         case COMPLETE_TODO:
-            console.log(action.payload);
             return {
                 ...state,
                 crudMessage: action.payload
+            }
+        case TODO_DETAILS: 
+            return {
+                ...state,
+                todo: action.payload
             }
         default:
             return state

@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import {deleteTodo, completeTodo} from '../index';
-
+import {format} from 'date-fns'
 
 
 const TodoItem = ({todo}: any) => {
@@ -31,7 +31,7 @@ const TodoItem = ({todo}: any) => {
                     <p className={`desc ${todo.completed ? 'completed' : ""}` }>{todo.description}</p>
                     <div className="edit">
                     <p className="created">
-                        Created at:
+                        Created at:  {format(todo.createdAt.toDate(), 'do MMM yyyy, H:mm')}
                     </p>
                         <button className="btn-small btn-floating grey"><i className="material-icons">edit</i></button>
                     </div>

@@ -9,8 +9,7 @@ import TodoForm from './components/TodoForm';
 
 export * from './redux/reducers/todoReducer';
 export * from './redux/actions/todoActionType';
-export * from './redux/actions/todoActions'
-
+export * from './redux/actions/todoActions';
 
 const Todo = () => {
 
