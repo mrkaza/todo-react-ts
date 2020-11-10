@@ -1,6 +1,6 @@
 import {firestore} from '../../../../consts/fbConfig';
 import {Dispatch} from 'redux';
-import {TodoDispatchTypes, GET_TODOS, ADD_TODO, ADD_TODO_ERROR} from '../../index';
+import {TodoDispatchTypes, GET_TODOS, ADD_TODO, ADD_TODO_ERROR, DELETE_TODO, COMPLETE_TODO} from '../../index';
 
 
 export const getUserTodos = (userId:any) => {
@@ -29,6 +29,24 @@ export const addTodo = (todo:{title:string,description:string}, userId:string) =
             dispatch({type:ADD_TODO, payload: 'Todo added!'})
         }).catch(() => {
             dispatch({type: ADD_TODO_ERROR, payload:'There was a probem adding todo.'})
+        })
+    }
+}
+
+export const deleteTodo = (id:string) => {
+    return (dispatch: Dispatch<TodoDispatchTypes>) => {
+        firestore.collection('todos').doc(id).delete().then(() => {
+            dispatch({type:DELETE_TODO, payload: 'Todo deleted!'})
+        })
+    }
+}
+
+export const completeTodo = (id:string) => {
+    return (dispatch: Dispatch<TodoDispatchTypes>) => {
+        firestore.collection('todos').doc(id).update({
+            completed: true
+        }).then(() => {
+            dispatch({type:COMPLETE_TODO, payload: 'Todo Completed!'})
         })
     }
 }

@@ -1,4 +1,4 @@
-import {GET_TODOS, ADD_TODO_ERROR, ADD_TODO} from '../../index';
+import {GET_TODOS, ADD_TODO_ERROR, ADD_TODO, DELETE_TODO, COMPLETE_TODO} from '../../index';
 
 type InitState = {
     todos: null | object[],
@@ -23,6 +23,18 @@ export const todoReducer = (state:InitState=initState, action:any) => {
                 crudMessage: action.payload
             }
         case ADD_TODO_ERROR:
+            return {
+                ...state,
+                crudMessage: action.payload
+            }
+        case DELETE_TODO: 
+            console.log(action.payload)
+            return {
+                ...state,
+                crudMessage: action.payload
+            }
+        case COMPLETE_TODO:
+            console.log(action.payload);
             return {
                 ...state,
                 crudMessage: action.payload

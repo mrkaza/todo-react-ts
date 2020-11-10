@@ -1,9 +1,21 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {useDispatch} from 'react-redux';
+import {deleteTodo, completeTodo} from '../index';
 
 
 
 const TodoItem = ({todo}: any) => {
+    const dispatch = useDispatch();
+    const id = todo.id;
+    
+    const deleteSelected = () => {
+        dispatch(deleteTodo(id));
+    }
+
+    const todoCompleted = () => {
+        dispatch(completeTodo(id));
+    }
 
     return (
         <div className="row">
@@ -11,10 +23,10 @@ const TodoItem = ({todo}: any) => {
                 <div className="todo-item">
                     <div className="actions teal">
                         <p className="title"><Link to={'/todo/'+ todo.id}>{todo.title}</Link></p>
-                        {/* <div className="action-btn">
-                            <button className="btn-small btn-floating green" onClick={completedTodo}><i className="material-icons">done</i></button>
+                        <div className="action-btn">
+                            <button className="btn-small btn-floating green" onClick={todoCompleted}><i className="material-icons">done</i></button>
                             <button className="btn-small btn-floating red" onClick={deleteSelected}><i className="material-icons">delete</i></button>
-                        </div> */}
+                        </div>
                     </div>
                     <p className={`desc ${todo.completed ? 'completed' : ""}` }>{todo.description}</p>
                     <div className="edit">
