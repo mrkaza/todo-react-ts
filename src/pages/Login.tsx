@@ -1,8 +1,9 @@
 import React from 'react';
+import {SignIn} from '../modules/auth/index';
 
 const Login = () => {
     return (
-        <div>login</div>
+        <SignIn />
     )
 }
 

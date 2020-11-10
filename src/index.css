@@ -11,3 +11,62 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.completed {
+  text-decoration: line-through;
+  opacity:0.7
+}
+
+.todo-item {
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.6);
+  
+}
+.todo-item a {
+  color:white;
+}
+.title {
+  margin:0;
+  font-size:18px;
+  font-weight: bold;
+  padding:15px;
+}
+.desc {
+  padding:0px 15px;
+}
+.created {
+  font-size:13px;
+  
+}
+.edit {
+  padding:0 15px 10px 15px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.actions {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.action-btn {
+  padding-right: 15px;
+}
+.action-btn button {
+  margin:0 3px
+}
+
+.error-message {
+  text-align: center;
+  font-weight: bold;
+}
+
+select {
+  display: block
+}
+
+.search {
+  display:flex;
+  align-items: center;
+}
+
+
