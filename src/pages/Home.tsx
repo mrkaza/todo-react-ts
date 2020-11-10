@@ -1,11 +1,9 @@
 import React from 'react';
-import {useSelector} from 'react-redux';
-import {RootStore} from '../consts/rootReducer';
+import Todo from '../modules/todo/index';
 
 const Home = () => {
-    const user = useSelector((state:RootStore) =>state.auth.user)
     return (
-        <div>hej</div>
+        <Todo />
     )
 }
 

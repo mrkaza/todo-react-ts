@@ -16,7 +16,6 @@ const initState: InitState = {
 export const authReducer = (state: InitState =initState, action: any) => {
     switch(action.type) {
         case REGISTER:
-            console.log('reg')
             return {
                 ...state,
                 user:action.payload,
@@ -24,13 +23,11 @@ export const authReducer = (state: InitState =initState, action: any) => {
                 regError: null
             }
         case REGISTER_ERROR:
-            console.log('reg-error')
             return {
                 ...state,
                 regError: action.payload
             }
         case LOGOUT:
-            console.log('logout');
             return {
                 ...state,
                 loginError:null,
@@ -38,7 +35,6 @@ export const authReducer = (state: InitState =initState, action: any) => {
                 user: null
             }
         case LOGIN:
-            console.log('loged in');
             return {
                 ...state,
                 user: action.payload,
@@ -46,13 +42,11 @@ export const authReducer = (state: InitState =initState, action: any) => {
                 regError: null
             }
         case LOGIN_ERROR:
-            console.log('login error');
             return {
                 ...state,
                 loginError: action.payload
             }
         case FACEBOOK_LOGIN:
-            console.log('fejs-log');
             return {
                 ...state,
                 loginError:null,
@@ -63,5 +57,3 @@ export const authReducer = (state: InitState =initState, action: any) => {
             return state;
     }
 }
-
-// export default authReducer;

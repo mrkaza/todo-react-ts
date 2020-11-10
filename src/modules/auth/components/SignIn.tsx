@@ -11,8 +11,6 @@ export const SignIn = () => {
 
     const errorMessage = useSelector((state:RootStore) => state.auth.loginError)
 
-    console.log(errorMessage)
-
     const handleSubmit = (e:React.SyntheticEvent) => {
         e.preventDefault();
         dispatch(login(email, password));
