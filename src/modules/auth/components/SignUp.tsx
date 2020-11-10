@@ -1,16 +1,14 @@
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {register} from '../index';
+import {RootStore} from '../../../consts/rootReducer';
 
 export const SignUp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
 
-    const errorMessage = useSelector(state =>state);
-    console.log(errorMessage);
-    
-
+    const errorMessage = useSelector((state:RootStore) => state.auth.regError);
 
     const handleSubmit = (e:React.SyntheticEvent) => {
         e.preventDefault();
@@ -29,23 +27,21 @@ export const SignUp = () => {
         <div className="row">
             <form className="col s12" onSubmit={handleSubmit}>
                 <div className="input-field col s12">
-                    <input id="email" type="email" onChange={e=>setEmail(e.target.value)} />
+                    <input value={email} id="email" type="email" onChange={e=>setEmail(e.target.value)} />
                     <label htmlFor="email">Email</label>
                 </div>
                 <div className="input-field col s12">
-                    <input id="password" type="password" onChange={e=>setPassword(e.target.value)} />
+                    <input value={password} id="password" type="password" onChange={e=>setPassword(e.target.value)} />
                     <label htmlFor="password">Password</label>
                 </div>
-                <button className="btn waves-effect waves-light" type="submit" name="action">Register
-                </button>
-            </form>
-            <p className=" col s12 red-text text-darken-1 error-message">error</p>
-            <p>or</p>
-            <div className="row">
-                <div className="col s12 facebook">
-                    facebook
+                <div className="facebook col s12">
+                    <button className="btn waves-effect waves-light" type="submit" name="action">Register
+                    </button>
                 </div>
-            </div>
+            </form>
+            {errorMessage ? (
+                <p className=" col s12 red-text text-darken-1 error-message">{errorMessage.message}</p>
+            ) : (null)}
         </div>
     </div>
     )

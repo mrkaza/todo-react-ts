@@ -1,4 +1,4 @@
-import {REGISTER,REGISTER_ERROR, LOGOUT, LOGIN, LOGIN_ERROR} from '../../index';
+import {REGISTER,REGISTER_ERROR, LOGOUT, LOGIN, LOGIN_ERROR, FACEBOOK_LOGIN} from '../../index';
 
 type InitState = {
     loginError: null | string;
@@ -50,6 +50,14 @@ export const authReducer = (state: InitState =initState, action: any) => {
             return {
                 ...state,
                 loginError: action.payload
+            }
+        case FACEBOOK_LOGIN:
+            console.log('fejs-log');
+            return {
+                ...state,
+                loginError:null,
+                regError:null,
+                user: action.payload
             }
         default: 
             return state;

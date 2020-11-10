@@ -1,6 +1,6 @@
 import firebase, {firebaseAuth, provider} from '../../../../consts/fbConfig';
 import {Dispatch} from 'redux';
-import {AuthDispatchTypes, REGISTER, REGISTER_ERROR, LOGOUT, LOGIN, LOGIN_ERROR} from '../../index';
+import {AuthDispatchTypes, REGISTER, REGISTER_ERROR, LOGOUT, LOGIN, LOGIN_ERROR, FACEBOOK_LOGIN} from '../../index';
 
 
 
@@ -34,6 +34,14 @@ export const login = (email: string, password: string) => {
             dispatch({type: LOGIN, payload: user})
         }).catch(error => {
             dispatch({type: LOGIN_ERROR, payload: error})
+        })
+    }
+}
+
+export const facebookLogin = () => {
+    return (dispatch: Dispatch<AuthDispatchTypes>) => {
+        firebaseAuth.signInWithPopup(provider).then(user => {
+            dispatch({type:FACEBOOK_LOGIN, payload:user})
         })
     }
 }

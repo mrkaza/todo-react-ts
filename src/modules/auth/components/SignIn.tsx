@@ -1,11 +1,17 @@
 import React, {useState} from 'react';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {login} from '../index';
+import {Facebook} from '../index';
+import {RootStore} from '../../../consts/rootReducer';
 
 export const SignIn = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('')
     const dispatch = useDispatch();
+
+    const errorMessage = useSelector((state:RootStore) => state.auth.loginError)
+
+    console.log(errorMessage)
 
     const handleSubmit = (e:React.SyntheticEvent) => {
         e.preventDefault();
@@ -26,15 +32,19 @@ export const SignIn = () => {
                         <input value={password} id="password" type="password" onChange={(e) => setPassword(e.target.value)} />
                         <label htmlFor="password">Password</label>
                     </div>
-                    <button className="btn waves-effect waves-light" type="submit" name="action">Login
-                    </button>
+                    <div className="facebook col s12">
+                        <button className="btn waves-effect waves-light" type="submit" name="action">Login
+                        </button>
+                    </div>
                 </form>
-                <p className=" col s12 red-text text-darken-1 error-message">error</p>
+                {errorMessage ? (
+                    <p className=" col s12 red-text text-darken-1 error-message">{errorMessage && errorMessage.message}</p>
+                ) : (null)}
             </div>
-            <p>or</p>
+            <p className="or">or</p>
             <div className="row">
                 <div className="col s12 facebook">
-                    facebook
+                    <Facebook />
                 </div>
             </div>
         </div>

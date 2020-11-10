@@ -68,5 +68,11 @@ select {
   display:flex;
   align-items: center;
 }
-
+.or {
+  text-align: center;
+}
+.facebook {
+  display:flex;
+  justify-content: center;
+}
 
