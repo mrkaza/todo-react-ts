@@ -4,6 +4,7 @@ import {RootStore} from '../../consts/rootReducer';
 import {firestore} from '../../consts/fbConfig'
 import {getUserTodos} from './redux/actions/todoActions'
 import TodoItem from './components/TodoItem'
+import TodoForm from './components/TodoForm';
 
 
 export * from './redux/reducers/todoReducer';
@@ -17,9 +18,7 @@ const Todo = () => {
     const user = useSelector((state:RootStore) => state.auth.user);
 
     const userId = user.user.uid;
-    console.log(userId)
     const todos = useSelector((state:RootStore) => state.todo.todos);
-    console.log(todos);
     useEffect(() => {
         firestore.collection('todos').onSnapshot(() => {
             dispatch(getUserTodos(userId));
@@ -27,13 +26,11 @@ const Todo = () => {
     }, [])
 
 
-    
-
     return (
         <div className="container">
         <div className="row">
             <div className="col s12">
-                form
+                <TodoForm />
             </div>
             {todos && todos.length === 0 ? (
                 <div className="col s12">
