@@ -7,6 +7,7 @@ export const COMPLETE_TODO = 'COMPLETE_TODO';
 export const TODO_DETAILS = 'TODO_DETAILS';
 
 export const SEARCH_TODO = 'SEARCH_TODO';
+export const ORDER_TODOS = 'ORDER_TODOS'
 
 export interface getTodos  {
     type: typeof GET_TODOS,
@@ -37,4 +38,8 @@ export interface searchTodoI {
     type: typeof SEARCH_TODO,
     payload: string
 }
-export type TodoDispatchTypes = getTodos | addTodoI | addTodoError | deleteTodoI | completeTodoI | todoDetailsI | searchTodoI
+export interface orderTodosI {
+    type: typeof ORDER_TODOS,
+    payload:string
+}
+export type TodoDispatchTypes = getTodos | addTodoI | addTodoError | deleteTodoI | completeTodoI | todoDetailsI | searchTodoI | orderTodosI

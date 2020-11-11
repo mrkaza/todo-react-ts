@@ -19,7 +19,7 @@ const Search = () => {
                     <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search todos.." />
                 </div>
                 <div className="col s2">
-                    <button className="btn-floating btn-small grey" type="submit"><i className="material-icons">search</i></button>
+                    <button className="z-depth-0 btn-floating btn-small grey" type="submit"><i className="material-icons">search</i></button>
                 </div>
             </form>
         </div>

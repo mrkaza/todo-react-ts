@@ -75,13 +75,14 @@ select {
   display:flex;
   align-items: center;
 }
-
-/* .edit-todo {
-  position:absolute;
-  top:0;
-  left: 0;
-  height: 100%;
-  width:100%;
-  background:black;
-} */
+.order-by {
+  display:flex;
+  align-items: flex-end;
+}
+.order-by button {
+  margin-bottom:5px;
+}
+.no-todos {
+  text-align: center;
+}
 

@@ -1,17 +1,19 @@
-import {GET_TODOS, ADD_TODO_ERROR, ADD_TODO, DELETE_TODO, COMPLETE_TODO, TODO_DETAILS, SEARCH_TODO} from '../../index';
+import {GET_TODOS, ADD_TODO_ERROR, ADD_TODO, DELETE_TODO, COMPLETE_TODO, TODO_DETAILS, SEARCH_TODO, ORDER_TODOS} from '../../index';
 
 type InitState = {
     todos: null | object[],
     crudMessage: null | string,
     todo: null | object,
-    search: null | string
+    search: null | string,
+    orderBy : string
 }
 
 const initState: InitState = {
     todos: null,
     crudMessage: null,
     todo: null,
-    search: null
+    search: null,
+    orderBy: 'created.asc'
 }
 
 export const todoReducer = (state:InitState=initState, action:any) => {
@@ -32,7 +34,6 @@ export const todoReducer = (state:InitState=initState, action:any) => {
                 crudMessage: action.payload
             }
         case DELETE_TODO: 
-            console.log(action.payload)
             return {
                 ...state,
                 crudMessage: action.payload
@@ -51,6 +52,11 @@ export const todoReducer = (state:InitState=initState, action:any) => {
             return {
                 ...state,
                 search: action.payload
+            }
+        case ORDER_TODOS:
+            return {
+                ...state,
+                orderBy: action.payload
             }
         default:
             return state
