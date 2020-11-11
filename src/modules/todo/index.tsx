@@ -6,6 +6,7 @@ import {getUserTodos} from './redux/actions/todoActions'
 import TodoItem from './components/TodoItem'
 import TodoForm from './components/TodoForm';
 import TodoFilter from './components/TodoFilter';
+import CrudMessage from './components/CrudMessage';
 
 export * from './redux/reducers/todoReducer';
 export * from './redux/actions/todoActionType';
@@ -63,6 +64,7 @@ const Todo = () => {
                 <TodoForm />
             </div>
             <TodoFilter />
+            <CrudMessage />
             {todos && todos.length === 0 ? (
                 <div className="col s12 no-todos">
                     No todos matching your parameters.

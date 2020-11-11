@@ -9,7 +9,9 @@ export const EDIT_TODO = 'EDIT_TODO';
 export const TODO_DETAILS = 'TODO_DETAILS';
 
 export const SEARCH_TODO = 'SEARCH_TODO';
-export const ORDER_TODOS = 'ORDER_TODOS'
+export const ORDER_TODOS = 'ORDER_TODOS';
+
+export const REMOVE_CRUD = 'REMOVE_CRUD';
 
 export interface getTodos  {
     type: typeof GET_TODOS,
@@ -48,4 +50,7 @@ export interface orderTodosI {
     type: typeof ORDER_TODOS,
     payload:string
 }
-export type TodoDispatchTypes = getTodos | addTodoI | addTodoError | deleteTodoI | completeTodoI | todoDetailsI | searchTodoI | orderTodosI | editTodoI
+export interface removeCrudI {
+    type:typeof REMOVE_CRUD
+}
+export type TodoDispatchTypes = getTodos | addTodoI | addTodoError | deleteTodoI | completeTodoI | todoDetailsI | searchTodoI | orderTodosI | editTodoI | removeCrudI

@@ -1,6 +1,6 @@
 import {firestore} from '../../../../consts/fbConfig';
 import {Dispatch} from 'redux';
-import {TodoDispatchTypes, GET_TODOS, ADD_TODO, ADD_TODO_ERROR, DELETE_TODO, COMPLETE_TODO, TODO_DETAILS, SEARCH_TODO, ORDER_TODOS, EDIT_TODO} from '../../index';
+import {TodoDispatchTypes, GET_TODOS, ADD_TODO, ADD_TODO_ERROR, DELETE_TODO, COMPLETE_TODO, TODO_DETAILS, SEARCH_TODO, ORDER_TODOS, EDIT_TODO, REMOVE_CRUD} from '../../index';
 
 export const getUserTodos = (userId:any) => {
     return (dispatch: Dispatch<TodoDispatchTypes>) => {
@@ -79,5 +79,11 @@ export const editTodo = (newDesc:string, id:string) => {
         }).then(() => {
             dispatch({type:EDIT_TODO, payload: 'Todo edited.'})
         })
+    }
+}
+
+export const removeCrud = () => {
+    return {
+        type: REMOVE_CRUD
     }
 }
