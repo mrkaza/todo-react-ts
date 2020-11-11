@@ -63,16 +63,17 @@ select {
   display: block
 }
 
-.search {
-  display:flex;
-  align-items: center;
-}
 .or {
   text-align: center;
 }
 .facebook {
   display:flex;
   justify-content: center;
+}
+
+.search-form {
+  display:flex;
+  align-items: center;
 }
 
 /* .edit-todo {

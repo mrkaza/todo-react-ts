@@ -12,7 +12,6 @@ const TodoItem = ({todo}: any) => {
     const deleteSelected = () => {
         dispatch(deleteTodo(id));
     }
-
     const todoCompleted = () => {
         dispatch(completeTodo(id));
     }

@@ -9,16 +9,12 @@ const TodoDetails = () => {
     const dispatch = useDispatch();
     const routeParams:any = useParams();
     const id = routeParams.id;
-    console.log(id);
+
     useEffect(() => {
         dispatch(todoDetails(id));
     }, [])
 
     const todo = useSelector((state:RootStore) => state.todo.todo);
-    console.log(todo);
-    if(todo) {
-        console.log(todo.createdAt.toDate());
-    }
     return (
         <div className="container">
             {todo ? (  
