@@ -1,19 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
-import {deleteTodo, completeTodo} from '../index';
+import {deleteTodo, completeTodo, editTodo} from '../index';
 import {format} from 'date-fns'
 
 
 const TodoItem = ({todo}: any) => {
+    const [edit, setEdit] = useState<boolean>(false);
     const dispatch = useDispatch();
     const id = todo.id;
+    const [newDesc, setNewDesc] = useState<string>(todo.description);
     
     const deleteSelected = () => {
         dispatch(deleteTodo(id));
     }
     const todoCompleted = () => {
         dispatch(completeTodo(id));
+    }
+
+    const handleSubmit = (e:React.SyntheticEvent) => {
+        e.preventDefault();
+        dispatch(editTodo(newDesc,id));
+        setEdit(false);
     }
 
     return (
@@ -27,12 +35,25 @@ const TodoItem = ({todo}: any) => {
                             <button className="btn-small btn-floating red" onClick={deleteSelected}><i className="material-icons">delete</i></button>
                         </div>
                     </div>
-                    <p className={`desc ${todo.completed ? 'completed' : ""}` }>{todo.description}</p>
+                    {edit ? (
+                        <form onSubmit={handleSubmit}>
+                            <div className="input-field col s12">
+                                <input value={newDesc} type="text" onChange={e => setNewDesc(e.target.value)} />
+                            </div>
+                        </form>
+                    ) : (
+                        <p className={`desc ${todo.completed ? 'completed' : ""}` }>{todo.description}</p>
+                    )}
+
                     <div className="edit">
-                    <p className="created">
-                        Created at:  {format(todo.createdAt.toDate(), 'do MMM yyyy, H:mm')}
-                    </p>
-                        <button className="btn-small btn-floating grey"><i className="material-icons">edit</i></button>
+                        <p className="created">
+                            Created at:  {format(todo.createdAt.toDate(), 'do MMM yyyy, H:mm')}
+                        </p>
+                        {edit ? (
+                             <button className="btn-small btn-floating grey" onClick={handleSubmit}><i className="material-icons">done_all</i></button>
+                        ) : (
+                            <button className="btn-small btn-floating grey" onClick={() => setEdit(true)}><i className="material-icons">edit</i></button>
+                        )}
                     </div>
                 </div>
             </div>

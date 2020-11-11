@@ -1,6 +1,6 @@
 import {firestore} from '../../../../consts/fbConfig';
 import {Dispatch} from 'redux';
-import {TodoDispatchTypes, GET_TODOS, ADD_TODO, ADD_TODO_ERROR, DELETE_TODO, COMPLETE_TODO, TODO_DETAILS, SEARCH_TODO, ORDER_TODOS} from '../../index';
+import {TodoDispatchTypes, GET_TODOS, ADD_TODO, ADD_TODO_ERROR, DELETE_TODO, COMPLETE_TODO, TODO_DETAILS, SEARCH_TODO, ORDER_TODOS, EDIT_TODO} from '../../index';
 
 export const getUserTodos = (userId:any) => {
     return (dispatch: Dispatch<TodoDispatchTypes>) => {
@@ -69,5 +69,15 @@ export const orderTodos = (orderBy:string) => {
     return {
         type: ORDER_TODOS,
         payload: orderBy
+    }
+}
+
+export const editTodo = (newDesc:string, id:string) => {
+    return (dispatch: Dispatch<TodoDispatchTypes>) => {
+        firestore.collection('todos').doc(id).update({
+            description: newDesc
+        }).then(() => {
+            dispatch({type:EDIT_TODO, payload: 'Todo edited.'})
+        })
     }
 }

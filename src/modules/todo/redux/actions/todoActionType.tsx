@@ -4,6 +4,8 @@ export const ADD_TODO = 'ADD_TODO';
 export const ADD_TODO_ERROR = 'ADD_TODO_ERROR';
 export const DELETE_TODO = 'DELETE_TODO';
 export const COMPLETE_TODO = 'COMPLETE_TODO';
+export const EDIT_TODO = 'EDIT_TODO';
+
 export const TODO_DETAILS = 'TODO_DETAILS';
 
 export const SEARCH_TODO = 'SEARCH_TODO';
@@ -30,6 +32,10 @@ export interface completeTodoI {
     type: typeof COMPLETE_TODO,
     payload: string
 }
+export interface editTodoI {
+    type: typeof EDIT_TODO,
+    payload: string
+}
 export interface todoDetailsI {
     type: typeof TODO_DETAILS,
     payload: any
@@ -42,4 +48,4 @@ export interface orderTodosI {
     type: typeof ORDER_TODOS,
     payload:string
 }
-export type TodoDispatchTypes = getTodos | addTodoI | addTodoError | deleteTodoI | completeTodoI | todoDetailsI | searchTodoI | orderTodosI
+export type TodoDispatchTypes = getTodos | addTodoI | addTodoError | deleteTodoI | completeTodoI | todoDetailsI | searchTodoI | orderTodosI | editTodoI

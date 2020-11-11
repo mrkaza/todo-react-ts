@@ -1,4 +1,4 @@
-import {GET_TODOS, ADD_TODO_ERROR, ADD_TODO, DELETE_TODO, COMPLETE_TODO, TODO_DETAILS, SEARCH_TODO, ORDER_TODOS} from '../../index';
+import {GET_TODOS, ADD_TODO_ERROR, ADD_TODO, DELETE_TODO, COMPLETE_TODO, TODO_DETAILS, SEARCH_TODO, ORDER_TODOS, EDIT_TODO} from '../../index';
 
 type InitState = {
     todos: null | object[],
@@ -43,6 +43,11 @@ export const todoReducer = (state:InitState=initState, action:any) => {
                 ...state,
                 crudMessage: action.payload
             }
+        // case EDIT_TODO:
+        //     return {
+        //         ...state,
+        //         crudMessage: action.payload
+        //     }
         case TODO_DETAILS: 
             return {
                 ...state,
