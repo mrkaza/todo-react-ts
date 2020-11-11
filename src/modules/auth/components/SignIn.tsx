@@ -5,8 +5,8 @@ import {Facebook} from '../index';
 import {RootStore} from '../../../consts/rootReducer';
 
 export const SignIn = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('')
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('')
     const dispatch = useDispatch();
 
     const errorMessage = useSelector((state:RootStore) => state.auth.loginError)

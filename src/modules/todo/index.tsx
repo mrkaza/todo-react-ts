@@ -15,7 +15,7 @@ export * from './redux/actions/todoActions';
 const Todo = () => {
     const dispatch = useDispatch();
     const user = useSelector((state:RootStore) => state.auth.user);
-    const userId = user.user.uid;
+    const userId:string = user.user.uid;
     let todos = useSelector((state:RootStore) => state.todo.todos);
 
     useEffect(() => {

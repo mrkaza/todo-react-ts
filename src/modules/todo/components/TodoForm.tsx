@@ -4,12 +4,12 @@ import {RootStore} from '../../../consts/rootReducer';
 import {addTodo} from '../index';
 
 const TodoForm = () => {
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
+    const [title, setTitle] = useState<string>('');
+    const [description, setDescription] = useState<string>('');
     const dispatch = useDispatch();
 
     const user = useSelector((state:RootStore) => state.auth.user);
-    const userId = user.user.uid;
+    const userId:string = user.user.uid;
 
     const handleSubmit = (e:React.SyntheticEvent) => {
         e.preventDefault();

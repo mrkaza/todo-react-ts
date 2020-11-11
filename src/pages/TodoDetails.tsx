@@ -7,7 +7,7 @@ import {format} from 'date-fns';
 
 const TodoDetails = () => {
     const dispatch = useDispatch();
-    const routeParams:any = useParams();
+    const routeParams:{id:string} = useParams();
     const id = routeParams.id;
 
     useEffect(() => {

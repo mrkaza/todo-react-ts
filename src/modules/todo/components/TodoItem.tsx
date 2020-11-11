@@ -8,7 +8,7 @@ import {format} from 'date-fns'
 const TodoItem = ({todo}: any) => {
     const [edit, setEdit] = useState<boolean>(false);
     const dispatch = useDispatch();
-    const id = todo.id;
+    const id:string = todo.id;
     const [newDesc, setNewDesc] = useState<string>(todo.description);
     
     const deleteSelected = () => {
