@@ -9,7 +9,6 @@ const Search = () => {
     const handleSubmit = (e:React.SyntheticEvent) => {
         e.preventDefault();
         dispatch(searchTodo(search));
-        setSearch('');
     }
 
     return (

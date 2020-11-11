@@ -17,8 +17,6 @@ export const SignUp = () => {
             password: password
         }
         dispatch(register(newUser))
-        setEmail('');
-        setPassword('');
     }
 
 
