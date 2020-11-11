@@ -12,9 +12,11 @@ var firebaseConfig = {
     appId: "1:643003124357:web:74cc81190767c9a91037ec"
   };
 
-
+ 
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+
+  firebase.firestore().enablePersistence();
 
   export const firestore = firebase.firestore();
   export const firebaseAuth = firebase.auth();

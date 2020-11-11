@@ -87,5 +87,6 @@ select {
 }
 .crud-message {
   text-align: center;
+  font-weight: bold;
 }
 
