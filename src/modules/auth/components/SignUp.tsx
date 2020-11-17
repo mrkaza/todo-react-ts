@@ -8,11 +8,17 @@ export const SignUp = () => {
   const [password, setPassword] = useState<string>("");
   const dispatch = useDispatch();
 
-  const errorMessage = useSelector((state: RootStore) => state.auth.regError);
+  const errorMessage: null | string = useSelector(
+    (state: RootStore) => state.auth.regError
+  );
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    const newUser = {
+    type NewUser = {
+      email: string;
+      password: string;
+    };
+    const newUser: NewUser = {
       email: email,
       password: password,
     };
@@ -51,11 +57,11 @@ export const SignUp = () => {
             </button>
           </div>
         </form>
-        {errorMessage ? (
+        {errorMessage && (
           <p className=" col s12 red-text text-darken-1 error-message">
-            {errorMessage.message}
+            {errorMessage}
           </p>
-        ) : null}
+        )}
       </div>
     </div>
   );

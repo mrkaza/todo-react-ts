@@ -5,7 +5,9 @@ import { removeCrud } from "../index";
 
 const CrudMessage = () => {
   const dispatch = useDispatch();
-  const message = useSelector((state: RootStore) => state.todo.crudMessage);
+  const message: null | string = useSelector(
+    (state: RootStore) => state.todo.crudMessage
+  );
 
   useEffect(() => {
     setTimeout(() => {
@@ -14,9 +16,7 @@ const CrudMessage = () => {
   }, [message]);
 
   return (
-    <div className="col s12 crud-message">
-      {message ? <p>{message}</p> : null}
-    </div>
+    <div className="col s12 crud-message">{message && <p>{message}</p>}</div>
   );
 };
 

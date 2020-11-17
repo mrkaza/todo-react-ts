@@ -2,22 +2,23 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootStore } from "../../../consts";
 import { addTodo } from "../index";
+import { UserType } from "../../auth";
 
 const TodoForm = () => {
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const dispatch = useDispatch();
 
-  const user = useSelector((state: RootStore) => state.auth.user);
+  const user: UserType = useSelector((state: RootStore) => state.auth.user);
   const userId: string = user.user.uid;
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    type Todo = {
+    type NewTodo = {
       title: string;
       description: string;
     };
-    const todo: Todo = {
+    const todo: NewTodo = {
       title: title,
       description: description,
     };

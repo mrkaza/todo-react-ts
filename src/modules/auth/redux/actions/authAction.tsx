@@ -10,7 +10,7 @@ export const register = (newUser: { email: string; password: string }) => {
         dispatch({ type: "REGISTER", payload: user });
       })
       .catch((error) => {
-        dispatch({ type: "REGISTER_ERROR", payload: error });
+        dispatch({ type: "REGISTER_ERROR", payload: error.message });
       });
   };
 };
@@ -31,7 +31,7 @@ export const login = (email: string, password: string) => {
         dispatch({ type: "LOGIN", payload: user });
       })
       .catch((error) => {
-        dispatch({ type: "LOGIN_ERROR", payload: error });
+        dispatch({ type: "LOGIN_ERROR", payload: error.message });
       });
   };
 };

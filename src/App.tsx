@@ -6,12 +6,12 @@ import Register from "./pages/Register";
 import TodoDetails from "./pages/TodoDetails";
 import Error from "./pages/Error";
 import { Navbar } from "./modules/navbar";
-
 import { useSelector } from "react-redux";
 import { RootStore } from "./consts/rootReducer";
+import { UserType } from "./modules/auth";
 
 function App() {
-  const user = useSelector((state: RootStore) => state.auth.user);
+  const user: UserType = useSelector((state: RootStore) => state.auth.user);
 
   return (
     <BrowserRouter>

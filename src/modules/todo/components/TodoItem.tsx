@@ -32,7 +32,7 @@ const TodoItem = ({ todo }: any) => {
               <Link to={"/todo/" + todo.id}>{todo.title}</Link>
             </p>
             <div className="action-btn">
-              {todo.completed ? null : (
+              {!todo.completed && (
                 <button
                   className="btn-small btn-floating green"
                   onClick={todoCompleted}

@@ -1,20 +1,16 @@
-import {
-  GET_TODOS,
-  ADD_TODO_ERROR,
-  ADD_TODO,
-  DELETE_TODO,
-  COMPLETE_TODO,
-  TODO_DETAILS,
-  SEARCH_TODO,
-  ORDER_TODOS,
-  EDIT_TODO,
-  REMOVE_CRUD,
-} from "../../index";
+export type TodoType = {
+  id: string;
+  title: string;
+  description: string;
+  completed: boolean;
+  userId: string;
+  createdAt: { nanoseconds: number; seconds: number };
+};
 
 type InitState = {
-  todos: null | object[];
+  todos: null | TodoType[];
   crudMessage: null | string;
-  todo: null | object;
+  todo: null | TodoType;
   search: null | string;
   orderBy: string;
 };
@@ -29,52 +25,52 @@ const initState: InitState = {
 
 export const todoReducer = (state: InitState = initState, action: any) => {
   switch (action.type) {
-    case GET_TODOS:
+    case "GET_TODOS":
       return {
         ...state,
         todos: action.payload,
       };
-    case ADD_TODO:
+    case "ADD_TODO":
       return {
         ...state,
         crudMessage: action.payload,
       };
-    case ADD_TODO_ERROR:
+    case "ADD_TODO_ERROR":
       return {
         ...state,
         crudMessage: action.payload,
       };
-    case DELETE_TODO:
+    case "DELETE_TODO":
       return {
         ...state,
         crudMessage: action.payload,
       };
-    case COMPLETE_TODO:
+    case "COMPLETE_TODO":
       return {
         ...state,
         crudMessage: action.payload,
       };
-    case EDIT_TODO:
+    case "EDIT_TODO":
       return {
         ...state,
         crudMessage: action.payload,
       };
-    case TODO_DETAILS:
+    case "TODO_DETAILS":
       return {
         ...state,
         todo: action.payload,
       };
-    case SEARCH_TODO:
+    case "SEARCH_TODO":
       return {
         ...state,
         search: action.payload,
       };
-    case ORDER_TODOS:
+    case "ORDER_TODOS":
       return {
         ...state,
         orderBy: action.payload,
       };
-    case REMOVE_CRUD:
+    case "REMOVE_CRUD":
       return {
         ...state,
         crudMessage: null,

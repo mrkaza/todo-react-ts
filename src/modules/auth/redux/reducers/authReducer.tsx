@@ -1,7 +1,13 @@
+export type UserType = {
+  user: {
+    uid: string;
+  };
+};
+
 type InitState = {
   loginError: null | string;
   regError: null | string;
-  user: null | object;
+  user: null | UserType;
 };
 
 const initState: InitState = {

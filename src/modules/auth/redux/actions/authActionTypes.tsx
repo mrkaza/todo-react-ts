@@ -4,7 +4,7 @@ interface Register {
 }
 interface RegisterError {
   type: "REGISTER_ERROR";
-  payload: object;
+  payload: { message: string };
 }
 
 interface Logout {
@@ -17,7 +17,7 @@ interface Login {
 }
 interface LoginError {
   type: "LOGIN_ERROR";
-  payload: object;
+  payload: { message: string };
 }
 interface FacebookLogin {
   type: "FACEBOOK_LOGIN";

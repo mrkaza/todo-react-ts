@@ -8,13 +8,14 @@ import { format } from "date-fns";
 const TodoDetails = () => {
   const dispatch = useDispatch();
   const routeParams: { id: string } = useParams();
-  const id = routeParams.id;
+  const id: string = routeParams.id;
 
   useEffect(() => {
     dispatch(todoDetails(id));
   }, []);
 
   const todo = useSelector((state: RootStore) => state.todo.todo);
+  console.log(todo);
   return (
     <div className="container">
       {todo ? (

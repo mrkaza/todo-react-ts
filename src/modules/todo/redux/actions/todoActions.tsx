@@ -1,18 +1,6 @@
 import { firestore } from "../../../../consts/fbConfig";
 import { Dispatch } from "redux";
-import {
-  TodoDispatchTypes,
-  GET_TODOS,
-  ADD_TODO,
-  ADD_TODO_ERROR,
-  DELETE_TODO,
-  COMPLETE_TODO,
-  TODO_DETAILS,
-  SEARCH_TODO,
-  ORDER_TODOS,
-  EDIT_TODO,
-  REMOVE_CRUD,
-} from "../../index";
+import { TodoDispatchTypes } from "../../index";
 
 export const getUserTodos = (userId: any) => {
   return (dispatch: Dispatch<TodoDispatchTypes>) => {
@@ -27,7 +15,7 @@ export const getUserTodos = (userId: any) => {
           todo.id = doc.id;
           todos.push(todo);
         });
-        dispatch({ type: GET_TODOS, payload: todos });
+        dispatch({ type: "GET_TODOS", payload: todos });
       });
   };
 };
@@ -47,11 +35,11 @@ export const addTodo = (
         userId: userId,
       })
       .then(() => {
-        dispatch({ type: ADD_TODO, payload: "Todo added!" });
+        dispatch({ type: "ADD_TODO", payload: "Todo added!" });
       })
       .catch(() => {
         dispatch({
-          type: ADD_TODO_ERROR,
+          type: "ADD_TODO_ERROR",
           payload: "There was a probem adding todo.",
         });
       });
@@ -65,7 +53,7 @@ export const deleteTodo = (id: string) => {
       .doc(id)
       .delete()
       .then(() => {
-        dispatch({ type: DELETE_TODO, payload: "Todo deleted!" });
+        dispatch({ type: "DELETE_TODO", payload: "Todo deleted!" });
       });
   };
 };
@@ -79,7 +67,7 @@ export const completeTodo = (id: string) => {
         completed: true,
       })
       .then(() => {
-        dispatch({ type: COMPLETE_TODO, payload: "Todo Completed!" });
+        dispatch({ type: "COMPLETE_TODO", payload: "Todo Completed!" });
       });
   };
 };
@@ -91,21 +79,21 @@ export const todoDetails = (id: string) => {
       .doc(id)
       .get()
       .then((doc) => {
-        dispatch({ type: TODO_DETAILS, payload: doc.data() });
+        dispatch({ type: "TODO_DETAILS", payload: doc.data() });
       });
   };
 };
 
 export const searchTodo = (search: string | null) => {
   return {
-    type: SEARCH_TODO,
+    type: "SEARCH_TODO",
     payload: search,
   };
 };
 
 export const orderTodos = (orderBy: string) => {
   return {
-    type: ORDER_TODOS,
+    type: "ORDER_TODOS",
     payload: orderBy,
   };
 };
@@ -119,13 +107,13 @@ export const editTodo = (newDesc: string, id: string) => {
         description: newDesc,
       })
       .then(() => {
-        dispatch({ type: EDIT_TODO, payload: "Todo edited." });
+        dispatch({ type: "EDIT_TODO", payload: "Todo edited." });
       });
   };
 };
 
 export const removeCrud = () => {
   return {
-    type: REMOVE_CRUD,
+    type: "REMOVE_CRUD",
   };
 };

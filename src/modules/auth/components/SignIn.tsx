@@ -9,7 +9,9 @@ export const SignIn = () => {
   const [password, setPassword] = useState<string>("");
   const dispatch = useDispatch();
 
-  const errorMessage = useSelector((state: RootStore) => state.auth.loginError);
+  const errorMessage: null | string = useSelector(
+    (state: RootStore) => state.auth.loginError
+  );
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -50,11 +52,11 @@ export const SignIn = () => {
             </button>
           </div>
         </form>
-        {errorMessage ? (
+        {errorMessage && (
           <p className=" col s12 red-text text-darken-1 error-message">
-            {errorMessage && errorMessage.message}
+            {errorMessage}
           </p>
-        ) : null}
+        )}
       </div>
       <p className="or">or</p>
       <div className="row">

@@ -7,12 +7,14 @@ import TodoItem from "./TodoItem";
 import TodoForm from "./TodoForm";
 import TodoFilter from "./TodoFilter";
 import CrudMessage from "./CrudMessage";
+import { TodoType } from "../index";
+import { UserType } from "../../auth";
 
 export const Todo = () => {
   const dispatch = useDispatch();
-  const user = useSelector((state: RootStore) => state.auth.user);
+  const user: UserType = useSelector((state: RootStore) => state.auth.user);
   const userId: string = user.user.uid;
-  let todos = useSelector((state: RootStore) => state.todo.todos);
+  let todos: TodoType[] = useSelector((state: RootStore) => state.todo.todos);
 
   useEffect(() => {
     firestore.collection("todos").onSnapshot(() => {
@@ -75,7 +77,7 @@ export const Todo = () => {
         ) : (
           <div className="col s12">
             {todos &&
-              todos.map((todo: any) => {
+              todos.map((todo: TodoType) => {
                 return <TodoItem todo={todo} key={todo.id} />;
               })}
           </div>
