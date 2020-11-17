@@ -4,7 +4,7 @@ export type TodoType = {
   description: string;
   completed: boolean;
   userId: string;
-  createdAt: { nanoseconds: number; seconds: number };
+  createdAt: { nanoseconds: string; seconds: string };
 };
 
 type InitState = {

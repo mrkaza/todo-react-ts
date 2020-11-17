@@ -15,7 +15,6 @@ const TodoDetails = () => {
   }, []);
 
   const todo = useSelector((state: RootStore) => state.todo.todo);
-  console.log(todo);
   return (
     <div className="container">
       {todo ? (
