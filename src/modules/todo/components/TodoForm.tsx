@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootStore } from "../../../consts/rootReducer";
+import { RootStore } from "../../../consts";
 import { addTodo } from "../index";
 
 const TodoForm = () => {

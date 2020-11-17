@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../index";
-import { RootStore } from "../../../consts/rootReducer";
+import { RootStore } from "../../../consts";
 
 export const SignUp = () => {
   const [email, setEmail] = useState<string>("");

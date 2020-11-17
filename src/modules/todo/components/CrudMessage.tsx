@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { RootStore } from "../../../consts/rootReducer";
+import { RootStore } from "../../../consts";
 import { removeCrud } from "../index";
 
 const CrudMessage = () => {

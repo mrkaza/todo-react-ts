@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootStore } from "../../../consts/rootReducer";
+import { RootStore } from "../../../consts";
 import { firestore } from "../../../consts/fbConfig";
 import { getUserTodos } from "../redux/actions/todoActions";
 import TodoItem from "./TodoItem";

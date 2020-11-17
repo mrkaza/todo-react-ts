@@ -1,5 +1,5 @@
 import React from "react";
-import { SignUp } from "../modules/auth/index";
+import { SignUp } from "../modules/auth";
 
 const Register = () => {
   return <SignUp />;

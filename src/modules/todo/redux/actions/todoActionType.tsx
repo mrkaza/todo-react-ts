@@ -1,16 +1,12 @@
 export const GET_TODOS = "GET_TODOS";
-
 export const ADD_TODO = "ADD_TODO";
 export const ADD_TODO_ERROR = "ADD_TODO_ERROR";
 export const DELETE_TODO = "DELETE_TODO";
 export const COMPLETE_TODO = "COMPLETE_TODO";
 export const EDIT_TODO = "EDIT_TODO";
-
 export const TODO_DETAILS = "TODO_DETAILS";
-
 export const SEARCH_TODO = "SEARCH_TODO";
 export const ORDER_TODOS = "ORDER_TODOS";
-
 export const REMOVE_CRUD = "REMOVE_CRUD";
 
 export interface getTodos {

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { todoDetails } from "../modules/todo/index";
+import { todoDetails } from "../modules/todo";
 import { useParams } from "react-router-dom";
-import { RootStore } from "../consts/rootReducer";
+import { RootStore } from "../consts";
 import { format } from "date-fns";
 
 const TodoDetails = () => {
@@ -26,8 +26,8 @@ const TodoDetails = () => {
                 <p className="desc">{todo.description}</p>
                 <div className="edit">
                   <p className="created">
-                    Created at:{" "}
-                    {format(todo.createdAt.toDate(), "do MMM yyyy, H:mm")}{" "}
+                    Created at:
+                    {format(todo.createdAt.toDate(), "do MMM yyyy, H:mm")}
                   </p>
                   {todo.completed ? (
                     <p className="created">Completed: true</p>
