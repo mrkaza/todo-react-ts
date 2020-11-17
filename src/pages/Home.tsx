@@ -1,10 +1,8 @@
-import React from 'react';
-import Todo from '../modules/todo/index';
+import React from "react";
+import { Todo } from "../modules/todo/index";
 
 const Home = () => {
-    return (
-        <Todo />
-    )
-}
+  return <Todo />;
+};
 
 export default Home;

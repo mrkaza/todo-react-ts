@@ -1,49 +1,48 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 .completed {
   text-decoration: line-through;
-  opacity:0.7
+  opacity: 0.7;
 }
 
 .todo-item {
-  box-shadow: 3px 3px 10px rgba(0,0,0,0.6);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6);
 }
 .todo-item a {
-  color:white;
+  color: white;
 }
 .title {
-  margin:0;
-  font-size:18px;
+  margin: 0;
+  font-size: 18px;
   font-weight: bold;
-  padding:15px;
+  padding: 15px;
 }
 .desc {
-  padding:0px 15px;
+  padding: 0px 15px;
 }
 .created {
-  font-size:13px;
-  
+  font-size: 13px;
 }
 .edit {
-  padding:0 15px 10px 15px;
-  display:flex;
+  padding: 0 15px 10px 15px;
+  display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .actions {
-  display:flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
 }
@@ -51,7 +50,7 @@ code {
   padding-right: 15px;
 }
 .action-btn button {
-  margin:0 3px
+  margin: 0 3px;
 }
 
 .error-message {
@@ -60,27 +59,27 @@ code {
 }
 
 select {
-  display: block
+  display: block;
 }
 
 .or {
   text-align: center;
 }
 .facebook {
-  display:flex;
+  display: flex;
   justify-content: center;
 }
 
 .search-form {
-  display:flex;
+  display: flex;
   align-items: center;
 }
 .order-by {
-  display:flex;
+  display: flex;
   align-items: flex-end;
 }
 .order-by button {
-  margin-bottom:5px;
+  margin-bottom: 5px;
 }
 .no-todos {
   text-align: center;
@@ -89,4 +88,3 @@ select {
   text-align: center;
   font-weight: bold;
 }
-

@@ -1,10 +1,8 @@
-import React from 'react';
-import {SignUp} from '../modules/auth/index'
+import React from "react";
+import { SignUp } from "../modules/auth/index";
 
 const Register = () => {
-    return (
-        <SignUp />
-    )
-}
+  return <SignUp />;
+};
 
 export default Register;
