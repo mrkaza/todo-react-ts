@@ -1,12 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectTodos } from "../index";
+import { selector } from "../index";
 import TodoItem from "./TodoItem";
 import { TodoType } from "../index";
 
 const TodoList = () => {
-  const todos = useSelector(selectTodos);
-
+  const todos = useSelector(selector);
+  console.log(todos);
   return (
     <div>
       {todos && todos.length === 0 ? (
@@ -22,6 +22,7 @@ const TodoList = () => {
         </div>
       )}
     </div>
+    // <div> yo</div>
   );
 };
 
