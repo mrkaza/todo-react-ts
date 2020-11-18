@@ -6,7 +6,7 @@ import { TodoType } from "../index";
 
 const TodoList = () => {
   const todos = useSelector(selector);
-  console.log(todos);
+
   return (
     <div>
       {todos && todos.length === 0 ? (

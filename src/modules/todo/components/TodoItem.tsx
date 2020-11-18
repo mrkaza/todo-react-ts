@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { deleteTodo, completeTodo, editTodo } from "../index";
 import { format } from "date-fns";
+import { TodoType } from "../index";
 
-const TodoItem = ({ todo }: any) => {
+const TodoItem = (props: { todo: TodoType }) => {
+  const todo: TodoType = props.todo;
   const [edit, setEdit] = useState<boolean>(false);
   const dispatch = useDispatch();
   const id: string = todo.id;

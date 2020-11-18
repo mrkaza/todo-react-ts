@@ -4,6 +4,7 @@ import { todoDetails } from "../modules/todo";
 import { useParams } from "react-router-dom";
 import { RootStore } from "../consts";
 import { format } from "date-fns";
+import { TodoType } from "../modules/todo";
 
 const TodoDetails = () => {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const TodoDetails = () => {
     dispatch(todoDetails(id));
   }, []);
 
-  const todo = useSelector((state: RootStore) => state.todo.todo);
+  const todo: TodoType = useSelector((state: RootStore) => state.todo.todo);
   return (
     <div className="container">
       {todo ? (

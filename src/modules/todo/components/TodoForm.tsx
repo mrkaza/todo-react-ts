@@ -8,7 +8,6 @@ const TodoForm = () => {
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const dispatch = useDispatch();
-
   const user: UserType = useSelector((state: RootStore) => state.auth.user);
   const userId: string = user.user.uid;
 
