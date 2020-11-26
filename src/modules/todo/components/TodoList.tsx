@@ -9,7 +9,7 @@ const TodoList = () => {
 
   return (
     <div>
-      {todos && todos.length === 0 ? (
+      {todos && !todos.length ? (
         <div className="col s12 no-todos">
           No todos matching your parameters.
         </div>
@@ -22,7 +22,6 @@ const TodoList = () => {
         </div>
       )}
     </div>
-    // <div> yo</div>
   );
 };
 
