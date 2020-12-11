@@ -1,6 +1,6 @@
-import { firestore } from "../../../../consts/fbConfig";
+import { firestore } from "consts";
 import { Dispatch } from "redux";
-import { TodoDispatchTypes } from "../../index";
+import { TodoDispatchTypes } from "modules/todo";
 
 export const getUserTodos = (userId: any) => {
   return (dispatch: Dispatch<TodoDispatchTypes>) => {

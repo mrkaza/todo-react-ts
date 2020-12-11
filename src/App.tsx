@@ -5,10 +5,10 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import TodoDetails from "./pages/TodoDetails";
 import Error from "./pages/Error";
-import { Navbar } from "./modules/navbar";
+import { Navbar } from "modules/navbar";
 import { useSelector } from "react-redux";
-import { RootStore } from "./consts/rootReducer";
-import { UserType } from "./modules/auth";
+import { RootStore } from "consts";
+import { UserType } from "modules/auth";
 
 function App() {
   const user: UserType = useSelector((state: RootStore) => state.auth.user);

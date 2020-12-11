@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import { authReducer } from "../modules/auth/index";
-import { todoReducer } from "../modules/todo/index";
+import { authReducer } from "modules/auth";
+import { todoReducer } from "../modules/todo/redux";
 
 export const rootReducer = combineReducers({
   auth: authReducer,

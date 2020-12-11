@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { deleteTodo, completeTodo, editTodo } from "../index";
+import { deleteTodo, completeTodo, editTodo, TodoType } from "modules/todo";
 import { format } from "date-fns";
-import { TodoType } from "../index";
 
 const TodoItem = (props: { todo: TodoType }) => {
   const todo: TodoType = props.todo;
