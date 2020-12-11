@@ -1,6 +1,6 @@
-import { firebaseAuth, provider } from "../../../../consts";
+import { firebaseAuth, provider } from "consts";
 import { Dispatch } from "redux";
-import { AuthDispatchTypes } from "../../index";
+import { AuthDispatchTypes } from "modules/auth";
 
 export const register = (newUser: { email: string; password: string }) => {
   return (dispatch: Dispatch<AuthDispatchTypes>) => {

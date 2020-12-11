@@ -1,6 +1,6 @@
 import { createSelector } from "reselect";
-import { RootStore } from "../../../../consts";
-import { TodoType } from "../../index";
+import { RootStore } from "consts";
+import { TodoType } from "./todoReducer";
 
 const getTodos = (state: RootStore) => state.todo.todos;
 const getOrder = (state: RootStore) => state.todo.orderBy;

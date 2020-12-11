@@ -1,8 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { selector } from "../index";
 import TodoItem from "./TodoItem";
-import { TodoType } from "../index";
+import { TodoType, selector } from "modules/todo";
 
 const TodoList = () => {
   const todos = useSelector(selector);

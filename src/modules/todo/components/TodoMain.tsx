@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootStore } from "../../../consts";
-import { firestore } from "../../../consts/fbConfig";
-import { getUserTodos } from "../redux/actions/todoActions";
+import { RootStore } from "consts";
+import { firestore } from "consts";
+import { getUserTodos } from "modules/todo";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
 import TodoFilter from "./TodoFilter";
 import CrudMessage from "./CrudMessage";
-import { UserType } from "../../auth";
+import { UserType } from "modules/auth";
 
 export const Todo = () => {
   const dispatch = useDispatch();

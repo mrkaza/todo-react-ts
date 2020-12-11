@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { todoDetails } from "../modules/todo";
+import { todoDetails, TodoType } from "modules/todo";
 import { useParams } from "react-router-dom";
-import { RootStore } from "../consts";
+import { RootStore } from "consts";
 import { format } from "date-fns";
-import { TodoType } from "../modules/todo";
 
-const TodoDetails = () => {
+export const TodoDetails = () => {
   const dispatch = useDispatch();
   const routeParams: { id: string } = useParams();
   const id: string = routeParams.id;
@@ -46,5 +45,3 @@ const TodoDetails = () => {
     </div>
   );
 };
-
-export default TodoDetails;

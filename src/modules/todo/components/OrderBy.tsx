@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { orderTodos } from "../index";
+import { orderTodos } from "modules/todo";
 
 const OrderBy = () => {
   const [order, setOrder] = useState<string>("");

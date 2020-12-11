@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { facebookLogin } from "../index";
+import { facebookLogin } from "modules/auth";
 
 export const Facebook = () => {
   const dispatch = useDispatch();

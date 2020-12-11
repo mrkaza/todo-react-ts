@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../index";
-import { Facebook } from "../index";
-import { RootStore } from "../../../consts";
+import { login } from "modules/auth";
+import { Facebook } from "./Facebook";
+import { RootStore } from "consts";
 
 export const SignIn = () => {
   const [email, setEmail] = useState<string>("");

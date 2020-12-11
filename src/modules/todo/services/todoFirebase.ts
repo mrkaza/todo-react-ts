@@ -1,6 +1,6 @@
-import { firestore } from "../../../../consts/fbConfig";
+import { firestore } from "consts";
 import { Dispatch } from "redux";
-import { TodoDispatchTypes } from "../../index";
+import { TodoDispatchTypes } from "modules/todo";
 
 export const getUserTodos = (userId: any) => {
   return (dispatch: Dispatch<TodoDispatchTypes>) => {
@@ -84,20 +84,6 @@ export const todoDetails = (id: string) => {
   };
 };
 
-export const searchTodo = (search: string | null) => {
-  return {
-    type: "SEARCH_TODO",
-    payload: search,
-  };
-};
-
-export const orderTodos = (orderBy: string) => {
-  return {
-    type: "ORDER_TODOS",
-    payload: orderBy,
-  };
-};
-
 export const editTodo = (newDesc: string, id: string) => {
   return (dispatch: Dispatch<TodoDispatchTypes>) => {
     firestore
@@ -109,11 +95,5 @@ export const editTodo = (newDesc: string, id: string) => {
       .then(() => {
         dispatch({ type: "EDIT_TODO", payload: "Todo edited." });
       });
-  };
-};
-
-export const removeCrud = () => {
-  return {
-    type: "REMOVE_CRUD",
   };
 };
