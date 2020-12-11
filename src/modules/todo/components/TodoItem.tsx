@@ -4,7 +4,10 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-const TodoItem = (props: { todo: TodoType }) => {
+interface Props {
+  todo: TodoType;
+}
+const TodoItem: React.FC<Props> = (props) => {
   const todo: TodoType = props.todo;
   const [edit, setEdit] = useState<boolean>(false);
   const dispatch = useDispatch();

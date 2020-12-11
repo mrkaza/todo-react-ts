@@ -2,7 +2,7 @@ import { firestore } from 'modules/firebase';
 import { TodoDispatchTypes } from 'modules/todo';
 import { Dispatch } from 'redux';
 
-export const getUserTodos = (userId: any) => {
+export const getUserTodos = (userId: string) => {
   return (dispatch: Dispatch<TodoDispatchTypes>) => {
     const todos: Record<string, unknown>[] = [];
     firestore

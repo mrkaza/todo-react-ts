@@ -3,7 +3,7 @@ import { removeCrud } from 'modules/todo';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-const CrudMessage = () => {
+const CrudMessage: React.FC = () => {
   const dispatch = useDispatch();
   const message: null | string = useSelector(
     (state: RootStore) => state.todo.crudMessage,

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 import TodoItem from './TodoItem';
 
-const TodoList = () => {
+const TodoList: React.FC = () => {
   const todos = useSelector(selector);
 
   return (

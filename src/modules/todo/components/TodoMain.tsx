@@ -10,7 +10,7 @@ import TodoFilter from './TodoFilter';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 
-export const Todo = () => {
+export const Todo: React.FC = () => {
   const dispatch = useDispatch();
   const user: UserType = useSelector((state: RootStore) => state.auth.user);
   const userId: string = user.user.uid;

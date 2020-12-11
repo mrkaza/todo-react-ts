@@ -2,7 +2,7 @@ import { searchTodo } from 'modules/todo';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-const Search = () => {
+const Search: React.FC = () => {
   const [search, setSearch] = useState<string>('');
   const dispatch = useDispatch();
 

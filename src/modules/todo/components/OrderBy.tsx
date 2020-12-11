@@ -2,7 +2,7 @@ import { orderTodos } from 'modules/todo';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-const OrderBy = () => {
+const OrderBy: React.FC = () => {
   const [order, setOrder] = useState<string>('');
   const dispatch = useDispatch();
 

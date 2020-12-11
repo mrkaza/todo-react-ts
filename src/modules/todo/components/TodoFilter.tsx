@@ -3,7 +3,7 @@ import React from 'react';
 import OrderBy from './OrderBy';
 import Search from './Search';
 
-const TodoFilter = () => {
+const TodoFilter: React.FC = () => {
   return (
     <div className="col s12 filters">
       <Search />

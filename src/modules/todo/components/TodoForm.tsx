@@ -4,7 +4,7 @@ import { addTodo } from 'modules/todo';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-const TodoForm = () => {
+const TodoForm: React.FC = () => {
   const [title, setTitle] = useState<string>('');
   const [description, setDescription] = useState<string>('');
   const dispatch = useDispatch();
