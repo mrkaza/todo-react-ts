@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { RootStore } from "consts";
 import { format } from "date-fns";
 
-const TodoDetails = () => {
+export const TodoDetails = () => {
   const dispatch = useDispatch();
   const routeParams: { id: string } = useParams();
   const id: string = routeParams.id;
@@ -45,5 +45,3 @@ const TodoDetails = () => {
     </div>
   );
 };
-
-export default TodoDetails;

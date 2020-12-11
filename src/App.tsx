@@ -1,10 +1,11 @@
 import React from "react";
 import { Route, BrowserRouter, Switch, Redirect } from "react-router-dom";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import TodoDetails from "./pages/TodoDetails";
-import Error from "./pages/Error";
+// import Home from "./pages/Home";
+// import Login from "./pages/Login";
+// import Register from "./pages/Register";
+// import TodoDetails from "./pages/TodoDetails";
+// import Error from "./pages/Error";
+import { Home, Login, Register, TodoDetails, Error } from "pages";
 import { Navbar } from "modules/navbar";
 import { useSelector } from "react-redux";
 import { RootStore } from "consts";
