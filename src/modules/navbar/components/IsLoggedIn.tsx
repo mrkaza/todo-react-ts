@@ -1,7 +1,7 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { logout } from "modules/auth";
+import { logout } from 'modules/auth';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 const IsLoggedIn = () => {
   const dispatch = useDispatch();

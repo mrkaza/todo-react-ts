@@ -22,7 +22,7 @@
       }
     },
     "rules": {
-      "simple-import-sort/sort": "error",
+      "simple-import-sort/imports": "error",
       "react/prop-types": 0,
       "react/no-unescaped-entities": 0,
       "react-hooks/rules-of-hooks": "error",

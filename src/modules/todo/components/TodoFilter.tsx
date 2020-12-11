@@ -1,6 +1,7 @@
 import React from 'react';
-import Search from './Search';
+
 import OrderBy from './OrderBy';
+import Search from './Search';
 
 const TodoFilter = () => {
   return (

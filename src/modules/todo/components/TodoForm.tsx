@@ -1,8 +1,8 @@
+import { RootStore } from 'consts';
+import { UserType } from 'modules/auth';
+import { addTodo } from 'modules/todo';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootStore } from 'consts';
-import { addTodo } from 'modules/todo';
-import { UserType } from 'modules/auth';
 
 const TodoForm = () => {
   const [title, setTitle] = useState<string>('');

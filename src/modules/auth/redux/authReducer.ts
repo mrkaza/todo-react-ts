@@ -18,38 +18,38 @@ const initState: InitState = {
 
 export const authReducer = (state: InitState = initState, action: any) => {
   switch (action.type) {
-    case "REGISTER":
+    case 'REGISTER':
       return {
         ...state,
         user: action.payload,
         loginError: null,
         regError: null,
       };
-    case "REGISTER_ERROR":
+    case 'REGISTER_ERROR':
       return {
         ...state,
         regError: action.payload,
       };
-    case "LOGOUT":
+    case 'LOGOUT':
       return {
         ...state,
         loginError: null,
         regError: null,
         user: null,
       };
-    case "LOGIN":
+    case 'LOGIN':
       return {
         ...state,
         user: action.payload,
         loginError: null,
         regError: null,
       };
-    case "LOGIN_ERROR":
+    case 'LOGIN_ERROR':
       return {
         ...state,
         loginError: action.payload,
       };
-    case "FACEBOOK_LOGIN":
+    case 'FACEBOOK_LOGIN':
       return {
         ...state,
         loginError: null,

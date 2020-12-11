@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { todoDetails, TodoType } from 'modules/todo';
-import { useParams } from 'react-router-dom';
 import { RootStore } from 'consts';
 import { format } from 'date-fns';
+import { todoDetails, TodoType } from 'modules/todo';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 export const TodoDetails = () => {
   const dispatch = useDispatch();
@@ -12,7 +12,7 @@ export const TodoDetails = () => {
 
   useEffect(() => {
     dispatch(todoDetails(id));
-  }, []);
+  }, [id, dispatch]);
 
   const todo: TodoType = useSelector((state: RootStore) => state.todo.todo);
   return (

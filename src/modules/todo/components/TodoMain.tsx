@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { RootStore } from 'consts';
+import { UserType } from 'modules/auth';
 import { firestore } from 'modules/firebase';
 import { getUserTodos } from 'modules/todo';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import CrudMessage from './CrudMessage';
+import TodoFilter from './TodoFilter';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
-import TodoFilter from './TodoFilter';
-import CrudMessage from './CrudMessage';
-import { UserType } from 'modules/auth';
 
 export const Todo = () => {
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ export const Todo = () => {
     firestore.collection('todos').onSnapshot(() => {
       dispatch(getUserTodos(userId));
     });
-  }, []);
+  }, [dispatch, userId]);
 
   return (
     <div className="container">

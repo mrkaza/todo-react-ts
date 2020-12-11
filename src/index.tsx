@@ -1,19 +1,19 @@
+import './index.css';
+
+import { rootReducer } from 'consts';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { Provider } from 'react-redux';
+//implement redux
+import { applyMiddleware, createStore } from 'redux';
+//persist
+import { persistReducer, persistStore } from 'redux-persist';
+import { PersistGate } from 'redux-persist/integration/react';
+import storage from 'redux-persist/lib/storage';
+import thunk from 'redux-thunk';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
-//implement redux
-import { createStore, applyMiddleware } from 'redux';
-import { rootReducer } from 'consts';
-import thunk from 'redux-thunk';
-import { Provider } from 'react-redux';
-
-//persist
-import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
-import { PersistGate } from 'redux-persist/integration/react';
 
 const persistConfig = {
   key: 'root',

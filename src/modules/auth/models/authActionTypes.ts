@@ -1,6 +1,6 @@
 interface Register {
   type: 'REGISTER';
-  payload: object;
+  payload: Record<string, unknown>;
 }
 interface RegisterError {
   type: 'REGISTER_ERROR';
@@ -13,7 +13,7 @@ interface Logout {
 
 interface Login {
   type: 'LOGIN';
-  payload: object;
+  payload: Record<string, unknown>;
 }
 interface LoginError {
   type: 'LOGIN_ERROR';
@@ -21,7 +21,7 @@ interface LoginError {
 }
 interface FacebookLogin {
   type: 'FACEBOOK_LOGIN';
-  payload: object;
+  payload: Record<string, unknown>;
 }
 
 export type AuthDispatchTypes =

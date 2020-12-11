@@ -1,6 +1,7 @@
-import { createSelector } from "reselect";
-import { RootStore } from "consts";
-import { TodoType } from "./todoReducer";
+import { RootStore } from 'consts';
+import { createSelector } from 'reselect';
+
+import { TodoType } from './todoReducer';
 
 const getTodos = (state: RootStore) => state.todo.todos;
 const getOrder = (state: RootStore) => state.todo.orderBy;
@@ -12,29 +13,29 @@ export const selectTodos = createSelector(
   (todos, order) => {
     if (todos) {
       switch (order) {
-        case "created.asc":
+        case 'created.asc':
           return todos
             .slice()
             .sort(
               (a: TodoType, b: TodoType) =>
                 parseFloat(b.createdAt.seconds) -
-                parseFloat(a.createdAt.seconds)
+                parseFloat(a.createdAt.seconds),
             );
-        case "created.desc":
+        case 'created.desc':
           return todos
             .slice()
             .sort(
               (a: TodoType, b: TodoType) =>
                 parseFloat(a.createdAt.seconds) -
-                parseFloat(b.createdAt.seconds)
+                parseFloat(b.createdAt.seconds),
             );
-        case "completed":
+        case 'completed':
           return todos.filter((todo: TodoType) => todo.completed);
-        case "not-completed":
+        case 'not-completed':
           return todos.filter((todo: TodoType) => !todo.completed);
       }
     }
-  }
+  },
 );
 
 export const selector = createSelector(
@@ -48,5 +49,5 @@ export const selector = createSelector(
     } else {
       return orderedTodos;
     }
-  }
+  },
 );
