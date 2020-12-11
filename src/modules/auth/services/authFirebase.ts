@@ -1,4 +1,4 @@
-import { firebaseAuth, provider } from "consts";
+import { firebaseAuth, provider } from "modules/firebase";
 import { Dispatch } from "redux";
 import { AuthDispatchTypes } from "modules/auth";
 

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootStore } from "consts";
-import { firestore } from "consts";
+import { firestore } from "modules/firebase";
 import { getUserTodos } from "modules/todo";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
