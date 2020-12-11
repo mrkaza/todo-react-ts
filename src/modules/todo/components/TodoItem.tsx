@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { deleteTodo, completeTodo, editTodo, TodoType } from "modules/todo";
-import { format } from "date-fns";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { deleteTodo, completeTodo, editTodo, TodoType } from 'modules/todo';
+import { format } from 'date-fns';
 
 const TodoItem = (props: { todo: TodoType }) => {
   const todo: TodoType = props.todo;
@@ -30,7 +30,7 @@ const TodoItem = (props: { todo: TodoType }) => {
         <div className="todo-item">
           <div className="actions teal">
             <p className="title">
-              <Link to={"/todo/" + todo.id}>{todo.title}</Link>
+              <Link to={'/todo/' + todo.id}>{todo.title}</Link>
             </p>
             <div className="action-btn">
               {!todo.completed && (
@@ -60,14 +60,14 @@ const TodoItem = (props: { todo: TodoType }) => {
               </div>
             </form>
           ) : (
-            <p className={`desc ${todo.completed ? "completed" : ""}`}>
+            <p className={`desc ${todo.completed ? 'completed' : ''}`}>
               {todo.description}
             </p>
           )}
 
           <div className="edit">
             <p className="created">
-              Created at: {format(todo.createdAt.toDate(), "do MMM yyyy, H:mm")}
+              Created at: {format(todo.createdAt.toDate(), 'do MMM yyyy, H:mm')}
             </p>
             {edit ? (
               <button

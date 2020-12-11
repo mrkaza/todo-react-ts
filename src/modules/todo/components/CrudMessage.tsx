@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { RootStore } from "consts";
-import { removeCrud } from "modules/todo";
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootStore } from 'consts';
+import { removeCrud } from 'modules/todo';
 
 const CrudMessage = () => {
   const dispatch = useDispatch();
   const message: null | string = useSelector(
-    (state: RootStore) => state.todo.crudMessage
+    (state: RootStore) => state.todo.crudMessage,
   );
 
   useEffect(() => {

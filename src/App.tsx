@@ -1,10 +1,10 @@
-import React from "react";
-import { Route, BrowserRouter, Switch, Redirect } from "react-router-dom";
-import { Home, Login, Register, TodoDetails, Error } from "pages";
-import { Navbar } from "modules/navbar";
-import { useSelector } from "react-redux";
-import { RootStore } from "consts";
-import { UserType } from "modules/auth";
+import React from 'react';
+import { Route, BrowserRouter, Switch, Redirect } from 'react-router-dom';
+import { Home, Login, Register, TodoDetails, Error } from 'pages';
+import { Navbar } from 'modules/navbar';
+import { useSelector } from 'react-redux';
+import { RootStore } from 'consts';
+import { UserType } from 'modules/auth';
 
 function App() {
   const user: UserType = useSelector((state: RootStore) => state.auth.user);

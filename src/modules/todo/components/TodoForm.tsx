@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { RootStore } from "consts";
-import { addTodo } from "modules/todo";
-import { UserType } from "modules/auth";
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootStore } from 'consts';
+import { addTodo } from 'modules/todo';
+import { UserType } from 'modules/auth';
 
 const TodoForm = () => {
-  const [title, setTitle] = useState<string>("");
-  const [description, setDescription] = useState<string>("");
+  const [title, setTitle] = useState<string>('');
+  const [description, setDescription] = useState<string>('');
   const dispatch = useDispatch();
   const user: UserType = useSelector((state: RootStore) => state.auth.user);
   const userId: string = user.user.uid;
@@ -22,8 +22,8 @@ const TodoForm = () => {
       description: description,
     };
     dispatch(addTodo(todo, userId));
-    setTitle("");
-    setDescription("");
+    setTitle('');
+    setDescription('');
   };
 
   return (

@@ -1,13 +1,13 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { RootStore } from "consts";
-import { firestore } from "modules/firebase";
-import { getUserTodos } from "modules/todo";
-import TodoForm from "./TodoForm";
-import TodoList from "./TodoList";
-import TodoFilter from "./TodoFilter";
-import CrudMessage from "./CrudMessage";
-import { UserType } from "modules/auth";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootStore } from 'consts';
+import { firestore } from 'modules/firebase';
+import { getUserTodos } from 'modules/todo';
+import TodoForm from './TodoForm';
+import TodoList from './TodoList';
+import TodoFilter from './TodoFilter';
+import CrudMessage from './CrudMessage';
+import { UserType } from 'modules/auth';
 
 export const Todo = () => {
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ export const Todo = () => {
   const userId: string = user.user.uid;
 
   useEffect(() => {
-    firestore.collection("todos").onSnapshot(() => {
+    firestore.collection('todos').onSnapshot(() => {
       dispatch(getUserTodos(userId));
     });
   }, []);

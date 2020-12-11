@@ -1,26 +1,26 @@
 interface Register {
-  type: "REGISTER";
+  type: 'REGISTER';
   payload: object;
 }
 interface RegisterError {
-  type: "REGISTER_ERROR";
+  type: 'REGISTER_ERROR';
   payload: { message: string };
 }
 
 interface Logout {
-  type: "LOGOUT";
+  type: 'LOGOUT';
 }
 
 interface Login {
-  type: "LOGIN";
+  type: 'LOGIN';
   payload: object;
 }
 interface LoginError {
-  type: "LOGIN_ERROR";
+  type: 'LOGIN_ERROR';
   payload: { message: string };
 }
 interface FacebookLogin {
-  type: "FACEBOOK_LOGIN";
+  type: 'FACEBOOK_LOGIN';
   payload: object;
 }
 
