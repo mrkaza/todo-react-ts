@@ -1,4 +1,4 @@
-import { firestore } from "consts";
+import { firestore } from "modules/firebase";
 import { Dispatch } from "redux";
 import { TodoDispatchTypes } from "modules/todo";
 
