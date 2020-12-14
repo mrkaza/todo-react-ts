@@ -1,21 +1,22 @@
+import { PrivateRoutes, PublicRoutes } from 'components';
 import { RootStore } from 'consts';
-import { UserType } from 'modules/auth';
 import { Navbar } from 'modules/navbar';
-import { Error, Home, Login, Register, TodoDetails } from 'pages';
+// import { Error, Home, Login, Register, TodoDetails } from 'pages';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 
 const App: React.FC = () => {
-  const user: null | UserType = useSelector(
-    (state: RootStore) => state.auth.user,
-  );
+  // const user = useSelector((state: RootStore) => state.auth.user);
 
   return (
     <BrowserRouter>
       <div className="App">
         <Navbar />
-        <Switch>
+        <PublicRoutes />
+        <PrivateRoutes />
+
+        {/* <Switch>
           <Route exact path="/">
             {!user ? <Redirect to="/login" /> : <Home />}
           </Route>
@@ -27,7 +28,7 @@ const App: React.FC = () => {
             {!user ? <Redirect to="/login" /> : <TodoDetails />}
           </Route>
           <Route component={Error} />
-        </Switch>
+        </Switch> */}
       </div>
     </BrowserRouter>
   );
