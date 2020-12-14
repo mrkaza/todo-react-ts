@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { register } from "modules/auth";
-import { RootStore } from "consts";
+import { RootStore } from 'consts';
+import { register } from 'modules/auth';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-export const SignUp = () => {
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+export const SignUp: React.FC = () => {
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
   const dispatch = useDispatch();
 
   const errorMessage: null | string = useSelector(
-    (state: RootStore) => state.auth.regError
+    (state: RootStore) => state.auth.regError,
   );
 
   const handleSubmit = (e: React.SyntheticEvent) => {

@@ -1,23 +1,24 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { login } from "modules/auth";
-import { Facebook } from "./Facebook";
-import { RootStore } from "consts";
+import { RootStore } from 'consts';
+import { login } from 'modules/auth';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-export const SignIn = () => {
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+import { Facebook } from './Facebook';
+
+export const SignIn: React.FC = () => {
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
   const dispatch = useDispatch();
 
   const errorMessage: null | string = useSelector(
-    (state: RootStore) => state.auth.loginError
+    (state: RootStore) => state.auth.loginError,
   );
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     dispatch(login(email, password));
-    setEmail("");
-    setPassword("");
+    setEmail('');
+    setPassword('');
   };
 
   return (

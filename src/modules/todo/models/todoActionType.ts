@@ -1,41 +1,41 @@
 interface GetTodos {
-  type: "GET_TODOS";
-  payload: object[];
+  type: 'GET_TODOS';
+  payload: Record<string, unknown>[];
 }
 interface AddTodo {
-  type: "ADD_TODO";
+  type: 'ADD_TODO';
   payload: string;
 }
 interface AddTodoError {
-  type: "ADD_TODO_ERROR";
+  type: 'ADD_TODO_ERROR';
   payload: string;
 }
 interface DeleteTodo {
-  type: "DELETE_TODO";
+  type: 'DELETE_TODO';
   payload: string;
 }
 interface CompleteTodo {
-  type: "COMPLETE_TODO";
+  type: 'COMPLETE_TODO';
   payload: string;
 }
 interface EditTodo {
-  type: "EDIT_TODO";
+  type: 'EDIT_TODO';
   payload: string;
 }
 interface TodoDetails {
-  type: "TODO_DETAILS";
+  type: 'TODO_DETAILS';
   payload: any;
 }
 interface SearchTodo {
-  type: "SEARCH_TODO";
+  type: 'SEARCH_TODO';
   payload: string;
 }
 interface OrderTodos {
-  type: "ORDER_TODOS";
+  type: 'ORDER_TODOS';
   payload: string;
 }
 interface RemoveCrud {
-  type: "REMOVE_CRUD";
+  type: 'REMOVE_CRUD';
 }
 
 export type TodoDispatchTypes =

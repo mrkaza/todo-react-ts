@@ -1,8 +1,9 @@
-import React from "react";
-import Search from "./Search";
-import OrderBy from "./OrderBy";
+import React from 'react';
 
-const TodoFilter = () => {
+import OrderBy from './OrderBy';
+import Search from './Search';
+
+const TodoFilter: React.FC = () => {
   return (
     <div className="col s12 filters">
       <Search />

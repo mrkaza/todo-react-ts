@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { searchTodo } from "modules/todo";
+import { searchTodo } from 'modules/todo';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
-const Search = () => {
-  const [search, setSearch] = useState<string>("");
+const Search: React.FC = () => {
+  const [search, setSearch] = useState<string>('');
   const dispatch = useDispatch();
 
   const handleSubmit = (e: React.SyntheticEvent) => {

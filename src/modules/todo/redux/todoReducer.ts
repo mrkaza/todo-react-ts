@@ -1,4 +1,4 @@
-export type TodoType = {
+export type TodoType = null | {
   id: string;
   title: string;
   description: string;
@@ -15,62 +15,64 @@ type InitState = {
   orderBy: string;
 };
 
+type TodoReducer = (state: InitState | undefined, action: any) => InitState;
+
 const initState: InitState = {
   todos: null,
   crudMessage: null,
   todo: null,
   search: null,
-  orderBy: "created.asc",
+  orderBy: 'created.asc',
 };
 
-export const todoReducer = (state: InitState = initState, action: any) => {
+export const todoReducer: TodoReducer = (state = initState, action) => {
   switch (action.type) {
-    case "GET_TODOS":
+    case 'GET_TODOS':
       return {
         ...state,
         todos: action.payload,
       };
-    case "ADD_TODO":
+    case 'ADD_TODO':
       return {
         ...state,
         crudMessage: action.payload,
       };
-    case "ADD_TODO_ERROR":
+    case 'ADD_TODO_ERROR':
       return {
         ...state,
         crudMessage: action.payload,
       };
-    case "DELETE_TODO":
+    case 'DELETE_TODO':
       return {
         ...state,
         crudMessage: action.payload,
       };
-    case "COMPLETE_TODO":
+    case 'COMPLETE_TODO':
       return {
         ...state,
         crudMessage: action.payload,
       };
-    case "EDIT_TODO":
+    case 'EDIT_TODO':
       return {
         ...state,
         crudMessage: action.payload,
       };
-    case "TODO_DETAILS":
+    case 'TODO_DETAILS':
       return {
         ...state,
         todo: action.payload,
       };
-    case "SEARCH_TODO":
+    case 'SEARCH_TODO':
       return {
         ...state,
         search: action.payload,
       };
-    case "ORDER_TODOS":
+    case 'ORDER_TODOS':
       return {
         ...state,
         orderBy: action.payload,
       };
-    case "REMOVE_CRUD":
+    case 'REMOVE_CRUD':
       return {
         ...state,
         crudMessage: null,

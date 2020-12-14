@@ -1,4 +1,4 @@
-export type UserType = {
+export type UserType = null | {
   user: {
     uid: string;
   };
@@ -10,46 +10,48 @@ type InitState = {
   user: null | UserType;
 };
 
+type AuthReducer = (state: InitState | undefined, action: any) => InitState;
+
 const initState: InitState = {
   loginError: null,
   regError: null,
   user: null,
 };
 
-export const authReducer = (state: InitState = initState, action: any) => {
+export const authReducer: AuthReducer = (state = initState, action) => {
   switch (action.type) {
-    case "REGISTER":
+    case 'REGISTER':
       return {
         ...state,
         user: action.payload,
         loginError: null,
         regError: null,
       };
-    case "REGISTER_ERROR":
+    case 'REGISTER_ERROR':
       return {
         ...state,
         regError: action.payload,
       };
-    case "LOGOUT":
+    case 'LOGOUT':
       return {
         ...state,
         loginError: null,
         regError: null,
         user: null,
       };
-    case "LOGIN":
+    case 'LOGIN':
       return {
         ...state,
         user: action.payload,
         loginError: null,
         regError: null,
       };
-    case "LOGIN_ERROR":
+    case 'LOGIN_ERROR':
       return {
         ...state,
         loginError: action.payload,
       };
-    case "FACEBOOK_LOGIN":
+    case 'FACEBOOK_LOGIN':
       return {
         ...state,
         loginError: null,

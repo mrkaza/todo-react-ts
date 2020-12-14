@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { RootStore } from "consts";
-import { addTodo } from "modules/todo";
-import { UserType } from "modules/auth";
+import { RootStore } from 'consts';
+import { addTodo } from 'modules/todo';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-const TodoForm = () => {
-  const [title, setTitle] = useState<string>("");
-  const [description, setDescription] = useState<string>("");
+const TodoForm: React.FC = () => {
+  const [title, setTitle] = useState<string>('');
+  const [description, setDescription] = useState<string>('');
   const dispatch = useDispatch();
-  const user: UserType = useSelector((state: RootStore) => state.auth.user);
-  const userId: string = user.user.uid;
+  const user = useSelector((state: RootStore) => state.auth.user);
+
+  const userId: string = user?.user.uid ?? '';
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -21,9 +21,11 @@ const TodoForm = () => {
       title: title,
       description: description,
     };
-    dispatch(addTodo(todo, userId));
-    setTitle("");
-    setDescription("");
+    if (userId) {
+      dispatch(addTodo(todo, userId));
+    }
+    setTitle('');
+    setDescription('');
   };
 
   return (

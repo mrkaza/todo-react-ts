@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { orderTodos } from "modules/todo";
+import { orderTodos } from 'modules/todo';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
-const OrderBy = () => {
-  const [order, setOrder] = useState<string>("");
+const OrderBy: React.FC = () => {
+  const [order, setOrder] = useState<string>('');
   const dispatch = useDispatch();
 
   const handleChange = (e: { target: { value: string } }) => {

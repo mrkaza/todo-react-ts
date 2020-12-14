@@ -1,1 +1,1 @@
-export * from "./authFirebase";
+export * from './authFirebase';

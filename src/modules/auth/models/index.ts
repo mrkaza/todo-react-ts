@@ -1,1 +1,1 @@
-export * from "./authActionTypes";
+export * from './authActionTypes';
