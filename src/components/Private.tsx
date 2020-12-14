@@ -1,22 +1,18 @@
 import { RootStore } from 'consts';
-import { Error, Home, TodoDetails } from 'pages';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 
-export const PrivateRoutes: React.FC = () => {
+export const PrivateRoutes: React.FC<{
+  component: React.FC;
+  path: string;
+  exact: boolean;
+}> = (props) => {
   const user = useSelector((state: RootStore) => state.auth.user);
-  return (
-    <div>
-      {user ? (
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/todo/:id" component={TodoDetails} />
-          <Route component={Error} />
-        </Switch>
-      ) : (
-        <Redirect to="/login" />
-      )}
-    </div>
+
+  return user ? (
+    <Route path={props.path} exact={props.exact} component={props.component} />
+  ) : (
+    <Redirect to="/login" />
   );
 };

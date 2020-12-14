@@ -1,7 +1,7 @@
 import { PrivateRoutes, PublicRoutes } from 'components';
 import { RootStore } from 'consts';
 import { Navbar } from 'modules/navbar';
-// import { Error, Home, Login, Register, TodoDetails } from 'pages';
+import { Error, Home, Login, Register, TodoDetails } from 'pages';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
@@ -13,8 +13,15 @@ const App: React.FC = () => {
     <BrowserRouter>
       <div className="App">
         <Navbar />
-        <PublicRoutes />
-        <PrivateRoutes />
+        <Switch>
+          <PrivateRoutes path="/" component={Home} exact />
+          <PrivateRoutes path="/todo/:id" component={TodoDetails} exact />
+          <PublicRoutes path="/login" component={Login} exact />
+          <PublicRoutes path="/register" component={Register} exact />
+        </Switch>
+
+        {/* <PublicRoutes />
+        <PrivateRoutes /> */}
 
         {/* <Switch>
           <Route exact path="/">
