@@ -1,6 +1,4 @@
-import { AuthDispatchTypes } from 'modules/auth';
-
-export type UserType = {
+export type UserType = null | {
   user: {
     uid: string;
   };
@@ -12,13 +10,15 @@ type InitState = {
   user: null | UserType;
 };
 
+type AuthReducer = (state: InitState | undefined, action: any) => InitState;
+
 const initState: InitState = {
   loginError: null,
   regError: null,
   user: null,
 };
 
-export const authReducer = (state: InitState = initState, action: any) => {
+export const authReducer: AuthReducer = (state = initState, action) => {
   switch (action.type) {
     case 'REGISTER':
       return {

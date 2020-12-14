@@ -11,8 +11,9 @@ const TodoItem: React.FC<Props> = (props) => {
   const todo: TodoType = props.todo;
   const [edit, setEdit] = useState<boolean>(false);
   const dispatch = useDispatch();
-  const id: string = todo.id;
-  const [newDesc, setNewDesc] = useState<string>(todo.description);
+  const id: string = todo?.id ?? '';
+  const desc: string = todo?.description ?? '';
+  const [newDesc, setNewDesc] = useState<string>(desc);
 
   const deleteSelected = () => {
     dispatch(deleteTodo(id));
@@ -33,10 +34,10 @@ const TodoItem: React.FC<Props> = (props) => {
         <div className="todo-item">
           <div className="actions teal">
             <p className="title">
-              <Link to={'/todo/' + todo.id}>{todo.title}</Link>
+              <Link to={'/todo/' + todo?.id}>{todo?.title}</Link>
             </p>
             <div className="action-btn">
-              {!todo.completed && (
+              {!todo?.completed && (
                 <button
                   className="btn-small btn-floating green"
                   onClick={todoCompleted}
@@ -63,14 +64,15 @@ const TodoItem: React.FC<Props> = (props) => {
               </div>
             </form>
           ) : (
-            <p className={`desc ${todo.completed ? 'completed' : ''}`}>
-              {todo.description}
+            <p className={`desc ${todo?.completed ? 'completed' : ''}`}>
+              {todo?.description}
             </p>
           )}
 
           <div className="edit">
             <p className="created">
-              Created at: {format(todo.createdAt.toDate(), 'do MMM yyyy, H:mm')}
+              Created at:{' '}
+              {format(todo?.createdAt.toDate(), 'do MMM yyyy, H:mm')}
             </p>
             {edit ? (
               <button

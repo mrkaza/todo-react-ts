@@ -7,7 +7,9 @@ import { useSelector } from 'react-redux';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 
 function App() {
-  const user: UserType = useSelector((state: RootStore) => state.auth.user);
+  const user: null | UserType = useSelector(
+    (state: RootStore) => state.auth.user,
+  );
 
   return (
     <BrowserRouter>

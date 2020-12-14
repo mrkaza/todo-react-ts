@@ -14,25 +14,38 @@ export const selectTodos = createSelector(
     if (todos) {
       switch (order) {
         case 'created.asc':
-          return todos
-            .slice()
-            .sort(
-              (a: TodoType, b: TodoType) =>
-                parseFloat(b.createdAt.seconds) -
-                parseFloat(a.createdAt.seconds),
-            );
+          return todos.slice().sort(
+            (a: TodoType, b: TodoType): number => {
+              let x = 0;
+              if (a && b) {
+                x =
+                  parseFloat(b.createdAt.seconds) -
+                  parseFloat(a.createdAt.seconds);
+              }
+              return x;
+            },
+            // parseFloat(b.createdAt.seconds) -
+            // parseFloat(a.createdAt.seconds),
+          );
         case 'created.desc':
-          return todos
-            .slice()
-            .sort(
-              (a: TodoType, b: TodoType) =>
-                parseFloat(a.createdAt.seconds) -
-                parseFloat(b.createdAt.seconds),
-            );
+          return todos.slice().sort(
+            // (a: TodoType, b: TodoType) =>
+            //   parseFloat(a.createdAt.seconds) -
+            //   parseFloat(b.createdAt.seconds),
+            (a: TodoType, b: TodoType): number => {
+              let x = 0;
+              if (a && b) {
+                x =
+                  parseFloat(a.createdAt.seconds) -
+                  parseFloat(b.createdAt.seconds);
+              }
+              return x;
+            },
+          );
         case 'completed':
-          return todos.filter((todo: TodoType) => todo.completed);
+          return todos.filter((todo: TodoType) => todo?.completed);
         case 'not-completed':
-          return todos.filter((todo: TodoType) => !todo.completed);
+          return todos.filter((todo: TodoType) => !todo?.completed);
       }
     }
   },
@@ -44,7 +57,7 @@ export const selector = createSelector(
   (orderedTodos, search) => {
     if (search && orderedTodos) {
       return orderedTodos.filter((todo: TodoType) => {
-        return todo.title.includes(search);
+        return todo?.title.includes(search);
       });
     } else {
       return orderedTodos;

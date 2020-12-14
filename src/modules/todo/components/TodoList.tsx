@@ -17,7 +17,7 @@ const TodoList: React.FC = () => {
         <div className="col s12">
           {todos &&
             todos.map((todo: TodoType) => {
-              return <TodoItem todo={todo} key={todo.id} />;
+              return <TodoItem todo={todo} key={todo?.id} />;
             })}
         </div>
       )}

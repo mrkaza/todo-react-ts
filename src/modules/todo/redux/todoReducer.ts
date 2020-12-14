@@ -1,4 +1,4 @@
-export type TodoType = {
+export type TodoType = null | {
   id: string;
   title: string;
   description: string;
@@ -8,22 +8,24 @@ export type TodoType = {
 };
 
 type InitState = {
-  todos?: TodoType[];
+  todos: null | TodoType[];
   crudMessage: null | string;
   todo: null | TodoType;
   search: null | string;
   orderBy: string;
 };
 
+type TodoReducer = (state: InitState | undefined, action: any) => InitState;
+
 const initState: InitState = {
-  todos: undefined,
+  todos: null,
   crudMessage: null,
   todo: null,
   search: null,
   orderBy: 'created.asc',
 };
 
-export const todoReducer = (state: InitState = initState, action: any) => {
+export const todoReducer: TodoReducer = (state = initState, action) => {
   switch (action.type) {
     case 'GET_TODOS':
       return {
