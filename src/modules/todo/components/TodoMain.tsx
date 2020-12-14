@@ -23,15 +23,13 @@ export const Todo: React.FC = () => {
   }, [dispatch, userId]);
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col s12">
-          <TodoForm />
-        </div>
-        <TodoFilter />
-        <CrudMessage />
-        <TodoList />
+    <div>
+      <div className="col s12">
+        <TodoForm />
       </div>
+      <TodoFilter />
+      <CrudMessage />
+      <TodoList />
     </div>
   );
 };

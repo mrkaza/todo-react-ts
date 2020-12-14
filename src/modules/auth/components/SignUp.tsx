@@ -26,43 +26,41 @@ export const SignUp: React.FC = () => {
   };
 
   return (
-    <div className="container">
-      <div className="row">
-        <form className="col s12" onSubmit={handleSubmit}>
-          <div className="input-field col s12">
-            <input
-              value={email}
-              id="email"
-              type="email"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <label htmlFor="email">Email</label>
-          </div>
-          <div className="input-field col s12">
-            <input
-              value={password}
-              id="password"
-              type="password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <label htmlFor="password">Password</label>
-          </div>
-          <div className="facebook col s12">
-            <button
-              className="btn waves-effect waves-light"
-              type="submit"
-              name="action"
-            >
-              Register
-            </button>
-          </div>
-        </form>
-        {errorMessage && (
-          <p className=" col s12 red-text text-darken-1 error-message">
-            {errorMessage}
-          </p>
-        )}
-      </div>
+    <div>
+      <form className="col s12" onSubmit={handleSubmit}>
+        <div className="input-field col s12">
+          <input
+            value={email}
+            id="email"
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <label htmlFor="email">Email</label>
+        </div>
+        <div className="input-field col s12">
+          <input
+            value={password}
+            id="password"
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <label htmlFor="password">Password</label>
+        </div>
+        <div className="facebook col s12">
+          <button
+            className="btn waves-effect waves-light"
+            type="submit"
+            name="action"
+          >
+            Register
+          </button>
+        </div>
+      </form>
+      {errorMessage && (
+        <p className=" col s12 red-text text-darken-1 error-message">
+          {errorMessage}
+        </p>
+      )}
     </div>
   );
 };
