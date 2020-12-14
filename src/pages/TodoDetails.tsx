@@ -5,7 +5,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-export const TodoDetails = () => {
+export const TodoDetails: React.FC = () => {
   const dispatch = useDispatch();
   const routeParams: { id: string } = useParams();
   const id: string = routeParams.id;

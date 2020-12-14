@@ -1,6 +1,7 @@
 import { AuthDispatchTypes } from 'modules/auth';
 import { firebaseAuth, provider } from 'modules/firebase';
-import { Dispatch } from 'redux';
+import { Action, ActionCreator, Dispatch } from 'redux';
+import { ThunkAction } from 'redux-thunk';
 
 export const register = (newUser: { email: string; password: string }) => {
   return (dispatch: Dispatch<AuthDispatchTypes>) => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const IsLoggedOut = () => {
+const IsLoggedOut: React.FC = () => {
   return (
     <ul id="nav-mobile" className="right">
       <li>

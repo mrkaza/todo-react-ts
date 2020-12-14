@@ -1,5 +1,5 @@
 import React from 'react';
 
-export const Error = () => {
+export const Error: React.FC = () => {
   return <div>error</div>;
 };

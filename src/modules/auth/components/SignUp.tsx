@@ -3,7 +3,7 @@ import { register } from 'modules/auth';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-export const SignUp = () => {
+export const SignUp: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const dispatch = useDispatch();

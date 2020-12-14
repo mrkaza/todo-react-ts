@@ -3,7 +3,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-const IsLoggedIn = () => {
+const IsLoggedIn: React.FC = () => {
   const dispatch = useDispatch();
 
   const signOut = () => {

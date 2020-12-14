@@ -2,7 +2,7 @@ import { facebookLogin } from 'modules/auth';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-export const Facebook = () => {
+export const Facebook: React.FC = () => {
   const dispatch = useDispatch();
 
   const facebook = () => {

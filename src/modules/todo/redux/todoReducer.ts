@@ -8,7 +8,7 @@ export type TodoType = {
 };
 
 type InitState = {
-  todos: null | TodoType[];
+  todos?: TodoType[];
   crudMessage: null | string;
   todo: null | TodoType;
   search: null | string;
@@ -16,7 +16,7 @@ type InitState = {
 };
 
 const initState: InitState = {
-  todos: null,
+  todos: undefined,
   crudMessage: null,
   todo: null,
   search: null,

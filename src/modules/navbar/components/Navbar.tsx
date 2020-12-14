@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import IsLoggedIn from './IsLoggedIn';
 import IsLoggedOut from './IsLoggedOut';
 
-export const Navbar = () => {
+export const Navbar: React.FC = () => {
   const user = useSelector((state: RootStore) => state.auth.user);
 
   return (

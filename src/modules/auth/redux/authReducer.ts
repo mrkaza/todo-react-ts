@@ -1,3 +1,5 @@
+import { AuthDispatchTypes } from 'modules/auth';
+
 export type UserType = {
   user: {
     uid: string;
