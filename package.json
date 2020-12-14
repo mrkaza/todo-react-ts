@@ -65,12 +65,18 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "prettier": "^2.2.1",
 =======
+=======
+>>>>>>> 6d5b6e4... rewired and postcss added
     "postcss": "^8.2.1",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.2.1",
     "react-app-rewire-postcss": "^3.0.2",
+<<<<<<< HEAD
+>>>>>>> 6d5b6e4... rewired and postcss added
+=======
 >>>>>>> 6d5b6e4... rewired and postcss added
     "react-app-rewired": "^2.1.8"
   }
