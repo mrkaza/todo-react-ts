@@ -3,7 +3,7 @@ import { TodoDispatchTypes } from 'modules/todo';
 import { Dispatch } from 'redux';
 
 export const getUserTodos = (userId: string) => {
-  return (dispatch: Dispatch<TodoDispatchTypes>) => {
+  return (dispatch: Dispatch<TodoDispatchTypes>): void => {
     const todos: Record<string, unknown>[] = [];
     firestore
       .collection('todos')
@@ -24,7 +24,7 @@ export const addTodo = (
   todo: { title: string; description: string },
   userId: string,
 ) => {
-  return (dispatch: Dispatch<TodoDispatchTypes>) => {
+  return (dispatch: Dispatch<TodoDispatchTypes>): void => {
     firestore
       .collection('todos')
       .add({
@@ -47,7 +47,7 @@ export const addTodo = (
 };
 
 export const deleteTodo = (id: string) => {
-  return (dispatch: Dispatch<TodoDispatchTypes>) => {
+  return (dispatch: Dispatch<TodoDispatchTypes>): void => {
     firestore
       .collection('todos')
       .doc(id)
@@ -59,7 +59,7 @@ export const deleteTodo = (id: string) => {
 };
 
 export const completeTodo = (id: string) => {
-  return (dispatch: Dispatch<TodoDispatchTypes>) => {
+  return (dispatch: Dispatch<TodoDispatchTypes>): void => {
     firestore
       .collection('todos')
       .doc(id)
@@ -73,7 +73,7 @@ export const completeTodo = (id: string) => {
 };
 
 export const todoDetails = (id: string) => {
-  return (dispatch: Dispatch<TodoDispatchTypes>) => {
+  return (dispatch: Dispatch<TodoDispatchTypes>): void => {
     firestore
       .collection('todos')
       .doc(id)
@@ -85,7 +85,7 @@ export const todoDetails = (id: string) => {
 };
 
 export const editTodo = (newDesc: string, id: string) => {
-  return (dispatch: Dispatch<TodoDispatchTypes>) => {
+  return (dispatch: Dispatch<TodoDispatchTypes>): void => {
     firestore
       .collection('todos')
       .doc(id)

@@ -6,7 +6,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 
-function App() {
+const App: React.FC = () => {
   const user: null | UserType = useSelector(
     (state: RootStore) => state.auth.user,
   );
@@ -31,6 +31,6 @@ function App() {
       </div>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
