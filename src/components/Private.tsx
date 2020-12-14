@@ -10,9 +10,15 @@ export const PrivateRoutes: React.FC<{
 }> = (props) => {
   const user = useSelector((state: RootStore) => state.auth.user);
 
-  return user ? (
-    <Route path={props.path} exact={props.exact} component={props.component} />
-  ) : (
-    <Redirect to="/login" />
-  );
+  if (user) {
+    return (
+      <Route
+        path={props.path}
+        exact={props.exact}
+        component={props.component}
+      />
+    );
+  } else {
+    return <Redirect to="/login" />;
+  }
 };
