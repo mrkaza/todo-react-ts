@@ -43,3 +43,5 @@ export const TodoDetails: React.FC = () => {
     </div>
   );
 };
+
+export { TodoDetails as default };
