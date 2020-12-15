@@ -1,19 +1,20 @@
-import React from 'react';
+import React, { InputHTMLAttributes } from 'react';
 
-export const Input: React.FC<{
-  className?: string;
-  value?: string;
-  id?: string;
-  type?: string;
-  onChange?: (e: any) => void;
+type Props = {
   htmlFor?: string;
   label?: string;
-  placeholder?: string;
-}> = ({ ...rest }) => {
+} & InputHTMLAttributes<HTMLInputElement>;
+
+export const Input: React.FC<Props> = ({
+  htmlFor,
+  label,
+  className,
+  ...rest
+}) => {
   return (
-    <div className={`input-field ${rest.className}`}>
+    <div className={`input-field ${className}`}>
       <input {...rest} />
-      <label htmlFor={rest.htmlFor}>{rest.label}</label>
+      <label htmlFor={htmlFor}>{label}</label>
     </div>
   );
 };

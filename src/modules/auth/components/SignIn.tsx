@@ -31,8 +31,8 @@ export const SignIn: React.FC = () => {
           type="email"
           onChange={(e) => setEmail(e.target.value)}
           htmlFor="email"
-          label="Email"
           className="col s12"
+          label="Email"
         />
         <Input
           className="col s12"
