@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 
 export const Button: React.FC<{
   onClick?: any;
   className?: string;
-  type?: any;
+  type?: 'button' | 'submit' | 'reset' | undefined;
   name?: string;
 }> = (props) => {
   return (
