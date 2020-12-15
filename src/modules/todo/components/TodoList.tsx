@@ -11,11 +11,9 @@ const TodoList: React.FC = () => {
   return (
     <div>
       {todos && !todos.length ? (
-        <Suspense fallback={<div>Loading</div>}>
-          <div className="col s12 no-todos">
-            No todos matching your parameters.
-          </div>
-        </Suspense>
+        <div className="col s12 no-todos">
+          No todos matching your parameters.
+        </div>
       ) : (
         <Suspense fallback={<div>Loading</div>}>
           <LazyList />
