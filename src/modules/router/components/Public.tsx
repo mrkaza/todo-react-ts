@@ -19,6 +19,6 @@ export const PublicRoutes: React.FC<{
       />
     );
   } else {
-    return <Redirect to="/" />;
+    return <Redirect to="/my-todos" />;
   }
 };

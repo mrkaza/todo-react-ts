@@ -19,6 +19,6 @@ export const PrivateRoutes: React.FC<{
       />
     );
   } else {
-    return <Redirect to="/login" />;
+    return <Redirect to="/" />;
   }
 };

@@ -13,7 +13,7 @@ const IsLoggedIn: React.FC = () => {
   return (
     <ul id="nav-mobile" className="right">
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/my-todos">Home</NavLink>
       </li>
       <li>
         <button onClick={signOut}>Logout</button>

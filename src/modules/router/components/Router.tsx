@@ -13,9 +13,9 @@ export const Router: React.FC = () => {
       <Navbar />
       <Layout>
         <Switch>
-          <PrivateRoutes path="/" component={Home} exact />
+          <PrivateRoutes path="/my-todos" component={Home} exact />
           <PrivateRoutes path="/todo/:id" component={TodoDetails} exact />
-          <PublicRoutes path="/login" component={Login} exact />
+          <PublicRoutes path="/" component={Login} exact />
           <PublicRoutes path="/register" component={Register} exact />
         </Switch>
       </Layout>
