@@ -1,11 +1,15 @@
 import { Layout } from 'components';
 import { Navbar } from 'modules/navbar';
-import { Home, Login, Register, TodoDetails } from 'pages';
 import React from 'react';
 import { BrowserRouter, Switch } from 'react-router-dom';
 
 import { PrivateRoutes } from './Private';
 import { PublicRoutes } from './Public';
+
+const Home = React.lazy(() => import('pages/Home'));
+const Login = React.lazy(() => import('pages/Login'));
+const Register = React.lazy(() => import('pages/Register'));
+const TodoDetails = React.lazy(() => import('pages/TodoDetails'));
 
 export const Router: React.FC = () => {
   return (
