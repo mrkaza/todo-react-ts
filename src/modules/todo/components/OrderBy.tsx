@@ -1,3 +1,4 @@
+import { Button } from 'components';
 import { orderTodos } from 'modules/todo';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -30,12 +31,12 @@ const OrderBy: React.FC = () => {
         </select>
       </form>
       <div className="col s2">
-        <button
+        <Button
           className="z-depth-0 btn-floating btn-small grey"
           onClick={orderBy}
         >
           <i className="material-icons">filter_list</i>
-        </button>
+        </Button>
       </div>
     </div>
   );

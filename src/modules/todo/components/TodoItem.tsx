@@ -1,3 +1,4 @@
+import { Button } from 'components';
 import { format } from 'date-fns';
 import { completeTodo, deleteTodo, editTodo, TodoType } from 'modules/todo';
 import React, { useState } from 'react';
@@ -38,19 +39,19 @@ const TodoItem: React.FC<Props> = (props) => {
             </p>
             <div className="action-btn">
               {!todo?.completed && (
-                <button
+                <Button
                   className="btn-small btn-floating green"
                   onClick={todoCompleted}
                 >
                   <i className="material-icons">done</i>
-                </button>
+                </Button>
               )}
-              <button
+              <Button
                 className="btn-small btn-floating red"
                 onClick={deleteSelected}
               >
                 <i className="material-icons">delete</i>
-              </button>
+              </Button>
             </div>
           </div>
           {edit ? (
@@ -75,19 +76,19 @@ const TodoItem: React.FC<Props> = (props) => {
               {format(todo?.createdAt.toDate(), 'do MMM yyyy, H:mm')}
             </p>
             {edit ? (
-              <button
+              <Button
                 className="btn-small btn-floating grey"
                 onClick={handleSubmit}
               >
                 <i className="material-icons">done_all</i>
-              </button>
+              </Button>
             ) : (
-              <button
+              <Button
                 className="btn-small btn-floating grey"
                 onClick={() => setEdit(true)}
               >
                 <i className="material-icons">edit</i>
-              </button>
+              </Button>
             )}
           </div>
         </div>

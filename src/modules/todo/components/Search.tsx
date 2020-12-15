@@ -1,3 +1,4 @@
+import { Button } from 'components';
 import { searchTodo } from 'modules/todo';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -22,12 +23,12 @@ const Search: React.FC = () => {
           />
         </div>
         <div className="col s2">
-          <button
+          <Button
             className="z-depth-0 btn-floating btn-small grey"
             type="submit"
           >
             <i className="material-icons">search</i>
-          </button>
+          </Button>
         </div>
       </form>
     </div>

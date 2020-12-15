@@ -1,3 +1,4 @@
+import { Button } from 'components';
 import { RootStore } from 'consts';
 import { addTodo } from 'modules/todo';
 import React, { useState } from 'react';
@@ -49,13 +50,13 @@ const TodoForm: React.FC = () => {
           />
           <label htmlFor="description">Description</label>
         </div>
-        <button
+        <Button
           className="btn waves-effect waves-light"
           type="submit"
           name="action"
         >
           Add Todo
-        </button>
+        </Button>
       </div>
     </form>
   );

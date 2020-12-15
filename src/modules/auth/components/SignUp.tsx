@@ -1,3 +1,4 @@
+import { Button } from 'components';
 import { RootStore } from 'consts';
 import { register } from 'modules/auth';
 import React, { useState } from 'react';
@@ -47,13 +48,13 @@ export const SignUp: React.FC = () => {
           <label htmlFor="password">Password</label>
         </div>
         <div className="facebook col s12">
-          <button
+          <Button
             className="btn waves-effect waves-light"
             type="submit"
             name="action"
           >
             Register
-          </button>
+          </Button>
         </div>
       </form>
       {errorMessage && (

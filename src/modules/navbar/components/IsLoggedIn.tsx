@@ -1,3 +1,4 @@
+import { Button } from 'components';
 import { logout } from 'modules/auth';
 import React from 'react';
 import { useDispatch } from 'react-redux';
@@ -16,7 +17,7 @@ const IsLoggedIn: React.FC = () => {
         <NavLink to="/my-todos">Home</NavLink>
       </li>
       <li>
-        <button onClick={signOut}>Logout</button>
+        <Button onClick={signOut}>Logout</Button>
       </li>
     </ul>
   );
