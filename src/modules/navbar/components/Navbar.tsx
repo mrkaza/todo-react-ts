@@ -12,7 +12,7 @@ export const Navbar: React.FC = () => {
   return (
     <nav>
       <div className="nav-wrapper container">
-        <Link to="/" className="brand-logo">
+        <Link to="/my-todos" className="brand-logo">
           Todo App
         </Link>
         {user ? <IsLoggedIn /> : <IsLoggedOut />}

@@ -18,7 +18,6 @@ export const PrivateRoutes: React.FC<{
         component={props.component}
       />
     );
-  } else {
-    return <Redirect to="/login" />;
   }
+  return <Redirect to="/" />;
 };

@@ -10,15 +10,10 @@ export const PublicRoutes: React.FC<{
 }> = (props) => {
   const user = useSelector((state: RootStore) => state.auth.user);
 
-  if (!user) {
-    return (
-      <Route
-        path={props.path}
-        exact={props.exact}
-        component={props.component}
-      />
-    );
-  } else {
-    return <Redirect to="/" />;
+  if (user) {
+    return <Redirect to="/my-todos" />;
   }
+  return (
+    <Route path={props.path} exact={props.exact} component={props.component} />
+  );
 };

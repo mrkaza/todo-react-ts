@@ -16,25 +16,23 @@ export const TodoDetails: React.FC = () => {
 
   const todo: TodoType = useSelector((state: RootStore) => state.todo.todo);
   return (
-    <div className="container">
+    <div>
       {todo ? (
-        <div className="row">
-          <div className="col s12 l6 offset-l3">
-            <div className="card">
-              <div className="todo-item">
-                <p className="title teal white-text">{todo.title}</p>
-                <p className="desc">{todo.description}</p>
-                <div className="edit">
-                  <p className="created">
-                    Created at:
-                    {format(todo.createdAt.toDate(), 'do MMM yyyy, H:mm')}
-                  </p>
-                  {todo.completed ? (
-                    <p className="created">Completed: true</p>
-                  ) : (
-                    <p className="created">Completed: false</p>
-                  )}
-                </div>
+        <div className="col s12 l6 offset-l3">
+          <div className="card">
+            <div className="todo-item">
+              <p className="title teal white-text">{todo.title}</p>
+              <p className="desc">{todo.description}</p>
+              <div className="edit">
+                <p className="created">
+                  Created at:
+                  {format(todo.createdAt.toDate(), 'do MMM yyyy, H:mm')}
+                </p>
+                {todo.completed ? (
+                  <p className="created">Completed: true</p>
+                ) : (
+                  <p className="created">Completed: false</p>
+                )}
               </div>
             </div>
           </div>

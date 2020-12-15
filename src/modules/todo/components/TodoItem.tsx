@@ -1,3 +1,4 @@
+import { Button, Input } from 'components';
 import { format } from 'date-fns';
 import { completeTodo, deleteTodo, editTodo, TodoType } from 'modules/todo';
 import React, { useState } from 'react';
@@ -21,11 +22,14 @@ const TodoItem: React.FC<Props> = (props) => {
   const todoCompleted = () => {
     dispatch(completeTodo(id));
   };
+  const editSelected = () => {
+    dispatch(editTodo(newDesc, id));
+    setEdit(false);
+  };
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    dispatch(editTodo(newDesc, id));
-    setEdit(false);
+    editSelected();
   };
 
   return (
@@ -38,30 +42,29 @@ const TodoItem: React.FC<Props> = (props) => {
             </p>
             <div className="action-btn">
               {!todo?.completed && (
-                <button
+                <Button
                   className="btn-small btn-floating green"
                   onClick={todoCompleted}
                 >
                   <i className="material-icons">done</i>
-                </button>
+                </Button>
               )}
-              <button
+              <Button
                 className="btn-small btn-floating red"
                 onClick={deleteSelected}
               >
                 <i className="material-icons">delete</i>
-              </button>
+              </Button>
             </div>
           </div>
           {edit ? (
             <form onSubmit={handleSubmit}>
-              <div className="input-field col s12">
-                <input
-                  value={newDesc}
-                  type="text"
-                  onChange={(e) => setNewDesc(e.target.value)}
-                />
-              </div>
+              <Input
+                className="col s12"
+                value={newDesc}
+                type="text"
+                onChange={(e) => setNewDesc(e.target.value)}
+              />
             </form>
           ) : (
             <p className={`desc ${todo?.completed ? 'completed' : ''}`}>
@@ -75,19 +78,19 @@ const TodoItem: React.FC<Props> = (props) => {
               {format(todo?.createdAt.toDate(), 'do MMM yyyy, H:mm')}
             </p>
             {edit ? (
-              <button
+              <Button
                 className="btn-small btn-floating grey"
-                onClick={handleSubmit}
+                onClick={editSelected}
               >
                 <i className="material-icons">done_all</i>
-              </button>
+              </Button>
             ) : (
-              <button
+              <Button
                 className="btn-small btn-floating grey"
                 onClick={() => setEdit(true)}
               >
                 <i className="material-icons">edit</i>
-              </button>
+              </Button>
             )}
           </div>
         </div>
