@@ -7,16 +7,16 @@ export const PublicRoutes: React.FC<{
   component: React.FC;
   path: string;
   exact: boolean;
-}> = (props) => {
+}> = ({ path, exact, component: Component }) => {
   const user = useSelector((state: RootStore) => state.auth.user);
 
   if (user) {
     return <Redirect to="/my-todos" />;
   }
   return (
-    <Route path={props.path} exact={props.exact}>
+    <Route path={path} exact={exact}>
       <Suspense fallback={<div>loading</div>}>
-        <props.component />
+        <Component />
       </Suspense>
     </Route>
   );

@@ -1,27 +1,12 @@
-import { selector, TodoType } from 'modules/todo';
-import React from 'react';
-import { useSelector } from 'react-redux';
-
-import TodoItem from './TodoItem';
+import React, { Suspense } from 'react';
 
 const TodoList: React.FC = () => {
-  const todos = useSelector(selector);
+  const LazyList = React.lazy(() => import('./LazyList'));
 
   return (
-    <div>
-      {todos && !todos.length ? (
-        <div className="col s12 no-todos">
-          No todos matching your parameters.
-        </div>
-      ) : (
-        <div className="col s12">
-          {todos &&
-            todos.map((todo: TodoType) => {
-              return <TodoItem todo={todo} key={todo?.id} />;
-            })}
-        </div>
-      )}
-    </div>
+    <Suspense fallback={<div>Loading todo list</div>}>
+      <LazyList />
+    </Suspense>
   );
 };
 
