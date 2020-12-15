@@ -1,4 +1,4 @@
-import { Button } from 'components';
+import { Button, Input } from 'components';
 import { RootStore } from 'consts';
 import { addTodo } from 'modules/todo';
 import React, { useState } from 'react';
@@ -32,24 +32,24 @@ const TodoForm: React.FC = () => {
   return (
     <form className="col s12" onSubmit={handleSubmit}>
       <div className="row">
-        <div className="input-field col s12">
-          <input
-            value={title}
-            id="title"
-            type="text"
-            onChange={(e) => setTitle(e.target.value)}
-          />
-          <label htmlFor="title">Title</label>
-        </div>
-        <div className="input-field col s12">
-          <input
-            value={description}
-            id="description"
-            type="text"
-            onChange={(e) => setDescription(e.target.value)}
-          />
-          <label htmlFor="description">Description</label>
-        </div>
+        <Input
+          class="col s12"
+          value={title}
+          id="title"
+          type="text"
+          onChange={(e) => setTitle(e.target.value)}
+          htmlFor="title"
+          label="Title"
+        />
+        <Input
+          class="col s12"
+          value={description}
+          id="description"
+          type="text"
+          onChange={(e) => setDescription(e.target.value)}
+          htmlFor="description"
+          label="Description"
+        />
         <Button
           className="btn waves-effect waves-light"
           type="submit"

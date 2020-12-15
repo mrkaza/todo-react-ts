@@ -1,4 +1,4 @@
-import { Button } from 'components';
+import { Button, Input } from 'components';
 import { format } from 'date-fns';
 import { completeTodo, deleteTodo, editTodo, TodoType } from 'modules/todo';
 import React, { useState } from 'react';
@@ -59,13 +59,12 @@ const TodoItem: React.FC<Props> = (props) => {
           </div>
           {edit ? (
             <form onSubmit={handleSubmit}>
-              <div className="input-field col s12">
-                <input
-                  value={newDesc}
-                  type="text"
-                  onChange={(e) => setNewDesc(e.target.value)}
-                />
-              </div>
+              <Input
+                class="col s12"
+                value={newDesc}
+                type="text"
+                onChange={(e) => setNewDesc(e.target.value)}
+              />
             </form>
           ) : (
             <p className={`desc ${todo?.completed ? 'completed' : ''}`}>
