@@ -1,6 +1,7 @@
 import './index.css';
 
 import { rootReducer } from 'consts';
+import { Router } from 'modules/router';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -12,7 +13,6 @@ import { PersistGate } from 'redux-persist/integration/react';
 import storage from 'redux-persist/lib/storage';
 import thunk from 'redux-thunk';
 
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const persistConfig = {
@@ -30,7 +30,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <App />
+        <Router />
       </PersistGate>
     </Provider>
   </React.StrictMode>,
