@@ -22,11 +22,14 @@ const TodoItem: React.FC<Props> = (props) => {
   const todoCompleted = () => {
     dispatch(completeTodo(id));
   };
+  const editSelected = () => {
+    dispatch(editTodo(newDesc, id));
+    setEdit(false);
+  };
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    dispatch(editTodo(newDesc, id));
-    setEdit(false);
+    editSelected();
   };
 
   return (
@@ -78,7 +81,7 @@ const TodoItem: React.FC<Props> = (props) => {
             {edit ? (
               <Button
                 className="btn-small btn-floating grey"
-                onClick={handleSubmit}
+                onClick={editSelected}
               >
                 <i className="material-icons">done_all</i>
               </Button>
