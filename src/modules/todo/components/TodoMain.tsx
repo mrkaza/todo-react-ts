@@ -1,13 +1,14 @@
 import { RootStore } from 'consts';
 import { firestore } from 'modules/firebase';
 import { getUserTodos } from 'modules/todo';
-import React, { useEffect } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import CrudMessage from './CrudMessage';
 import TodoFilter from './TodoFilter';
 import TodoForm from './TodoForm';
-import TodoList from './TodoList';
+// import TodoList from './TodoList';
+const LazyList = React.lazy(() => import('./LazyList'));
 
 export const Todo: React.FC = () => {
   const dispatch = useDispatch();
@@ -29,7 +30,9 @@ export const Todo: React.FC = () => {
       </div>
       <TodoFilter />
       <CrudMessage />
-      <TodoList />
+      <Suspense fallback={<div>Loading todo list</div>}>
+        <LazyList />
+      </Suspense>
     </div>
   );
 };

@@ -4,8 +4,9 @@ import { useSelector } from 'react-redux';
 
 import TodoItem from './TodoItem';
 
-export const LazyList: React.FC = () => {
+const LazyList: React.FC = () => {
   const todos = useSelector(selector);
+  console.log(todos);
 
   return (
     <div>
@@ -25,4 +26,4 @@ export const LazyList: React.FC = () => {
   );
 };
 
-export { LazyList as default };
+export default LazyList;
