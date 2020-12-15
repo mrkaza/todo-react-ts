@@ -1,5 +1,5 @@
 import { RootStore } from 'consts';
-import React from 'react';
+import React, { Suspense } from 'react';
 import { useSelector } from 'react-redux';
 import { Redirect, Route } from 'react-router-dom';
 
@@ -12,11 +12,11 @@ export const PrivateRoutes: React.FC<{
 
   if (user) {
     return (
-      <Route
-        path={props.path}
-        exact={props.exact}
-        component={props.component}
-      />
+      <Route path={props.path} exact={props.exact}>
+        <Suspense fallback={<div>loading</div>}>
+          <props.component />
+        </Suspense>
+      </Route>
     );
   }
   return <Redirect to="/" />;

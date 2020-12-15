@@ -1,6 +1,6 @@
 import { Layout } from 'components';
 import { Navbar } from 'modules/navbar';
-import React, { Suspense } from 'react';
+import React from 'react';
 import { BrowserRouter, Switch } from 'react-router-dom';
 
 import { PrivateRoutes } from './Private';
@@ -16,14 +16,12 @@ export const Router: React.FC = () => {
     <BrowserRouter>
       <Navbar />
       <Layout>
-        <Suspense fallback={<div>Loading</div>}>
-          <Switch>
-            <PrivateRoutes path="/my-todos" component={Home} exact />
-            <PrivateRoutes path="/todo/:id" component={TodoDetails} exact />
-            <PublicRoutes path="/" component={Login} exact />
-            <PublicRoutes path="/register" component={Register} exact />
-          </Switch>
-        </Suspense>
+        <Switch>
+          <PrivateRoutes path="/my-todos" component={Home} exact />
+          <PrivateRoutes path="/todo/:id" component={TodoDetails} exact />
+          <PublicRoutes path="/" component={Login} exact />
+          <PublicRoutes path="/register" component={Register} exact />
+        </Switch>
       </Layout>
     </BrowserRouter>
   );
