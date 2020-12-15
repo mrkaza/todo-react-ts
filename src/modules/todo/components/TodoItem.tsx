@@ -60,7 +60,7 @@ const TodoItem: React.FC<Props> = (props) => {
           {edit ? (
             <form onSubmit={handleSubmit}>
               <Input
-                class="col s12"
+                className="col s12"
                 value={newDesc}
                 type="text"
                 onChange={(e) => setNewDesc(e.target.value)}

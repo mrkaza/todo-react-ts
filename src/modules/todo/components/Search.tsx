@@ -16,7 +16,7 @@ const Search: React.FC = () => {
     <div className="col s12 m8">
       <form className="col s12 search-form" onSubmit={handleSubmit}>
         <Input
-          class="col s10"
+          className="col s10"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search todos.."

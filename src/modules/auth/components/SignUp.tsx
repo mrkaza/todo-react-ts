@@ -30,7 +30,7 @@ export const SignUp: React.FC = () => {
     <div>
       <form className="col s12" onSubmit={handleSubmit}>
         <Input
-          class="col s12"
+          className="col s12"
           value={email}
           id="email"
           type="email"
@@ -39,7 +39,7 @@ export const SignUp: React.FC = () => {
           label="Email"
         />
         <Input
-          class="col s12"
+          className="col s12"
           value={password}
           id="password"
           type="password"

@@ -33,7 +33,7 @@ const TodoForm: React.FC = () => {
     <form className="col s12" onSubmit={handleSubmit}>
       <div className="row">
         <Input
-          class="col s12"
+          className="col s12"
           value={title}
           id="title"
           type="text"
@@ -42,7 +42,7 @@ const TodoForm: React.FC = () => {
           label="Title"
         />
         <Input
-          class="col s12"
+          className="col s12"
           value={description}
           id="description"
           type="text"

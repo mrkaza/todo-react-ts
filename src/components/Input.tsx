@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const Input: React.FC<{
-  class?: string;
+  className?: string;
   value?: string;
   id?: string;
   type?: string;
@@ -9,17 +9,11 @@ export const Input: React.FC<{
   htmlFor?: string;
   label?: string;
   placeholder?: string;
-}> = (props) => {
+}> = ({ ...rest }) => {
   return (
-    <div className={`input-field ${props.class}`}>
-      <input
-        value={props.value}
-        id={props.id}
-        type={props.type}
-        onChange={props.onChange}
-        placeholder={props.placeholder}
-      />
-      <label htmlFor={props.htmlFor}>{props.label}</label>
+    <div className={`input-field ${rest.className}`}>
+      <input {...rest} />
+      <label htmlFor={rest.htmlFor}>{rest.label}</label>
     </div>
   );
 };
