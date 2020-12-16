@@ -1,4 +1,3 @@
-import firebase from 'firebase';
 import { ActionUnion, createAction } from 'modules/redux';
 import { TodoActionTypes } from 'modules/todo';
 
