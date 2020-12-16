@@ -55,7 +55,7 @@ export const SignUp: React.FC = () => {
             required: { value: true, message: 'This field is required' },
             minLength: {
               value: 6,
-              message: 'Minimal lenght of password is 6 char.',
+              message: 'Minimal length of password is 6 char.',
             },
           })}
           className="col s12"
