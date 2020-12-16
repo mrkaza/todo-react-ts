@@ -6,7 +6,6 @@ const LazyList = React.lazy(() => import('./LazyList'));
 
 const TodoList: React.FC = () => {
   const todos = useSelector(selector);
-  console.log(todos);
 
   return (
     <div>
