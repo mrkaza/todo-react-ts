@@ -1,52 +1,75 @@
 import { Button, Input } from 'components';
 import { RootStore } from 'consts';
-import { register } from 'modules/auth';
-import React, { useState } from 'react';
+import { registerUser } from 'modules/auth';
+import React from 'react';
+import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 
 export const SignUp: React.FC = () => {
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
   const dispatch = useDispatch();
 
   const errorMessage: null | string = useSelector(
     (state: RootStore) => state.auth.regError,
   );
 
-  const handleSubmit = (e: React.SyntheticEvent) => {
-    e.preventDefault();
+  const { register, handleSubmit, errors } = useForm();
+
+  const onSubmit = (data: { email: string; password: string }) => {
     type NewUser = {
       email: string;
       password: string;
     };
     const newUser: NewUser = {
-      email: email,
-      password: password,
+      email: data.email,
+      password: data.password,
     };
-    dispatch(register(newUser));
+    dispatch(registerUser(newUser));
   };
 
   return (
     <div>
-      <form className="col s12" onSubmit={handleSubmit}>
+      <form className="col s12" onSubmit={handleSubmit(onSubmit)}>
         <Input
+          name="email"
+          validation={register({
+            required: { value: true, message: 'This field is required' },
+            pattern: {
+              value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+              message: 'Email is not formed correctly',
+            },
+          })}
           className="col s12"
-          value={email}
           id="email"
           type="email"
-          onChange={(e) => setEmail(e.target.value)}
           htmlFor="email"
           label="Email"
         />
+        {errors.email && (
+          <p className="col s12 red-text text-darken-1 error-message">
+            {errors.email.message}
+          </p>
+        )}
         <Input
+          name="password"
+          validation={register({
+            required: { value: true, message: 'This field is required' },
+            minLength: {
+              value: 6,
+              message: 'Minimal lenght of password is 6 char.',
+            },
+          })}
           className="col s12"
-          value={password}
           id="password"
           type="password"
-          onChange={(e) => setPassword(e.target.value)}
           htmlFor="password"
           label="Password"
         />
+        {errors.password && (
+          <p className="col s12 red-text text-darken-1 error-message">
+            {errors.password.message}
+          </p>
+        )}
+
         <div className="facebook col s12">
           <Button
             className="btn waves-effect waves-light"
