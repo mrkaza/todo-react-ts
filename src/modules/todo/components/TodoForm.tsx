@@ -12,7 +12,10 @@ const TodoForm: React.FC = () => {
   const { register, handleSubmit, errors } = useForm();
   const userId: string = user?.user.uid ?? '';
 
-  const onSubmit = (data: { title: string; description: string }, e: any) => {
+  const onSubmit = (
+    data: { title: string; description: string },
+    e?: React.BaseSyntheticEvent,
+  ) => {
     type NewTodo = {
       title: string;
       description: string;
@@ -24,7 +27,7 @@ const TodoForm: React.FC = () => {
     if (userId) {
       dispatch(addTodo(todo, userId));
     }
-    e.target.reset();
+    e?.target.reset();
   };
 
   return (

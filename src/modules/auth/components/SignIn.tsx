@@ -29,7 +29,7 @@ export const SignIn: React.FC = () => {
           validation={register({
             required: { value: true, message: 'This field is required' },
             pattern: {
-              value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+              value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,10}$/,
               message: 'Email is not formed correctly',
             },
           })}
