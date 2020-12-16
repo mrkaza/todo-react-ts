@@ -1,4 +1,4 @@
-import { RootStore } from 'consts';
+import { RootStore } from 'modules/redux';
 import { removeCrud } from 'modules/todo';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';

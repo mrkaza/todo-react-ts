@@ -1,4 +1,4 @@
-import { RootStore } from 'consts';
+import { RootStore } from 'modules/redux';
 import { createSelector } from 'reselect';
 
 import { TodoType } from './todoReducer';
