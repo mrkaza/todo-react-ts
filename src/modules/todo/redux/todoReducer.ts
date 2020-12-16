@@ -1,23 +1,10 @@
-export type TodoType = null | {
-  id: string;
-  title: string;
-  description: string;
-  completed: boolean;
-  userId: string;
-  createdAt: { nanoseconds: string; seconds: string; toDate(): any };
-};
+import { TodoActionTypes } from 'modules/todo';
 
-type InitState = {
-  todos: null | TodoType[];
-  crudMessage: null | string;
-  todo: null | TodoType;
-  search: null | string;
-  orderBy: string;
-};
+import { TodoState } from '../models';
 
-type TodoReducer = (state: InitState | undefined, action: any) => InitState;
+type TodoReducer = (state: TodoState | undefined, action: any) => TodoState;
 
-const initState: InitState = {
+const INIT_STATE: TodoState = {
   todos: null,
   crudMessage: null,
   todo: null,
@@ -25,54 +12,54 @@ const initState: InitState = {
   orderBy: 'created.asc',
 };
 
-export const todoReducer: TodoReducer = (state = initState, action) => {
+export const todoReducer: TodoReducer = (state = INIT_STATE, action) => {
   switch (action.type) {
-    case 'GET_TODOS':
+    case TodoActionTypes.GetTodos:
       return {
         ...state,
         todos: action.payload,
       };
-    case 'ADD_TODO':
+    case TodoActionTypes.AddTodo:
       return {
         ...state,
-        crudMessage: action.payload,
+        crudMessage: action.payload.message,
       };
-    case 'ADD_TODO_ERROR':
+    case TodoActionTypes.AddTodoError:
       return {
         ...state,
-        crudMessage: action.payload,
+        crudMessage: action.payload.message,
       };
-    case 'DELETE_TODO':
+    case TodoActionTypes.DeleteTodo:
       return {
         ...state,
-        crudMessage: action.payload,
+        crudMessage: action.payload.message,
       };
-    case 'COMPLETE_TODO':
+    case TodoActionTypes.CompleteTodo:
       return {
         ...state,
-        crudMessage: action.payload,
+        crudMessage: action.payload.message,
       };
-    case 'EDIT_TODO':
+    case TodoActionTypes.EditTodo:
       return {
         ...state,
-        crudMessage: action.payload,
+        crudMessage: action.payload.message,
       };
-    case 'TODO_DETAILS':
+    case TodoActionTypes.TodoDetail:
       return {
         ...state,
         todo: action.payload,
       };
-    case 'SEARCH_TODO':
+    case TodoActionTypes.Search:
       return {
         ...state,
         search: action.payload,
       };
-    case 'ORDER_TODOS':
+    case TodoActionTypes.Order:
       return {
         ...state,
         orderBy: action.payload,
       };
-    case 'REMOVE_CRUD':
+    case TodoActionTypes.RemoveCrud:
       return {
         ...state,
         crudMessage: null,
