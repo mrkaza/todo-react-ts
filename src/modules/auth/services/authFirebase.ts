@@ -2,7 +2,7 @@ import { AuthDispatchTypes } from 'modules/auth';
 import { firebaseAuth, provider } from 'modules/firebase';
 import { Dispatch } from 'redux';
 
-export const register = (newUser: { email: string; password: string }) => {
+export const registerUser = (newUser: { email: string; password: string }) => {
   return (dispatch: Dispatch<AuthDispatchTypes>): void => {
     firebaseAuth
       .createUserWithEmailAndPassword(newUser.email, newUser.password)
