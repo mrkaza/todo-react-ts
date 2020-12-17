@@ -12,7 +12,7 @@ import TodoList from './TodoList';
 export const Todo: React.FC = () => {
   const dispatch = useDispatch();
   const user = useSelector((state: RootStore) => state.auth.user);
-  const userId: string = user?.user.uid ?? '';
+  const userId = user?.user?.uid;
 
   useEffect(() => {
     if (userId) {

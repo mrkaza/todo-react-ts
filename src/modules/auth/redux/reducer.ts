@@ -12,7 +12,10 @@ const INIT_STATE: AuthState = {
   user: null,
 };
 
-export const authReducer: AuthReducer = (state = INIT_STATE, action: any) => {
+export const authReducer: AuthReducer = (
+  state = INIT_STATE,
+  action: AuthActions,
+) => {
   switch (action.type) {
     case AuthActionTypes.Register:
       return {

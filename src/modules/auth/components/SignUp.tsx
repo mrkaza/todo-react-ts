@@ -8,9 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 export const SignUp: React.FC = () => {
   const dispatch = useDispatch();
 
-  const errorMessage: null | string = useSelector(
-    (state: RootStore) => state.auth.regError,
-  );
+  const errorMessage = useSelector((state: RootStore) => state.auth.regError);
 
   const { register, handleSubmit, errors } = useForm();
 
@@ -82,7 +80,7 @@ export const SignUp: React.FC = () => {
       </form>
       {errorMessage && (
         <p className=" col s12 red-text text-darken-1 error-message">
-          {errorMessage}
+          {errorMessage.message}
         </p>
       )}
     </div>
