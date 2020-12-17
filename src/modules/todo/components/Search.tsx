@@ -1,16 +1,9 @@
 import { Button, Input } from 'components';
-import { searchTodo } from 'modules/todo';
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSearch } from 'modules/todo';
+import React from 'react';
 
 const Search: React.FC = () => {
-  const [search, setSearch] = useState<string>('');
-  const dispatch = useDispatch();
-
-  const handleSubmit = (e: React.SyntheticEvent) => {
-    e.preventDefault();
-    dispatch(searchTodo(search));
-  };
+  const [{ search }, { handleSubmit, setSearch }] = useSearch();
 
   return (
     <div className="col s12 m8">

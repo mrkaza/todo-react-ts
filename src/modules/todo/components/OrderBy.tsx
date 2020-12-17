@@ -1,18 +1,9 @@
 import { Button } from 'components';
-import { orderTodos } from 'modules/todo';
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useOrderBy } from 'modules/todo';
+import React from 'react';
 
 const OrderBy: React.FC = () => {
-  const [order, setOrder] = useState<string>('');
-  const dispatch = useDispatch();
-
-  const handleChange = (e: { target: { value: string } }) => {
-    setOrder(e.target.value);
-  };
-  const orderBy = () => {
-    dispatch(orderTodos(order));
-  };
+  const [{ order }, { handleChange, orderBy }] = useOrderBy();
 
   return (
     <div className="col s12 m4 order-by">
