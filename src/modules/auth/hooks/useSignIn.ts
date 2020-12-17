@@ -15,9 +15,7 @@ interface State {
 export const useSignIn: CustomHook<State, Api> = () => {
   const dispatch = useDispatch();
 
-  const errorMessage: null | string = useSelector(
-    (state: RootStore) => state.auth.loginError,
-  );
+  const errorMessage = useSelector((state: RootStore) => state.auth.loginError);
 
   const onSubmit = useCallback(
     (data: { email: string; password: string }) => {
