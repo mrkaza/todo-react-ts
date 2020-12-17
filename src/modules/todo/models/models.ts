@@ -14,3 +14,8 @@ export interface TodoState {
   search: null | string;
   orderBy: string;
 }
+
+export interface Dispatch {
+  type: string;
+  payload?: string | null;
+}

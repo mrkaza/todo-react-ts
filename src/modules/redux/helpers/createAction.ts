@@ -1,4 +1,4 @@
-import { Action, ActionWithPayload } from './models';
+import { Action, ActionWithPayload } from '../models';
 
 //create action with type only
 

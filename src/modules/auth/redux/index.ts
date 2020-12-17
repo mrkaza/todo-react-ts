@@ -1,3 +1,3 @@
-export * from './authReducer';
+export * from './reducer';
 export * from './types';
 export * from './actions';

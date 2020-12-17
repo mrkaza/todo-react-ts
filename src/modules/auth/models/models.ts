@@ -1,5 +1,3 @@
-// NOVO
-
 export type UserType = null | {
   user: {
     uid: string;

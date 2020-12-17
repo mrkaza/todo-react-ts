@@ -1,5 +1,5 @@
 import { ActionUnion, createAction } from 'modules/redux';
-import { TodoActionTypes } from 'modules/todo';
+import { Dispatch, TodoActionTypes } from 'modules/todo';
 
 export const TodoActions = {
   Search: (search: string | null) =>
@@ -32,3 +32,15 @@ export const TodoActions = {
 };
 
 export type TodoActions = ActionUnion<typeof TodoActions>;
+
+export const searchTodo = (search: string | null): Dispatch => {
+  return TodoActions.Search(search);
+};
+
+export const orderTodos = (orderBy: string): Dispatch => {
+  return TodoActions.Order(orderBy);
+};
+
+export const removeCrud = (): Dispatch => {
+  return TodoActions.RemoveCrud();
+};

@@ -1,5 +1,4 @@
 export * from './selector';
-export * from './todoActions';
-export * from './todoReducer';
+export * from './reducer';
 export * from './types';
 export * from './actions';
