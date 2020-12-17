@@ -9,11 +9,11 @@ interface Props {
   todo: TodoType;
 }
 const TodoItem: React.FC<Props> = (props) => {
-  const todo: TodoType = props.todo;
+  const todo = props.todo.todo;
   const [edit, setEdit] = useState<boolean>(false);
   const dispatch = useDispatch();
-  const id: string = todo?.id ?? '';
-  const desc: string = todo?.description ?? '';
+  const id = props.todo.id;
+  const desc = todo?.description ?? '';
   const [newDesc, setNewDesc] = useState<string>(desc);
 
   const deleteSelected = () => {
@@ -38,7 +38,7 @@ const TodoItem: React.FC<Props> = (props) => {
         <div className="todo-item">
           <div className="actions teal">
             <p className="title">
-              <Link to={'/todo/' + todo?.id}>{todo?.title}</Link>
+              <Link to={'/todo/' + id}>{todo?.title}</Link>
             </p>
             <div className="action-btn">
               {!todo?.completed && (

@@ -5,7 +5,7 @@ import {
   ActionWithPayload,
   createAction,
 } from 'modules/redux';
-import { Dispatch, TodoActionTypes } from 'modules/todo';
+import { Dispatch, TodoActionTypes, TodoType } from 'modules/todo';
 
 export const TodoActions = {
   Search: (
@@ -14,7 +14,7 @@ export const TodoActions = {
     createAction(TodoActionTypes.Search, search),
 
   Order: (
-    orderBy: string | null,
+    orderBy: string,
   ): ActionWithPayload<typeof TodoActionTypes.Order, typeof orderBy> =>
     createAction(TodoActionTypes.Order, orderBy),
 
@@ -22,7 +22,7 @@ export const TodoActions = {
     createAction(TodoActionTypes.RemoveCrud),
 
   GetTodos: (
-    todos: Record<string, unknown>[],
+    todos: TodoType[],
   ): ActionWithPayload<typeof TodoActionTypes.GetTodos, typeof todos> =>
     createAction(TodoActionTypes.GetTodos, todos),
 

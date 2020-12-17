@@ -1,10 +1,10 @@
 import { firestore } from 'modules/firebase';
-import { TodoActions } from 'modules/todo';
+import { TodoActions, TodoType } from 'modules/todo';
 import { Dispatch } from 'redux';
 
 export const getUserTodos = (userId: string) => {
   return (dispatch: Dispatch<TodoActions>): void => {
-    const todos: Record<string, unknown>[] = [];
+    const todos: TodoType[] = [];
     firestore
       .collection('todos')
       .where('userId', '==', userId)
@@ -12,8 +12,9 @@ export const getUserTodos = (userId: string) => {
       .then((response) => {
         response.forEach((doc) => {
           const todo = doc.data();
-          todo.id = doc.id;
-          todos.push(todo);
+          const id = doc.id;
+          const newTodo = { todo: todo, id: id };
+          todos.push(newTodo);
         });
         dispatch(TodoActions.GetTodos(todos));
       });
