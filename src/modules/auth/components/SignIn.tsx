@@ -1,25 +1,13 @@
 import { Button, Input } from 'components';
-import { login } from 'modules/auth';
-import { RootStore } from 'modules/redux';
+import { useSignIn } from 'modules/auth';
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
 
 import { Facebook } from './Facebook';
 
 export const SignIn: React.FC = () => {
-  const dispatch = useDispatch();
-
-  const errorMessage: null | string = useSelector(
-    (state: RootStore) => state.auth.loginError,
-  );
-
   const { register, handleSubmit, errors } = useForm();
-
-  const onSubmit = (data: { email: string; password: string }) => {
-    dispatch(login(data.email, data.password));
-    console.log(data);
-  };
+  const [{ errorMessage }, { onSubmit }] = useSignIn();
 
   return (
     <div>
