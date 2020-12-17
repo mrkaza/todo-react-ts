@@ -3,7 +3,12 @@ import React, { InputHTMLAttributes } from 'react';
 type Props = {
   htmlFor?: string;
   label?: string;
-  validation?: any;
+  validation?:
+    | string
+    | ((instance: HTMLInputElement | null) => void)
+    | React.RefObject<HTMLInputElement>
+    | null
+    | undefined;
   name?: string;
 } & InputHTMLAttributes<HTMLInputElement>;
 
