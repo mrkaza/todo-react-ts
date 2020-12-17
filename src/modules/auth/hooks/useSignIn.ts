@@ -1,8 +1,7 @@
 import { CustomHook } from 'models';
 import { login } from 'modules/auth';
 import { RootStore } from 'modules/redux';
-import React, { useCallback, useMemo } from 'react';
-import { useForm } from 'react-hook-form';
+import { useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 interface Api {
