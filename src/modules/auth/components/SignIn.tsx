@@ -1,6 +1,6 @@
 import { Button, Input } from 'components';
-import { RootStore } from 'consts';
 import { login } from 'modules/auth';
+import { RootStore } from 'modules/redux';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';

@@ -1,4 +1,4 @@
-import { RootStore } from 'consts';
+import { RootStore } from 'modules/redux';
 import React, { Suspense } from 'react';
 import { useSelector } from 'react-redux';
 import { Redirect, Route } from 'react-router-dom';

@@ -1,5 +1,5 @@
-import { RootStore } from 'consts';
 import { format } from 'date-fns';
+import { RootStore } from 'modules/redux';
 import { todoDetails, TodoType } from 'modules/todo';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';

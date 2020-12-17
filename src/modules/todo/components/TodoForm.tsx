@@ -1,5 +1,5 @@
 import { Button, Input } from 'components';
-import { RootStore } from 'consts';
+import { RootStore } from 'modules/redux';
 import { addTodo } from 'modules/todo';
 import React from 'react';
 import { useForm } from 'react-hook-form';

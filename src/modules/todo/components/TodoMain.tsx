@@ -1,5 +1,5 @@
-import { RootStore } from 'consts';
 import { firestore } from 'modules/firebase';
+import { RootStore } from 'modules/redux';
 import { getUserTodos } from 'modules/todo';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';

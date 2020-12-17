@@ -1,57 +1,51 @@
-export type UserType = null | {
-  user: {
-    uid: string;
-  };
-};
+import { AuthState } from 'modules/auth';
+import { AuthActions, AuthActionTypes } from 'modules/auth';
 
-type InitState = {
-  loginError: null | string;
-  regError: null | string;
-  user: null | UserType;
-};
+type AuthReducer = (
+  state: AuthState | undefined,
+  action: AuthActions,
+) => AuthState;
 
-type AuthReducer = (state: InitState | undefined, action: any) => InitState;
-
-const initState: InitState = {
+const INIT_STATE: AuthState = {
   loginError: null,
   regError: null,
   user: null,
 };
 
-export const authReducer: AuthReducer = (state = initState, action) => {
+export const authReducer: AuthReducer = (state = INIT_STATE, action: any) => {
   switch (action.type) {
-    case 'REGISTER':
+    case AuthActionTypes.Register:
       return {
         ...state,
         user: action.payload,
         loginError: null,
         regError: null,
       };
-    case 'REGISTER_ERROR':
+    case AuthActionTypes.RegError:
       return {
         ...state,
         regError: action.payload,
       };
-    case 'LOGOUT':
+    case AuthActionTypes.Logout:
       return {
         ...state,
         loginError: null,
         regError: null,
         user: null,
       };
-    case 'LOGIN':
+    case AuthActionTypes.Login:
       return {
         ...state,
         user: action.payload,
         loginError: null,
         regError: null,
       };
-    case 'LOGIN_ERROR':
+    case AuthActionTypes.LogError:
       return {
         ...state,
         loginError: action.payload,
       };
-    case 'FACEBOOK_LOGIN':
+    case AuthActionTypes.Facebook:
       return {
         ...state,
         loginError: null,

@@ -1,45 +1,46 @@
-import { AuthDispatchTypes } from 'modules/auth';
+// import { AuthDispatchTypes } from 'modules/auth';
+import { AuthActions } from 'modules/auth';
 import { firebaseAuth, provider } from 'modules/firebase';
 import { Dispatch } from 'redux';
 
 export const registerUser = (newUser: { email: string; password: string }) => {
-  return (dispatch: Dispatch<AuthDispatchTypes>): void => {
+  return (dispatch: Dispatch<AuthActions>): void => {
     firebaseAuth
       .createUserWithEmailAndPassword(newUser.email, newUser.password)
       .then((user) => {
-        dispatch({ type: 'REGISTER', payload: user });
+        dispatch(AuthActions.Register(user));
       })
       .catch((error) => {
-        dispatch({ type: 'REGISTER_ERROR', payload: error.message });
+        dispatch(AuthActions.RegError(error));
       });
   };
 };
 
 export const logout = () => {
-  return (dispatch: Dispatch<AuthDispatchTypes>): void => {
+  return (dispatch: Dispatch<AuthActions>): void => {
     firebaseAuth.signOut().then(() => {
-      dispatch({ type: 'LOGOUT' });
+      dispatch(AuthActions.Logout());
     });
   };
 };
 
 export const login = (email: string, password: string) => {
-  return (dispatch: Dispatch<AuthDispatchTypes>): void => {
+  return (dispatch: Dispatch<AuthActions>): void => {
     firebaseAuth
       .signInWithEmailAndPassword(email, password)
       .then((user) => {
-        dispatch({ type: 'LOGIN', payload: user });
+        dispatch(AuthActions.Login(user));
       })
       .catch((error) => {
-        dispatch({ type: 'LOGIN_ERROR', payload: error.message });
+        dispatch(AuthActions.LogError(error));
       });
   };
 };
 
 export const facebookLogin = () => {
-  return (dispatch: Dispatch<AuthDispatchTypes>): void => {
+  return (dispatch: Dispatch<AuthActions>): void => {
     firebaseAuth.signInWithPopup(provider).then((user) => {
-      dispatch({ type: 'FACEBOOK_LOGIN', payload: user });
+      dispatch(AuthActions.Facebook(user));
     });
   };
 };
