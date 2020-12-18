@@ -1,7 +1,9 @@
 import { Layout } from 'components';
 import { Navbar } from 'modules/navbar';
+import { Error } from 'pages';
 import React from 'react';
-import { BrowserRouter, Switch } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import { PrivateRoutes } from './Private';
 import { PublicRoutes } from './Public';
@@ -14,6 +16,22 @@ const TodoDetails = React.lazy(() => import('pages/TodoDetails'));
 export const Router: React.FC = () => {
   return (
     <BrowserRouter>
+      <Helmet>
+        <link rel="canonical" href="http://localhost:3000/" />
+        <meta charSet="utf-8" />
+        <meta
+          name="description"
+          content="Todo application for managing your todo list"
+        />
+        <meta
+          property="og:description"
+          content="Todo application for managins our todo list"
+        />
+        <meta property="og:title" content="Todo App" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://localhost:3000/" />
+        <meta property="og:site_name" content="Todo App" />
+      </Helmet>
       <Navbar />
       <Layout>
         <Switch>
@@ -21,6 +39,7 @@ export const Router: React.FC = () => {
           <PrivateRoutes path="/todo/:id" component={TodoDetails} exact />
           <PublicRoutes path="/" component={Login} exact />
           <PublicRoutes path="/register" component={Register} exact />
+          <Route component={Error}></Route>
         </Switch>
       </Layout>
     </BrowserRouter>
