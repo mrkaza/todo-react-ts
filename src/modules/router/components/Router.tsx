@@ -1,7 +1,8 @@
 import { Layout } from 'components';
 import { Navbar } from 'modules/navbar';
+import { Error } from 'pages';
 import React from 'react';
-import { BrowserRouter, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import { PrivateRoutes } from './Private';
 import { PublicRoutes } from './Public';
@@ -21,6 +22,7 @@ export const Router: React.FC = () => {
           <PrivateRoutes path="/todo/:id" component={TodoDetails} exact />
           <PublicRoutes path="/" component={Login} exact />
           <PublicRoutes path="/register" component={Register} exact />
+          <Route component={Error}></Route>
         </Switch>
       </Layout>
     </BrowserRouter>

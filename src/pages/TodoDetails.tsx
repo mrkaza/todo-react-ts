@@ -15,7 +15,6 @@ export const TodoDetails: React.FC = () => {
   }, [id, dispatch]);
 
   const todo = useSelector((state: RootStore) => state.todo.todo);
-  console.log(todo);
   return (
     <div>
       {todo ? (
