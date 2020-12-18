@@ -1,33 +1,59 @@
-import { ActionUnion, createAction } from 'modules/redux';
-import { Dispatch, TodoActionTypes } from 'modules/todo';
+import firebase from 'firebase';
+import {
+  Action,
+  ActionUnion,
+  ActionWithPayload,
+  createAction,
+} from 'modules/redux';
+import { Dispatch, TodoActionTypes, TodoType } from 'modules/todo';
 
 export const TodoActions = {
-  Search: (search: string | null) =>
+  Search: (
+    search: string | null,
+  ): ActionWithPayload<typeof TodoActionTypes.Search, typeof search> =>
     createAction(TodoActionTypes.Search, search),
 
-  Order: (orderBy: string | null) =>
+  Order: (
+    orderBy: string,
+  ): ActionWithPayload<typeof TodoActionTypes.Order, typeof orderBy> =>
     createAction(TodoActionTypes.Order, orderBy),
 
-  RemoveCrud: () => createAction(TodoActionTypes.RemoveCrud),
+  RemoveCrud: (): Action<typeof TodoActionTypes.RemoveCrud> =>
+    createAction(TodoActionTypes.RemoveCrud),
 
-  GetTodos: (todos: Record<string, unknown>[]) =>
+  GetTodos: (
+    todos: TodoType[],
+  ): ActionWithPayload<typeof TodoActionTypes.GetTodos, typeof todos> =>
     createAction(TodoActionTypes.GetTodos, todos),
 
-  AddTodo: (crud: { message: string }) =>
+  AddTodo: (crud: {
+    message: string;
+  }): ActionWithPayload<typeof TodoActionTypes.AddTodo, typeof crud> =>
     createAction(TodoActionTypes.AddTodo, crud),
 
-  AddTodoError: (crud: { message: string }) =>
+  AddTodoError: (crud: {
+    message: string;
+  }): ActionWithPayload<typeof TodoActionTypes.AddTodoError, typeof crud> =>
     createAction(TodoActionTypes.AddTodoError, crud),
 
-  DeleteTodo: (crud: { message: string }) =>
+  DeleteTodo: (crud: {
+    message: string;
+  }): ActionWithPayload<typeof TodoActionTypes.DeleteTodo, typeof crud> =>
     createAction(TodoActionTypes.DeleteTodo, crud),
 
-  CompleteTodo: (crud: { message: string }) =>
+  CompleteTodo: (crud: {
+    message: string;
+  }): ActionWithPayload<typeof TodoActionTypes.CompleteTodo, typeof crud> =>
     createAction(TodoActionTypes.CompleteTodo, crud),
 
-  TodoDetails: (todo: any) => createAction(TodoActionTypes.TodoDetail, todo),
+  TodoDetails: (
+    todo: firebase.firestore.DocumentData | undefined,
+  ): ActionWithPayload<typeof TodoActionTypes.TodoDetail, typeof todo> =>
+    createAction(TodoActionTypes.TodoDetail, todo),
 
-  EditTodo: (crud: { message: string }) =>
+  EditTodo: (crud: {
+    message: string;
+  }): ActionWithPayload<typeof TodoActionTypes.EditTodo, typeof crud> =>
     createAction(TodoActionTypes.EditTodo, crud),
 };
 

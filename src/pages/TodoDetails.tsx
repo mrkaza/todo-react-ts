@@ -1,6 +1,6 @@
 import { format } from 'date-fns';
 import { RootStore } from 'modules/redux';
-import { todoDetails, TodoType } from 'modules/todo';
+import { todoDetails } from 'modules/todo';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -14,7 +14,8 @@ export const TodoDetails: React.FC = () => {
     dispatch(todoDetails(id));
   }, [id, dispatch]);
 
-  const todo: TodoType = useSelector((state: RootStore) => state.todo.todo);
+  const todo = useSelector((state: RootStore) => state.todo.todo);
+  console.log(todo);
   return (
     <div>
       {todo ? (

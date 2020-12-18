@@ -9,7 +9,7 @@ interface Api {
 }
 
 interface State {
-  errorMessage: null | string;
+  errorMessage: null | { message: string };
 }
 
 export const useSignIn: CustomHook<State, Api> = () => {

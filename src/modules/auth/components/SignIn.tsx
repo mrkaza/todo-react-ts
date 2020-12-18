@@ -65,7 +65,7 @@ export const SignIn: React.FC = () => {
       </form>
       {errorMessage && (
         <p className=" col s12 red-text text-darken-1 error-message">
-          {errorMessage}
+          {errorMessage.message}
         </p>
       )}
 

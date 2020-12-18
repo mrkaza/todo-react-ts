@@ -12,6 +12,9 @@ export function createAction<T extends string, P>(
 
 //create action with type and optional payload
 
-export function createAction<T extends string, P>(type: T, payload?: P) {
+export function createAction<T extends string, P>(
+  type: T,
+  payload?: P,
+): Action<T> | ActionWithPayload<T, P> {
   return !payload ? { type } : { type, payload };
 }

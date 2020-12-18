@@ -5,9 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const CrudMessage: React.FC = () => {
   const dispatch = useDispatch();
-  const message: null | string = useSelector(
-    (state: RootStore) => state.todo.crudMessage,
-  );
+  const message = useSelector((state: RootStore) => state.todo.crudMessage);
 
   useEffect(() => {
     setTimeout(() => {
@@ -16,7 +14,9 @@ const CrudMessage: React.FC = () => {
   }, [message, dispatch]);
 
   return (
-    <div className="col s12 crud-message">{message && <p>{message}</p>}</div>
+    <div className="col s12 crud-message">
+      {message && <p>{message.message}</p>}
+    </div>
   );
 };
 
