@@ -1,7 +1,10 @@
+import 'react-toastify/dist/ReactToastify.css';
+
 import { Button, Input } from 'components';
 import { useSignIn } from 'modules/auth';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { Slide, ToastContainer } from 'react-toastify';
 
 import { Facebook } from './Facebook';
 
@@ -67,9 +70,12 @@ export const SignIn: React.FC = () => {
         </div>
       </form>
       {errorMessage && (
-        <p className=" col s12 red-text text-darken-1 error-message">
-          {errorMessage.message}
-        </p>
+        <ToastContainer
+          transition={Slide}
+          position="bottom-center"
+          autoClose={false}
+          closeOnClick
+        />
       )}
 
       <p className="or">or</p>

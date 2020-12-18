@@ -3,6 +3,7 @@ import { login } from 'modules/auth';
 import { RootStore } from 'modules/redux';
 import { useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 
 interface Api {
   onSubmit: (data: { email: string; password: string }) => void;
@@ -19,10 +20,14 @@ export const useSignIn: CustomHook<State, Api> = () => {
 
   const onSubmit = useCallback(
     (data: { email: string; password: string }) => {
+      const notify = () => toast(errorMessage?.message);
+      if (errorMessage) {
+        notify();
+      }
       dispatch(login(data.email, data.password));
       console.log(data);
     },
-    [dispatch],
+    [dispatch, errorMessage],
   );
 
   const api = useMemo(
