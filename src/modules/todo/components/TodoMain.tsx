@@ -1,11 +1,8 @@
-import 'react-toastify/dist/ReactToastify.css';
-
 import { firestore } from 'modules/firebase';
 import { RootStore } from 'modules/redux';
 import { getUserTodos } from 'modules/todo';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ToastContainer } from 'react-toastify';
 
 import TodoFilter from './TodoFilter';
 import TodoForm from './TodoForm';
@@ -33,7 +30,6 @@ export const Todo: React.FC = () => {
         <TodoForm />
       </div>
       <TodoFilter />
-      <ToastContainer autoClose={2000} />
       <TodoList />
     </div>
   );

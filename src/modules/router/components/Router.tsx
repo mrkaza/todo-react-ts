@@ -1,9 +1,12 @@
+import 'react-toastify/dist/ReactToastify.css';
+
 import { Layout } from 'components';
 import { Navbar } from 'modules/navbar';
 import { Error } from 'pages';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 import { PrivateRoutes } from './Private';
 import { PublicRoutes } from './Public';
@@ -34,6 +37,7 @@ export const Router: React.FC = () => {
       </Helmet>
       <Navbar />
       <Layout>
+        <ToastContainer />
         <Switch>
           <PrivateRoutes path="/my-todos" component={Home} exact />
           <PrivateRoutes path="/todo/:id" component={TodoDetails} exact />

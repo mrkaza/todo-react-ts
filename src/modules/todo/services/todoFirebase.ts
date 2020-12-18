@@ -43,6 +43,7 @@ export const addTodo = (
           transition: Slide,
           hideProgressBar: true,
           pauseOnHover: true,
+          autoClose: 2000,
         });
       })
       .catch(() => {

@@ -1,12 +1,10 @@
-import 'react-toastify/dist/ReactToastify.css';
-
 import { Button, Input } from 'components';
 import { registerUser } from 'modules/auth';
 import { RootStore } from 'modules/redux';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { Slide, toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 export const SignUp: React.FC = () => {
   const dispatch = useDispatch();
@@ -27,7 +25,10 @@ export const SignUp: React.FC = () => {
     dispatch(registerUser(newUser));
   };
   const notify = () => {
-    toast(errorMessage?.message);
+    toast(errorMessage?.message, {
+      position: 'top-center',
+      autoClose: false,
+    });
   };
   if (errorMessage) {
     notify();
@@ -90,14 +91,6 @@ export const SignUp: React.FC = () => {
           </Button>
         </div>
       </form>
-      {errorMessage && (
-        <ToastContainer
-          transition={Slide}
-          position="bottom-center"
-          autoClose={false}
-          closeOnClick
-        />
-      )}
     </div>
   );
 };
