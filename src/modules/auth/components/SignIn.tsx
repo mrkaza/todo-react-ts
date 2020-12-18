@@ -7,7 +7,7 @@ import { Facebook } from './Facebook';
 
 export const SignIn: React.FC = () => {
   const { register, handleSubmit, errors } = useForm();
-  const [{ errorMessage }, { onSubmit }] = useSignIn();
+  const [, { onSubmit }] = useSignIn();
 
   return (
     <div>
@@ -66,12 +66,6 @@ export const SignIn: React.FC = () => {
           </Button>
         </div>
       </form>
-      {errorMessage && (
-        <p className=" col s12 red-text text-darken-1 error-message">
-          {errorMessage.message}
-        </p>
-      )}
-
       <p className="or">or</p>
       <div className="row">
         <div className="col s12 facebook">

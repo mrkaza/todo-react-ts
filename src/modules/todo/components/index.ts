@@ -1,4 +1,3 @@
-export * from './CrudMessage';
 export * from './OrderBy';
 export * from './Search';
 export * from './TodoFilter';

@@ -9,7 +9,6 @@ type TodoReducer = (
 
 const INIT_STATE: TodoState = {
   todos: null,
-  crudMessage: null,
   search: null,
   orderBy: 'created.asc',
   todo: null,
@@ -21,31 +20,6 @@ export const todoReducer: TodoReducer = (state = INIT_STATE, action) => {
       return {
         ...state,
         todos: action.payload,
-      };
-    case TodoActionTypes.AddTodo:
-      return {
-        ...state,
-        crudMessage: action.payload,
-      };
-    case TodoActionTypes.AddTodoError:
-      return {
-        ...state,
-        crudMessage: action.payload,
-      };
-    case TodoActionTypes.DeleteTodo:
-      return {
-        ...state,
-        crudMessage: action.payload,
-      };
-    case TodoActionTypes.CompleteTodo:
-      return {
-        ...state,
-        crudMessage: action.payload,
-      };
-    case TodoActionTypes.EditTodo:
-      return {
-        ...state,
-        crudMessage: action.payload,
       };
     case TodoActionTypes.TodoDetail:
       return {

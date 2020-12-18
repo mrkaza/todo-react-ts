@@ -1,5 +1,6 @@
 import { firestore } from 'modules/firebase';
 import { TodoActions, TodoType } from 'modules/todo';
+import { Slide, toast } from 'react-toastify';
 import { Dispatch } from 'redux';
 
 export const getUserTodos = (userId: string) => {
@@ -36,14 +37,24 @@ export const addTodo = (
         userId: userId,
       })
       .then(() => {
-        dispatch(TodoActions.AddTodo({ message: 'Todo added' }));
+        dispatch(TodoActions.AddTodo());
+        toast.success('Todo Added', {
+          position: 'top-center',
+          transition: Slide,
+          hideProgressBar: true,
+          pauseOnHover: true,
+          autoClose: 2000,
+        });
       })
       .catch(() => {
-        dispatch(
-          TodoActions.AddTodoError({
-            message: 'There was a probem adding todo.',
-          }),
-        );
+        dispatch(TodoActions.AddTodoError());
+        toast.warn('Todo Added', {
+          position: 'top-center',
+          autoClose: 2000,
+          transition: Slide,
+          hideProgressBar: true,
+          pauseOnHover: true,
+        });
       });
   };
 };
@@ -55,7 +66,14 @@ export const deleteTodo = (id: string) => {
       .doc(id)
       .delete()
       .then(() => {
-        dispatch(TodoActions.DeleteTodo({ message: 'Todo deleted' }));
+        dispatch(TodoActions.DeleteTodo());
+        toast.success('Todo deleted', {
+          position: 'top-center',
+          autoClose: 2000,
+          transition: Slide,
+          hideProgressBar: true,
+          pauseOnHover: true,
+        });
       });
   };
 };
@@ -69,7 +87,14 @@ export const completeTodo = (id: string) => {
         completed: true,
       })
       .then(() => {
-        dispatch(TodoActions.CompleteTodo({ message: 'Todo completed' }));
+        dispatch(TodoActions.CompleteTodo());
+        toast.success('Todo Completed', {
+          position: 'top-center',
+          autoClose: 2000,
+          transition: Slide,
+          hideProgressBar: true,
+          pauseOnHover: true,
+        });
       });
   };
 };
@@ -95,7 +120,14 @@ export const editTodo = (newDesc: string, id: string) => {
         description: newDesc,
       })
       .then(() => {
-        dispatch(TodoActions.EditTodo({ message: 'Todo edited' }));
+        dispatch(TodoActions.EditTodo());
+        toast.success('Todo Edited', {
+          position: 'top-center',
+          autoClose: 2000,
+          transition: Slide,
+          hideProgressBar: true,
+          pauseOnHover: true,
+        });
       });
   };
 };

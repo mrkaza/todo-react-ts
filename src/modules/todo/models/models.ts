@@ -7,7 +7,6 @@ export type TodoType = {
 
 export interface TodoState {
   todos: null | TodoType[];
-  crudMessage: null | { message: string };
   todo?: firebase.firestore.DocumentData | null;
   search: null | string;
   orderBy: string;
