@@ -1,10 +1,12 @@
+import 'react-toastify/dist/ReactToastify.css';
+
 import { firestore } from 'modules/firebase';
 import { RootStore } from 'modules/redux';
 import { getUserTodos } from 'modules/todo';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
 
-import CrudMessage from './CrudMessage';
 import TodoFilter from './TodoFilter';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
@@ -31,7 +33,7 @@ export const Todo: React.FC = () => {
         <TodoForm />
       </div>
       <TodoFilter />
-      <CrudMessage />
+      <ToastContainer autoClose={2000} />
       <TodoList />
     </div>
   );
