@@ -20,9 +20,12 @@ export const TodoDetails: React.FC = () => {
     <div>
       {todo ? (
         <div className="col s12 l6 offset-l3">
-          <div className="card">
+          <header>
+            <h1>Todo: {todo.title}</h1>
+          </header>
+          <article className="card">
             <div className="todo-item">
-              <p className="title teal white-text">{todo.title}</p>
+              <h1 className="title teal white-text">{todo.title}</h1>
               <p className="desc">{todo.description}</p>
               <div className="edit">
                 <p className="created">
@@ -36,7 +39,7 @@ export const TodoDetails: React.FC = () => {
                 )}
               </div>
             </div>
-          </div>
+          </article>
         </div>
       ) : (
         <div>Loading</div>

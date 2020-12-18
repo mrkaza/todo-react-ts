@@ -33,13 +33,13 @@ const TodoItem: React.FC<Props> = (props) => {
   };
 
   return (
-    <div className="row">
+    <article className="row">
       <div className="col s12 m6 offset-m3">
         <div className="todo-item">
           <div className="actions teal">
-            <p className="title">
+            <h1 className="title">
               <Link to={'/todo/' + id}>{todo?.title}</Link>
-            </p>
+            </h1>
             <div className="action-btn">
               {!todo?.completed && (
                 <Button
@@ -95,7 +95,7 @@ const TodoItem: React.FC<Props> = (props) => {
           </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 

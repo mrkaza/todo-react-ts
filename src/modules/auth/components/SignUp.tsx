@@ -26,6 +26,9 @@ export const SignUp: React.FC = () => {
 
   return (
     <div>
+      <header>
+        <h1>Register</h1>
+      </header>
       <form className="col s12" onSubmit={handleSubmit(onSubmit)}>
         <Input
           name="email"
