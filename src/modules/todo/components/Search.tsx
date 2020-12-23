@@ -16,7 +16,7 @@ const Search: React.FC = () => {
         />
         <div className="col s2">
           <Button
-            className="z-depth-0 btn-floating btn-small grey"
+            className="button button--neutral button--circle"
             type="submit"
           >
             <i className="material-icons">search</i>

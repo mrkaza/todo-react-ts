@@ -23,7 +23,7 @@ const OrderBy: React.FC = () => {
       </form>
       <div className="col s2">
         <Button
-          className="z-depth-0 btn-floating btn-small grey"
+          className="button button--neutral button--circle"
           onClick={orderBy}
         >
           <i className="material-icons">filter_list</i>

@@ -17,7 +17,9 @@ const IsLoggedIn: React.FC = () => {
         <NavLink to="/my-todos">Home</NavLink>
       </li>
       <li>
-        <Button onClick={signOut}>Logout</Button>
+        <Button onClick={signOut} className="button button--link">
+          Logout
+        </Button>
       </li>
     </ul>
   );

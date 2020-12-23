@@ -83,7 +83,7 @@ export const SignUp: React.FC = () => {
 
         <div className="facebook col s12">
           <Button
-            className="btn waves-effect waves-light"
+            className="button button--secondary button--medium"
             type="submit"
             name="action"
           >

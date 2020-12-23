@@ -62,7 +62,7 @@ const TodoForm: React.FC = () => {
         )}
 
         <Button
-          className="btn waves-effect waves-light"
+          className="button button--medium button--primary"
           type="submit"
           name="action"
         >

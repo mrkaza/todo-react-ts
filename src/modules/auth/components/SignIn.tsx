@@ -58,7 +58,7 @@ export const SignIn: React.FC = () => {
 
         <div className="facebook col s12">
           <Button
-            className="btn waves-effect waves-light"
+            className="button button--medium button--secondary"
             type="submit"
             name="action"
           >

@@ -43,14 +43,14 @@ const TodoItem: React.FC<Props> = (props) => {
             <div className="action-btn">
               {!todo?.completed && (
                 <Button
-                  className="btn-small btn-floating green"
+                  className="button button--circle button--success"
                   onClick={todoCompleted}
                 >
                   <i className="material-icons">done</i>
                 </Button>
               )}
               <Button
-                className="btn-small btn-floating red"
+                className="button button--circle button--danger"
                 onClick={deleteSelected}
               >
                 <i className="material-icons">delete</i>
@@ -79,14 +79,14 @@ const TodoItem: React.FC<Props> = (props) => {
             </p>
             {edit ? (
               <Button
-                className="btn-small btn-floating grey"
+                className="button button--circle button--neutral"
                 onClick={editSelected}
               >
                 <i className="material-icons">done_all</i>
               </Button>
             ) : (
               <Button
-                className="btn-small btn-floating grey"
+                className="button button--circle button--neutral"
                 onClick={() => setEdit(true)}
               >
                 <i className="material-icons">edit</i>
