@@ -1,5 +1,6 @@
 import 'firebase/firestore';
 import 'firebase/auth';
+import 'firebase/functions';
 
 import firebase from 'firebase/app';
 
@@ -16,8 +17,16 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-firebase.firestore().enablePersistence();
-
 export const firestore = firebase.firestore();
 export const firebaseAuth = firebase.auth();
 export const provider = new firebase.auth.FacebookAuthProvider();
+
+const functions = firebase.functions();
+
+if (process.env.NODE_ENV === 'development') {
+  firebaseAuth.useEmulator('http://localhost:9099/');
+  firestore.useEmulator('localhost', 8080);
+  functions.useEmulator('localhost', 5001);
+}
+
+firebase.firestore().enablePersistence();
