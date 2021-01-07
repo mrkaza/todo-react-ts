@@ -4,6 +4,7 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    transition: 0.3s ease-in-out;
 }
 
 .button:hover {
@@ -34,6 +35,9 @@
     background: hsl(var(--color-primary));
     color: hsl(var(--color-tertiary));
 }
+.button--primary:hover {
+    background: hsla(var(--color-primary), 80%);
+}
 
 .button--secondary {
     background: hsl(var(--color-secondary));
@@ -46,6 +50,9 @@
 .button--secondary:focus {
     background: hsl(var(--color-secondary));
     color: hsl(var(--color-tertiary));
+}
+.button--secondary:hover {
+    background: hsla(var(--color-secondary), 70%);
 }
 
 .button--danger {
@@ -60,6 +67,9 @@
     background: hsl(var(--color-danger));
     color: hsl(var(--color-tertiary));
 }
+.button--danger:hover {
+    background: hsla(var(--color-danger), 80%);
+}
 
 .button--success {
     background: hsl(var(--color-success));
@@ -73,6 +83,9 @@
     background: hsl(var(--color-success));
     color: hsl(var(--color-tertiary));
 }
+.button--success:hover {
+    background: hsla(var(--color-success), 80%);
+}
 
 .button--neutral {
     background: hsl(var(--color-neutral));
@@ -85,6 +98,9 @@
 .button--neutral:focus {
     background: hsl(var(--color-neutral));
     color: hsl(var(--color-tertiary));
+}
+.button--neutral:hover {
+    background: hsla(var(--color-neutral), 80%);
 }
 
 .button--link {
@@ -116,6 +132,9 @@
 .button--facebook:focus {
     background: hsl(var(--color-facebook));
     color: hsl(var(--color-tertiary));
+}
+.button--facebook:hover {
+    background: hsla(var(--color-facebook), 85%);
 }
 
 .button--circle {

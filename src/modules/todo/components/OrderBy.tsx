@@ -14,6 +14,7 @@ const OrderBy: React.FC = () => {
           Order By:
         </label>
         <select
+          className="order-todos__selector"
           value={order}
           name="orderBy"
           id="orderBy"

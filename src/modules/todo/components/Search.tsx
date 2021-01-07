@@ -17,7 +17,7 @@ const Search: React.FC = () => {
       />
       <div>
         <Button
-          className="button button--neutral button--circle ml-sm"
+          className="button button--neutral button--circle ml-md"
           type="submit"
         >
           <FontAwesomeIcon icon={faSearch} />

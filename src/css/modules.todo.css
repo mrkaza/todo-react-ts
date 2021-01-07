@@ -15,14 +15,12 @@
     padding: 0 var(--unit-8);
 }
 
-.order-todos {
-    select {
-        background: hsla(var(--color-secondary), 40%);
-        height: calc(var(--unit-8) * 4);
-        border: 2px solid hsla(var(--color-neutral), 50%);
-        border-radius: 5px;
-        outline: none;
-    }
+.order-todos__selector {
+    background: hsla(var(--color-secondary), 40%);
+    height: calc(var(--unit-8) * 4);
+    border: 2px solid hsla(var(--color-neutral), 50%);
+    border-radius: 5px;
+    outline: none;
 }
 
 .todo-item {

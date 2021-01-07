@@ -5,3 +5,6 @@
 .mr-sm {
     margin-left: var(--unit-8);
 }
+.ml-md {
+    margin-left: calc(var(--unit-8) * 2);
+}

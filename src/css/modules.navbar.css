@@ -3,12 +3,6 @@
     color: hsl(var(--color-tertiary));
 }
 
-/* .navbar__wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-} */
-
 .navbar__menu {
     display: flex;
     justify-content: space-around;
