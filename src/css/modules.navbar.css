@@ -1,0 +1,18 @@
+.navbar {
+    background: hsl(var(--color-primary));
+    color: hsl(var(--color-tertiary));
+}
+
+.navbar__menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+
+.navbar__link {
+    text-decoration: none;
+    color: hsl(var(--color-tertiary));
+    margin-left: var(--unit-8);
+    font-size: calc(var(--unit-8) * 2);
+}

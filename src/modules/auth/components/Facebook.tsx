@@ -11,7 +11,10 @@ export const Facebook: React.FC = () => {
   };
 
   return (
-    <Button onClick={facebook} className="btn blue darken-3">
+    <Button
+      onClick={facebook}
+      className="button button--medium button--facebook"
+    >
       Login with Facebook
     </Button>
   );

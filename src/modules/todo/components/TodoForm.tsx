@@ -31,38 +31,37 @@ const TodoForm: React.FC = () => {
   };
 
   return (
-    <form className="col s12" onSubmit={handleSubmit(onSubmit)}>
-      <div className="row">
-        <Input
-          name="title"
-          validation={register({
-            required: true,
-          })}
-          className="col s12"
-          id="title"
-          type="text"
-          htmlFor="title"
-          label="Title"
-        />
-        <Input
-          name="description"
-          validation={register({
-            required: true,
-          })}
-          className="col s12"
-          id="description"
-          type="text"
-          htmlFor="description"
-          label="Description"
-        />
-        {(errors.description || errors.title) && (
-          <p className="col s12 red-text text-darken-1 error-message">
-            Both fields required
-          </p>
-        )}
-
+    <form className="todo__form" onSubmit={handleSubmit(onSubmit)}>
+      <Input
+        name="title"
+        validation={register({
+          required: true,
+        })}
+        className="input input--secondary input--large"
+        labelClass="label"
+        id="title"
+        type="text"
+        htmlFor="title"
+        label="Title"
+      />
+      <Input
+        name="description"
+        validation={register({
+          required: true,
+        })}
+        className="input input--secondary input--large"
+        labelClass="label"
+        id="description"
+        type="text"
+        htmlFor="description"
+        label="Description"
+      />
+      {(errors.description || errors.title) && (
+        <p className="t-center t-error">Both fields required</p>
+      )}
+      <div className="f f-justify-center">
         <Button
-          className="btn waves-effect waves-light"
+          className="button button--medium button--primary"
           type="submit"
           name="action"
         >

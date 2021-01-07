@@ -3,12 +3,16 @@ import { NavLink } from 'react-router-dom';
 
 const IsLoggedOut: React.FC = () => {
   return (
-    <ul id="nav-mobile" className="right">
+    <ul className="navbar__menu">
       <li>
-        <NavLink to="/">Login</NavLink>
+        <NavLink className="navbar__link" to="/">
+          Login
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/register">Register</NavLink>
+        <NavLink className="navbar__link" to="/register">
+          Register
+        </NavLink>
       </li>
     </ul>
   );

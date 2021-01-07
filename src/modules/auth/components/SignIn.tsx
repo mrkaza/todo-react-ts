@@ -12,9 +12,9 @@ export const SignIn: React.FC = () => {
   return (
     <div>
       <header>
-        <h1>Login</h1>
+        <h1 className="t-center">Login</h1>
       </header>
-      <form className="col s12" onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <Input
           name="email"
           validation={register({
@@ -27,13 +27,12 @@ export const SignIn: React.FC = () => {
           id="email"
           type="email"
           htmlFor="email"
-          className="col s12"
+          className="input input--secondary input--large"
+          labelClass="label"
           label="Email"
         />
         {errors.email && (
-          <p className="col s12 red-text text-darken-1 error-message">
-            {errors.email.message}
-          </p>
+          <p className="t-center t-error">{errors.email.message}</p>
         )}
         <Input
           name="password"
@@ -44,21 +43,20 @@ export const SignIn: React.FC = () => {
               message: 'Minimal lenght of password is 6 char.',
             },
           })}
-          className="col s12"
+          className="input input--secondary input--large"
+          labelClass="label"
           id="password"
           type="password"
           htmlFor="password"
           label="Password"
         />
         {errors.password && (
-          <p className="col s12 red-text text-darken-1 error-message">
-            {errors.password.message}
-          </p>
+          <p className="t-center t-error">{errors.password.message}</p>
         )}
 
-        <div className="facebook col s12">
+        <div className="f f-justify-center">
           <Button
-            className="btn waves-effect waves-light"
+            className="button button--medium button--secondary"
             type="submit"
             name="action"
           >
@@ -66,11 +64,9 @@ export const SignIn: React.FC = () => {
           </Button>
         </div>
       </form>
-      <p className="or">or</p>
-      <div className="row">
-        <div className="col s12 facebook">
-          <Facebook />
-        </div>
+      <p className="t-center">or</p>
+      <div className="f f-justify-center">
+        <Facebook />
       </div>
     </div>
   );

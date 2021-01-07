@@ -5,7 +5,7 @@ import Search from './Search';
 
 const TodoFilter: React.FC = () => {
   return (
-    <div className="col s12 filters">
+    <div className="todo__filters">
       <Search />
       <OrderBy />
     </div>

@@ -10,9 +10,9 @@ export const Navbar: React.FC = () => {
   const user = useSelector((state: RootStore) => state.auth.user);
 
   return (
-    <nav>
-      <div className="nav-wrapper container">
-        <Link to="/my-todos" className="brand-logo">
+    <nav className="navbar">
+      <div className="f f-justify-between f-align-items-center container">
+        <Link to="/my-todos" className="navbar__link">
           Todo App
         </Link>
         {user ? <IsLoggedIn /> : <IsLoggedOut />}

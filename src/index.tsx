@@ -1,4 +1,4 @@
-import './index.css';
+import 'css/index.css';
 
 import { persistedReducer } from 'modules/redux';
 import { Router } from 'modules/router';

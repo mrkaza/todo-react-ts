@@ -8,7 +8,7 @@ const LazyList: React.FC = () => {
   const todos = useSelector(selector);
 
   return (
-    <div className="col s12">
+    <div>
       {todos &&
         todos.map((todo: TodoType) => {
           return <TodoItem todo={todo} key={todo?.id} />;

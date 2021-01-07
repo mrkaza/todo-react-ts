@@ -37,9 +37,9 @@ export const SignUp: React.FC = () => {
   return (
     <div>
       <header>
-        <h1>Register</h1>
+        <h1 className="t-center">Register</h1>
       </header>
-      <form className="col s12" onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <Input
           name="email"
           validation={register({
@@ -49,16 +49,15 @@ export const SignUp: React.FC = () => {
               message: 'Email is not formed correctly',
             },
           })}
-          className="col s12"
+          className="input input--large input--secondary"
+          labelClass="label"
           id="email"
           type="email"
           htmlFor="email"
           label="Email"
         />
         {errors.email && (
-          <p className="col s12 red-text text-darken-1 error-message">
-            {errors.email.message}
-          </p>
+          <p className="t-center t-error">{errors.email.message}</p>
         )}
         <Input
           name="password"
@@ -69,21 +68,20 @@ export const SignUp: React.FC = () => {
               message: 'Minimal length of password is 6 char.',
             },
           })}
-          className="col s12"
+          className="input input--large input--secondary"
+          labelClass="label"
           id="password"
           type="password"
           htmlFor="password"
           label="Password"
         />
         {errors.password && (
-          <p className="col s12 red-text text-darken-1 error-message">
-            {errors.password.message}
-          </p>
+          <p className="t-center text--error">{errors.password.message}</p>
         )}
 
-        <div className="facebook col s12">
+        <div className="f f-justify-center">
           <Button
-            className="btn waves-effect waves-light"
+            className="button button--secondary button--medium"
             type="submit"
             name="action"
           >

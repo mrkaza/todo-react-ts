@@ -1,3 +1,5 @@
+import { faCheck, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Input } from 'components';
 import { format } from 'date-fns';
 import { completeTodo, deleteTodo, editTodo, TodoType } from 'modules/todo';
@@ -33,67 +35,66 @@ const TodoItem: React.FC<Props> = (props) => {
   };
 
   return (
-    <article className="row">
-      <div className="col s12 m6 offset-m3">
-        <div className="todo-item">
-          <div className="actions teal">
-            <h1 className="title">
-              <Link to={'/todo/' + id}>{todo?.title}</Link>
-            </h1>
-            <div className="action-btn">
-              {!todo?.completed && (
-                <Button
-                  className="btn-small btn-floating green"
-                  onClick={todoCompleted}
-                >
-                  <i className="material-icons">done</i>
-                </Button>
-              )}
-              <Button
-                className="btn-small btn-floating red"
-                onClick={deleteSelected}
-              >
-                <i className="material-icons">delete</i>
-              </Button>
-            </div>
-          </div>
-          {edit ? (
-            <form onSubmit={handleSubmit}>
-              <Input
-                className="col s12"
-                value={newDesc}
-                type="text"
-                onChange={(e) => setNewDesc(e.target.value)}
-              />
-            </form>
-          ) : (
-            <p className={`desc ${todo?.completed ? 'completed' : ''}`}>
-              {todo?.description}
-            </p>
+    <article className="todo-item">
+      <div className="f f-justify-between f-align-items-center">
+        <h1 className="todo-item__title">
+          <Link to={'/todo/' + id}>{todo?.title}</Link>
+        </h1>
+        <div className="f f-justify-between">
+          {!todo?.completed && (
+            <Button
+              className="button button--circle button--success"
+              onClick={todoCompleted}
+            >
+              <FontAwesomeIcon icon={faCheck} />
+            </Button>
           )}
-
-          <div className="edit">
-            <p className="created">
-              Created at:{' '}
-              {format(todo?.createdAt.toDate(), 'do MMM yyyy, H:mm')}
-            </p>
-            {edit ? (
-              <Button
-                className="btn-small btn-floating grey"
-                onClick={editSelected}
-              >
-                <i className="material-icons">done_all</i>
-              </Button>
-            ) : (
-              <Button
-                className="btn-small btn-floating grey"
-                onClick={() => setEdit(true)}
-              >
-                <i className="material-icons">edit</i>
-              </Button>
-            )}
-          </div>
+          <Button
+            className="button button--circle button--danger ml-sm"
+            onClick={deleteSelected}
+          >
+            <FontAwesomeIcon icon={faTrash} />
+          </Button>
         </div>
+      </div>
+      {edit ? (
+        <form onSubmit={handleSubmit}>
+          <Input
+            className="input input--medium input--secondary"
+            value={newDesc}
+            type="text"
+            onChange={(e) => setNewDesc(e.target.value)}
+          />
+        </form>
+      ) : (
+        <p
+          className={`todo-item__description ${
+            todo?.completed ? 'todo-item__description--completed' : ''
+          }`}
+        >
+          {todo?.description}
+        </p>
+      )}
+
+      <div className="f f-justify-between f-align-items-center">
+        <p className="todo-item__created-at">
+          Created at: {format(todo?.createdAt.toDate(), 'do MMM yyyy, H:mm')}
+        </p>
+        {edit ? (
+          <Button
+            className="button button--circle button--neutral"
+            onClick={editSelected}
+          >
+            <FontAwesomeIcon icon={faCheck} />
+          </Button>
+        ) : (
+          <Button
+            className="button button--circle button--neutral"
+            onClick={() => setEdit(true)}
+          >
+            <FontAwesomeIcon icon={faEdit} />
+          </Button>
+        )}
       </div>
     </article>
   );

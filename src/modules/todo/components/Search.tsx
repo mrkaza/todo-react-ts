@@ -1,3 +1,5 @@
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Input } from 'components';
 import { useSearch } from 'modules/todo';
 import React from 'react';
@@ -6,24 +8,22 @@ const Search: React.FC = () => {
   const [{ search }, { handleSubmit, setSearch }] = useSearch();
 
   return (
-    <div className="col s12 m8">
-      <form className="col s12 search-form" onSubmit={handleSubmit}>
-        <Input
-          className="col s10"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          placeholder="Search todos.."
-        />
-        <div className="col s2">
-          <Button
-            className="z-depth-0 btn-floating btn-small grey"
-            type="submit"
-          >
-            <i className="material-icons">search</i>
-          </Button>
-        </div>
-      </form>
-    </div>
+    <form className="todo__filters__items" onSubmit={handleSubmit}>
+      <Input
+        className="input input--secondary input--medium"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        placeholder="Search todos.."
+      />
+      <div>
+        <Button
+          className="button button--neutral button--circle ml-md"
+          type="submit"
+        >
+          <FontAwesomeIcon icon={faSearch} />
+        </Button>
+      </div>
+    </form>
   );
 };
 

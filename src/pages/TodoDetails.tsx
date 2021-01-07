@@ -18,25 +18,23 @@ export const TodoDetails: React.FC = () => {
   return (
     <div>
       {todo ? (
-        <div className="col s12 l6 offset-l3">
+        <div>
           <header>
-            <h1>Todo: {todo.title}</h1>
+            <h1 className="t-center">Todo: {todo.title}</h1>
           </header>
-          <article className="card">
-            <div className="todo-item">
-              <h1 className="title teal white-text">{todo.title}</h1>
-              <p className="desc">{todo.description}</p>
-              <div className="edit">
-                <p className="created">
-                  Created at:
-                  {format(todo.createdAt.toDate(), 'do MMM yyyy, H:mm')}
-                </p>
-                {todo.completed ? (
-                  <p className="created">Completed: true</p>
-                ) : (
-                  <p className="created">Completed: false</p>
-                )}
-              </div>
+          <article className="todo-item">
+            <h1 className="todo-item__title">{todo.title}</h1>
+            <p className="todo-item__description">{todo.description}</p>
+            <div className="f f-justify-between">
+              <p className="todo-item__created-at">
+                Created at:
+                {format(todo.createdAt.toDate(), 'do MMM yyyy, H:mm')}
+              </p>
+              {todo.completed ? (
+                <p className="todo-item__completed">Completed: true</p>
+              ) : (
+                <p className="todo-item__completed">Completed: false</p>
+              )}
             </div>
           </article>
         </div>

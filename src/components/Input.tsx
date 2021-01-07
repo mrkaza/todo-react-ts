@@ -3,6 +3,7 @@ import React, { InputHTMLAttributes } from 'react';
 type Props = {
   htmlFor?: string;
   label?: string;
+  labelClass?: string;
   validation?:
     | string
     | ((instance: HTMLInputElement | null) => void)
@@ -15,15 +16,17 @@ type Props = {
 export const Input: React.FC<Props> = ({
   htmlFor,
   label,
-  className,
+  labelClass,
   validation,
   name,
   ...rest
 }) => {
   return (
-    <div className={`input-field ${className}`}>
+    <div className="input-wrapper">
+      <label className={labelClass} htmlFor={htmlFor}>
+        {label}
+      </label>
       <input name={name} ref={validation} {...rest} />
-      <label htmlFor={htmlFor}>{label}</label>
     </div>
   );
 };

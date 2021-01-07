@@ -1,3 +1,5 @@
+import { faSort } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button } from 'components';
 import { useOrderBy } from 'modules/todo';
 import React from 'react';
@@ -6,10 +8,13 @@ const OrderBy: React.FC = () => {
   const [{ order }, { handleChange, orderBy }] = useOrderBy();
 
   return (
-    <div className="col s12 m4 order-by">
-      <form className="col s10">
-        <label htmlFor="orderBy">Order By:</label>
+    <div className="todo__filters__items">
+      <form className="order-todos">
+        <label htmlFor="orderBy" className="label">
+          Order By:
+        </label>
         <select
+          className="order-todos__selector"
           value={order}
           name="orderBy"
           id="orderBy"
@@ -21,14 +26,12 @@ const OrderBy: React.FC = () => {
           <option value="not-completed">Not completed</option>
         </select>
       </form>
-      <div className="col s2">
-        <Button
-          className="z-depth-0 btn-floating btn-small grey"
-          onClick={orderBy}
-        >
-          <i className="material-icons">filter_list</i>
-        </Button>
-      </div>
+      <Button
+        className="button button--neutral button--circle ml-sm"
+        onClick={orderBy}
+      >
+        <FontAwesomeIcon icon={faSort} />
+      </Button>
     </div>
   );
 };
