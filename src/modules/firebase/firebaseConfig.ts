@@ -23,11 +23,10 @@ export const provider = new firebase.auth.FacebookAuthProvider();
 
 const functions = firebase.functions();
 
-if (location.hostname === 'localhost') {
+if (process.env.NODE_ENV === 'development') {
+  firebaseAuth.useEmulator('http://localhost:9099/');
   firestore.useEmulator('localhost', 8080);
+  functions.useEmulator('localhost', 5001);
 }
-firebaseAuth.useEmulator('http://localhost:9099/');
-
-functions.useEmulator('localhost', 5001);
 
 firebase.firestore().enablePersistence();
