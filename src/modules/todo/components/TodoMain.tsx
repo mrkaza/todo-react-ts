@@ -24,7 +24,7 @@ export const Todo: React.FC = () => {
   return (
     <div>
       <header>
-        <h1 className="text-center">Todo App</h1>
+        <h1 className="t-center">Todo App</h1>
       </header>
       <TodoForm />
       <TodoFilter />

@@ -1,0 +1,8 @@
+.t-center {
+    text-align: center;
+}
+
+.t-error {
+    color: red;
+    font-weight: bold;
+}

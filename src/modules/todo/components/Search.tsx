@@ -15,8 +15,11 @@ const Search: React.FC = () => {
         onChange={(e) => setSearch(e.target.value)}
         placeholder="Search todos.."
       />
-      <div className="col s2">
-        <Button className="button button--neutral button--circle" type="submit">
+      <div>
+        <Button
+          className="button button--neutral button--circle ml-sm"
+          type="submit"
+        >
           <FontAwesomeIcon icon={faSearch} />
         </Button>
       </div>

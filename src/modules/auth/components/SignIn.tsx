@@ -12,7 +12,7 @@ export const SignIn: React.FC = () => {
   return (
     <div>
       <header>
-        <h1 className="text-center">Login</h1>
+        <h1 className="t-center">Login</h1>
       </header>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input
@@ -32,7 +32,7 @@ export const SignIn: React.FC = () => {
           label="Email"
         />
         {errors.email && (
-          <p className="text-center text--error">{errors.email.message}</p>
+          <p className="t-center t-error">{errors.email.message}</p>
         )}
         <Input
           name="password"
@@ -51,10 +51,10 @@ export const SignIn: React.FC = () => {
           label="Password"
         />
         {errors.password && (
-          <p className="text-center text--error">{errors.password.message}</p>
+          <p className="t-center t-error">{errors.password.message}</p>
         )}
 
-        <div className="flex-center">
+        <div className="f f-justify-center">
           <Button
             className="button button--medium button--secondary"
             type="submit"
@@ -64,8 +64,8 @@ export const SignIn: React.FC = () => {
           </Button>
         </div>
       </form>
-      <p className="text-center">or</p>
-      <div className="flex-center">
+      <p className="t-center">or</p>
+      <div className="f f-justify-center">
         <Facebook />
       </div>
     </div>

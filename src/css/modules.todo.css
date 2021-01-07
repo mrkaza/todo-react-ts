@@ -35,11 +35,6 @@
 .todo-item__title {
     margin: 0;
     color: hsl(var(--color-primary));
-
-    a {
-        text-decoration: none;
-        color: hsl(var(--color-primary));
-    }
 }
 
 .todo-item__description {

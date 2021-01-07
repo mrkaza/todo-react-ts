@@ -20,12 +20,12 @@ export const TodoDetails: React.FC = () => {
       {todo ? (
         <div>
           <header>
-            <h1 className="text-center">Todo: {todo.title}</h1>
+            <h1 className="t-center">Todo: {todo.title}</h1>
           </header>
           <article className="todo-item">
             <h1 className="todo-item__title">{todo.title}</h1>
             <p className="todo-item__description">{todo.description}</p>
-            <div className="flex-space-between">
+            <div className="f f-justify-between">
               <p className="todo-item__created-at">
                 Created at:
                 {format(todo.createdAt.toDate(), 'do MMM yyyy, H:mm')}

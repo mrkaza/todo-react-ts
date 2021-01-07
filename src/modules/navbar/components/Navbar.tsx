@@ -11,7 +11,7 @@ export const Navbar: React.FC = () => {
 
   return (
     <nav className="navbar">
-      <div className="navbar__wrapper container">
+      <div className="f f-justify-between f-align-items-center container">
         <Link to="/my-todos" className="navbar__link">
           Todo App
         </Link>

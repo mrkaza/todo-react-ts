@@ -36,11 +36,11 @@ const TodoItem: React.FC<Props> = (props) => {
 
   return (
     <article className="todo-item">
-      <div className="flex-space-between">
+      <div className="f f-justify-between f-align-items-center">
         <h1 className="todo-item__title">
           <Link to={'/todo/' + id}>{todo?.title}</Link>
         </h1>
-        <div className="flex-space-between">
+        <div className="f f-justify-between">
           {!todo?.completed && (
             <Button
               className="button button--circle button--success"
@@ -50,7 +50,7 @@ const TodoItem: React.FC<Props> = (props) => {
             </Button>
           )}
           <Button
-            className="button button--circle button--danger"
+            className="button button--circle button--danger ml-sm"
             onClick={deleteSelected}
           >
             <FontAwesomeIcon icon={faTrash} />
@@ -76,7 +76,7 @@ const TodoItem: React.FC<Props> = (props) => {
         </p>
       )}
 
-      <div className="flex-space-between">
+      <div className="f f-justify-between f-align-items-center">
         <p className="todo-item__created-at">
           Created at: {format(todo?.createdAt.toDate(), 'do MMM yyyy, H:mm')}
         </p>

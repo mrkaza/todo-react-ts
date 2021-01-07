@@ -10,7 +10,7 @@ const TodoList: React.FC = () => {
   return (
     <div className="todo-list">
       {todos && !todos.length ? (
-        <div className="text-center text--error">
+        <div className="t-center t-error">
           No todos matching your parameters.
         </div>
       ) : (

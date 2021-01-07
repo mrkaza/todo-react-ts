@@ -57,9 +57,9 @@ const TodoForm: React.FC = () => {
         label="Description"
       />
       {(errors.description || errors.title) && (
-        <p className="text-center text--error">Both fields required</p>
+        <p className="t-center t-error">Both fields required</p>
       )}
-      <div className="flex-center">
+      <div className="f f-justify-center">
         <Button
           className="button button--medium button--primary"
           type="submit"

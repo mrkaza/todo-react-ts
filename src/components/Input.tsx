@@ -22,7 +22,7 @@ export const Input: React.FC<Props> = ({
   ...rest
 }) => {
   return (
-    <div className="input__wrapper">
+    <div className="input-wrapper">
       <label className={labelClass} htmlFor={htmlFor}>
         {label}
       </label>

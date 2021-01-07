@@ -26,7 +26,7 @@ const OrderBy: React.FC = () => {
         </select>
       </form>
       <Button
-        className="button button--neutral button--circle"
+        className="button button--neutral button--circle ml-sm"
         onClick={orderBy}
       >
         <FontAwesomeIcon icon={faSort} />
