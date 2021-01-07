@@ -1,5 +1,6 @@
 import 'firebase/firestore';
 import 'firebase/auth';
+import 'firebase/functions';
 
 import firebase from 'firebase/app';
 
@@ -20,9 +21,13 @@ export const firestore = firebase.firestore();
 export const firebaseAuth = firebase.auth();
 export const provider = new firebase.auth.FacebookAuthProvider();
 
+const functions = firebase.functions();
+
 if (location.hostname === 'localhost') {
   firestore.useEmulator('localhost', 8080);
 }
 firebaseAuth.useEmulator('http://localhost:9099/');
+
+functions.useEmulator('localhost', 5001);
 
 firebase.firestore().enablePersistence();
