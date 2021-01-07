@@ -1,10 +1,20 @@
 .button {
     border-radius: 0;
     border: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .button:hover {
     cursor: pointer;
+}
+
+.button:active {
+    outline: none;
+}
+.button:focus {
+    outline: none;
 }
 
 .button--medium {
@@ -79,8 +89,10 @@
 
 .button--link {
     background-color: transparent;
-    height: 100%;
     color: hsl(var(--color-tertiary));
+    border: 1px solid hsl(var(--color-secondary));
+    padding: calc(var(--unit-8) / 2) var(--unit-8);
+    border-radius: 5px;
 }
 .button--link:active {
     background-color: transparent;
@@ -111,7 +123,4 @@
     width: calc(var(--unit-8));
     padding: calc(var(--unit-8) * 2.5);
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }

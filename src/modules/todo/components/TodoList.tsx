@@ -8,9 +8,9 @@ const TodoList: React.FC = () => {
   const todos = useSelector(selector);
 
   return (
-    <div>
+    <div className="todo-list">
       {todos && !todos.length ? (
-        <div className="col s12 no-todos">
+        <div className="text-center text--error">
           No todos matching your parameters.
         </div>
       ) : (

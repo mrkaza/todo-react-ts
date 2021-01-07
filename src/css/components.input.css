@@ -1,0 +1,28 @@
+.input__wrapper {
+    margin: calc(var(--unit-8) * 2) 0;
+}
+
+.input {
+    border: 2px solid hsla(var(--color-neutral), 70%);
+    width: 100%;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+
+.input--secondary {
+    background: hsla(var(--color-secondary), 35%);
+}
+.input--large {
+    height: calc(var(--unit-8) * 4);
+}
+
+.input--medium {
+    height: calc(var(--unit-8) * 3);
+}
+
+.label {
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-right: var(--unit-8);
+}
