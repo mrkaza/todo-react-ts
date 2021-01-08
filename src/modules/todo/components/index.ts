@@ -6,3 +6,4 @@ export * from './TodoItem';
 export * from './TodoList';
 export * from './TodoMain';
 export * from './LazyList';
+export * from './TodoCounter';

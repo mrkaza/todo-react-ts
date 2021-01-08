@@ -1,10 +1,10 @@
 import { Button, Input } from 'components';
 import { useSignIn } from 'modules/auth';
+import { TodoCounter } from 'modules/todo';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
 import { Facebook } from './Facebook';
-import { TodoCounter } from './TodoCounter';
 
 export const SignIn: React.FC = () => {
   const { register, handleSubmit, errors } = useForm();

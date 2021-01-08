@@ -12,7 +12,7 @@ export const TodoCounter: React.FC = () => {
 
   const todoStatus = useSelector((state: RootStore) => state.todo.todoCount);
   const statusPercent = (
-    (todoStatus.completed / todoStatus.cocunt) *
+    (todoStatus?.completed / todoStatus?.cocunt) *
     100
   ).toFixed(2);
 
