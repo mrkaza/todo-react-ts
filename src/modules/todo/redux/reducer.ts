@@ -12,6 +12,7 @@ const INIT_STATE: TodoState = {
   search: null,
   orderBy: 'created.asc',
   todo: null,
+  todoCount: null,
 };
 
 export const todoReducer: TodoReducer = (state = INIT_STATE, action) => {
@@ -40,6 +41,11 @@ export const todoReducer: TodoReducer = (state = INIT_STATE, action) => {
       return {
         ...state,
         crudMessage: null,
+      };
+    case TodoActionTypes.GetCount:
+      return {
+        ...state,
+        todoCount: action.payload,
       };
     default:
       return state;

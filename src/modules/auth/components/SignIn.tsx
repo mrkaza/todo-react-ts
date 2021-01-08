@@ -4,6 +4,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 
 import { Facebook } from './Facebook';
+import { TodoCounter } from './TodoCounter';
 
 export const SignIn: React.FC = () => {
   const { register, handleSubmit, errors } = useForm();
@@ -11,6 +12,7 @@ export const SignIn: React.FC = () => {
 
   return (
     <div>
+      <TodoCounter />
       <header>
         <h1 className="t-center">Login</h1>
       </header>

@@ -9,6 +9,7 @@ enum GetTodoActionTypes {
   CompleteTodo = 'COMPLETE_TODO',
   TodoDetail = 'TODO_DETAILS',
   EditTodo = 'EDIT_TODO',
+  GetCount = 'GET_COUNT',
 }
 
 export const TodoActionTypes = {

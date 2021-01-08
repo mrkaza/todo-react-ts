@@ -3,17 +3,6 @@ import * as admin from 'firebase-admin';
 
 admin.initializeApp();
 
-// let status: any;
-
-// admin
-//   .firestore()
-//   .collection('todoStatus')
-//   .doc('status')
-//   .get()
-//   .then((doc) => {
-//     status = doc.data();
-//   });
-
 export const todoCount = functions.firestore
   .document('todos/{todoId}')
   .onCreate(async () => {

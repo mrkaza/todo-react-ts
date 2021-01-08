@@ -128,17 +128,18 @@ export const editTodo = (newDesc: string, id: string) => {
           hideProgressBar: true,
           pauseOnHover: true,
         });
+      });
+  };
+};
 
-        // let count;
-        // firestore
-        //   .collection('todoStatus')
-        //   .doc('status')
-        //   .get()
-        //   .then((doc) => {
-        //     count = doc.data();
-        //     console.log(count);
-        //   });
-        // console.log(count);
+export const getTodoCount = () => {
+  return (dispatch: Dispatch<TodoActions>): void => {
+    firestore
+      .collection('todoStatus')
+      .doc('status')
+      .get()
+      .then((doc) => {
+        dispatch(TodoActions.GetCount(doc.data()));
       });
   };
 };
