@@ -131,3 +131,15 @@ export const editTodo = (newDesc: string, id: string) => {
       });
   };
 };
+
+export const getTodoCount = () => {
+  return (dispatch: Dispatch<TodoActions>): void => {
+    firestore
+      .collection('todoStatus')
+      .doc('status')
+      .get()
+      .then((doc) => {
+        dispatch(TodoActions.GetCount(doc.data()));
+      });
+  };
+};

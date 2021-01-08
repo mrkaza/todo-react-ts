@@ -45,6 +45,11 @@ export const TodoActions = {
 
   EditTodo: (): Action<typeof TodoActionTypes.EditTodo> =>
     createAction(TodoActionTypes.EditTodo),
+
+  GetCount: (
+    count: firebase.firestore.DocumentData | undefined,
+  ): ActionWithPayload<typeof TodoActionTypes.GetCount, typeof count> =>
+    createAction(TodoActionTypes.GetCount, count),
 };
 
 export type TodoActions = ActionUnion<typeof TodoActions>;

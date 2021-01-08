@@ -1,5 +1,6 @@
 import { Button, Input } from 'components';
 import { useSignIn } from 'modules/auth';
+import { TodoCounter } from 'modules/todo';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
@@ -11,6 +12,7 @@ export const SignIn: React.FC = () => {
 
   return (
     <div>
+      <TodoCounter />
       <header>
         <h1 className="t-center">Login</h1>
       </header>
