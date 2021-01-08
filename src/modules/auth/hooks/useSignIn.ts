@@ -1,3 +1,4 @@
+import firebase from 'firebase';
 import { CustomHook } from 'models';
 import { login } from 'modules/auth';
 import { RootStore } from 'modules/redux';
@@ -29,6 +30,10 @@ export const useSignIn: CustomHook<State, Api> = () => {
         notify();
       }
       dispatch(login(data.email, data.password));
+      const loginCount = firebase.functions().httpsCallable('loginCount');
+      loginCount().then((result) => {
+        console.log(result);
+      });
     },
     [dispatch, errorMessage],
   );
