@@ -6,39 +6,43 @@ admin.initializeApp();
 export const todoCount = functions.firestore
   .document('todos/{todoId}')
   .onCreate(async () => {
-    let status: any;
-    const doc = await admin
-      .firestore()
-      .collection('todoStatus')
-      .doc('status')
-      .get();
-    status = doc.data();
+    let todoCount: number;
+    let todoCompleted: number;
+    const statusRef = admin.firestore().collection('todoStatus').doc('status');
 
-    return admin
-      .firestore()
-      .collection('todoStatus')
-      .doc('status')
-      .update({
-        count: status.count + 1,
+    const doc = await statusRef.get();
+    if (doc.exists) {
+      todoCount = doc.data()?.count;
+      todoCompleted = doc.data()?.completed;
+    } else {
+      todoCount = 0;
+      todoCompleted = 0;
+
+      statusRef.set({
+        count: 0,
+        completed: 0,
       });
+    }
+
+    return statusRef.set(
+      {
+        count: todoCount + 1,
+        completed: todoCompleted,
+      },
+      { merge: true },
+    );
   });
 
 export const deleteCount = functions.firestore
   .document('todos/{completed}')
   .onUpdate(async () => {
-    let status: any;
-    const doc = await admin
-      .firestore()
-      .collection('todoStatus')
-      .doc('status')
-      .get();
-    status = doc.data();
+    let todoCompleted: number;
+    const statusRef = admin.firestore().collection('todoStatus').doc('status');
 
-    return await admin
-      .firestore()
-      .collection('todoStatus')
-      .doc('status')
-      .update({
-        completed: status?.completed + 1,
-      });
+    const doc = await statusRef.get();
+    todoCompleted = doc.data()?.completed;
+
+    return await statusRef.update({
+      completed: todoCompleted + 1,
+    });
   });
