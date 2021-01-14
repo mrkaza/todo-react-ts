@@ -1,3 +1,11 @@
 .color--danger {
     color: hsl(var(--color-danger));
 }
+
+.color--secondary {
+    color: hsl(var(--color-secondary));
+}
+
+.background--body {
+    background: hsl(var(--color-body));
+}

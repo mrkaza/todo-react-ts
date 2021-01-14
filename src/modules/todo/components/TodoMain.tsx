@@ -23,11 +23,11 @@ export const Todo: React.FC = () => {
   }, [dispatch, userId]);
 
   return (
-    <div className="todo">
+    <section className="todo">
       <TodoForm />
       <Search />
       <TodoList />
       <OrderBy />
-    </div>
+    </section>
   );
 };

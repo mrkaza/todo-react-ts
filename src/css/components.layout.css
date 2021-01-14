@@ -2,6 +2,5 @@
     height: 100%;
     max-width: 768px;
     margin: 0 auto;
-    padding: 0 calc(var(--unit-8) * 2);
-    padding-bottom: calc(var(--unit-8) * 10);
+    padding: calc(var(--unit-12) * 4) calc(var(--unit-8) * 2);
 }

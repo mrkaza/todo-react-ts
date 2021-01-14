@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 import IsLoggedIn from './IsLoggedIn';
 import IsLoggedOut from './IsLoggedOut';
+import ThemeToggle from './ThemeToggle';
 
 export const Navbar: React.FC = () => {
   const user = useSelector((state: RootStore) => state.auth.user);
@@ -12,10 +13,11 @@ export const Navbar: React.FC = () => {
   return (
     <nav className="navbar">
       <div className="f f-justify-between f-align-items-center">
-        <Link to="/my-todos" className="navbar__link">
-          Todo App
+        <Link to="/my-todos" className="navbar__link navbar__title">
+          TODO
         </Link>
         {user ? <IsLoggedIn /> : <IsLoggedOut />}
+        <ThemeToggle />
       </div>
     </nav>
   );

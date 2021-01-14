@@ -11,9 +11,8 @@ export const TodoCounter: React.FC = () => {
   });
 
   const todoStatus = useSelector((state: RootStore) => state.todo.todoCount);
-  // const statusPercent = (todoStatus?.completed / todoStatus?.cocunt) * 100;
   return (
-    <div>
+    <div className="todo__counter">
       {todoStatus ? (
         <div className="f f-justify-between">
           <p>Todos Count: {todoStatus.count}</p>

@@ -11,65 +11,65 @@ export const SignIn: React.FC = () => {
   const [, { onSubmit }] = useSignIn();
 
   return (
-    <div>
+    <>
       <TodoCounter />
-      <header>
-        <h1 className="t-center">Login</h1>
-      </header>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Input
-          name="email"
-          validation={register({
-            required: { value: true, message: 'This field is required' },
-            pattern: {
-              value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,10}$/,
-              message: 'Email is not formed correctly',
-            },
-          })}
-          id="email"
-          type="email"
-          htmlFor="email"
-          className="input input--secondary input--large"
-          labelClass="label"
-          label="Email"
-        />
-        {errors.email && (
-          <p className="t-center t-error">{errors.email.message}</p>
-        )}
-        <Input
-          name="password"
-          validation={register({
-            required: { value: true, message: 'This field is required' },
-            minLength: {
-              value: 6,
-              message: 'Minimal lenght of password is 6 char.',
-            },
-          })}
-          className="input input--secondary input--large"
-          labelClass="label"
-          id="password"
-          type="password"
-          htmlFor="password"
-          label="Password"
-        />
-        {errors.password && (
-          <p className="t-center t-error">{errors.password.message}</p>
-        )}
+      <div className="auth">
+        <header>
+          <h1 className="t-center auth__title">Login</h1>
+        </header>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Input
+            name="email"
+            validation={register({
+              required: { value: true, message: 'This field is required' },
+              pattern: {
+                value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,10}$/,
+                message: 'Email is not formed correctly',
+              },
+            })}
+            id="email"
+            type="email"
+            htmlFor="email"
+            className="input input--transparent input--medium"
+            placeholder="email"
+          />
+          {errors.email && (
+            <p className="t-center t-error">{errors.email.message}</p>
+          )}
+          <Input
+            name="password"
+            validation={register({
+              required: { value: true, message: 'This field is required' },
+              minLength: {
+                value: 6,
+                message: 'Minimal lenght of password is 6 char.',
+              },
+            })}
+            className="input input--transparent input--medium"
+            labelClass="label"
+            id="password"
+            type="password"
+            placeholder="password"
+          />
+          {errors.password && (
+            <p className="t-center t-error">{errors.password.message}</p>
+          )}
 
+          <div className="f f-justify-center">
+            <Button
+              className="button button--medium button--round button--text button--light button--outline-primary"
+              type="submit"
+              name="action"
+            >
+              Login
+            </Button>
+          </div>
+        </form>
+        <p className="t-center">or</p>
         <div className="f f-justify-center">
-          <Button
-            className="button button--medium button--secondary"
-            type="submit"
-            name="action"
-          >
-            Login
-          </Button>
+          <Facebook />
         </div>
-      </form>
-      <p className="t-center">or</p>
-      <div className="f f-justify-center">
-        <Facebook />
       </div>
-    </div>
+    </>
   );
 };

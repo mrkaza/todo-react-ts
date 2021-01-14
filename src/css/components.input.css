@@ -11,7 +11,7 @@
     width: 100%;
     outline: none;
     padding: 0 var(--unit-8);
-    color: var(--color-text);
+    color: var(--color-light);
 }
 
 .input--transparent {

@@ -5,7 +5,6 @@ import { format } from 'date-fns';
 import { completeTodo, deleteTodo, editTodo, TodoType } from 'modules/todo';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import { Link } from 'react-router-dom';
 
 interface Props {
   todo: TodoType;

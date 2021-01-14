@@ -3,16 +3,11 @@
     --unit-12: 12px;
 
     --color-primary: 220, 98%, 61%;
-    --color-secondary: 235, 24%, 19%;
     --color-body: 235, 21%, 11%;
     --color-background: 235, 24%, 19%;
 
-    --color-text: 0, 0%, 98%;
     --color-light: 0, 0%, 98%;
 
-    --color-tertiary: 255, 100%, 100%;
     --color-danger: 360, 71%, 40%;
-    --color-success: 115, 58%, 42%;
-    --color-neutral: 0, 0%, 50%;
-    --color-facebook: 220, 46%, 46%;
+    --color-light-text: 0, 0%, 98%;
 }

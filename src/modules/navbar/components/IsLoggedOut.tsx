@@ -5,12 +5,12 @@ const IsLoggedOut: React.FC = () => {
   return (
     <ul className="navbar__menu">
       <li>
-        <NavLink className="navbar__link" to="/">
+        <NavLink className="navbar__link--action" to="/">
           Login
         </NavLink>
       </li>
-      <li>
-        <NavLink className="navbar__link" to="/register">
+      <li className="mr-sm">
+        <NavLink className="navbar__link--action" to="/register">
           Register
         </NavLink>
       </li>

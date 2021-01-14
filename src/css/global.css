@@ -7,7 +7,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
     background: hsl(var(--color-body));
-    color: hsl(var(--color-text));
+    color: hsl(var(--color-light));
 }
 
 code {
@@ -28,15 +28,3 @@ html {
 *:after {
     box-sizing: inherit;
 }
-
-/* @media (prefers-color-scheme: dark) {
-    body {
-        background: hsl(var(--color-dark));
-    }
-}
-
-@media (prefers-color-scheme: light) {
-    body {
-        background: hsl(var(--color-dark));
-    }
-} */

@@ -1,6 +1,7 @@
 .navbar {
-    background: hsl(var(--color-primary));
-    color: hsl(var(--color-tertiary));
+    background: hsl(var(--color-background));
+    padding: calc(var(--unit-8) * 2) var(--unit-8);
+    border-radius: 10px;
 }
 
 .navbar__menu {
@@ -8,11 +9,27 @@
     justify-content: space-around;
     align-items: center;
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .navbar__link {
     text-decoration: none;
     color: hsl(var(--color-tertiary));
-    margin-left: var(--unit-8);
     font-size: calc(var(--unit-8) * 2);
+}
+.navbar__link--action {
+    border: 1px solid hsl(var(--color-primary));
+    border-radius: 5px;
+    padding: var(--unit-8);
+    font-size: 14px;
+}
+.navbar__link--action:hover {
+    background: hsl(var(--color-primary));
+    color: hsl(var(--color-light-text));
+}
+
+.navbar__title {
+    font-weight: bold;
+    letter-spacing: 1px;
 }
