@@ -1,38 +1,58 @@
-import { faSort } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faSort } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button } from 'components';
 import { useOrderBy } from 'modules/todo';
 import React from 'react';
 
 const OrderBy: React.FC = () => {
-  const [{ order }, { handleChange, orderBy }] = useOrderBy();
+  const [
+    { order },
+    { orderAsc, orderDesc, orderCompleted, orderNotCompleted, handleSubmit },
+  ] = useOrderBy();
 
   return (
-    <div className="todo__filters__items">
-      <form className="order-todos">
-        <label htmlFor="orderBy" className="label">
-          Order By:
-        </label>
-        <select
-          className="order-todos__selector"
-          value={order}
-          name="orderBy"
-          id="orderBy"
-          onChange={handleChange}
-        >
-          <option value="created.asc">Created at .asc</option>
-          <option value="created.desc">Created at .desc</option>
-          <option value="completed">Completed</option>
-          <option value="not-completed">Not completed</option>
-        </select>
-      </form>
+    <form
+      onSubmit={handleSubmit}
+      className="todo__order-by f f-justify-around f-align-items-center"
+    >
+      {' '}
       <Button
-        className="button button--neutral button--circle ml-sm"
-        onClick={orderBy}
+        type="submit"
+        className={`button button--text order-by__item ${
+          order === 'created.asc' ? 'order-by__item--active' : ''
+        }`}
+        onClick={orderAsc}
       >
-        <FontAwesomeIcon icon={faSort} />
+        Asc
       </Button>
-    </div>
+      <Button
+        type="submit"
+        className={`button button--text order-by__item ${
+          order === 'created.desc' ? 'order-by__item--active' : ''
+        }`}
+        onClick={orderDesc}
+      >
+        Desc
+      </Button>
+      <Button
+        type="submit"
+        className={`button button--text order-by__item ${
+          order === 'completed' ? 'order-by__item--active' : ''
+        }`}
+        onClick={orderCompleted}
+      >
+        Completed
+      </Button>
+      <Button
+        type="submit"
+        className={`button button--text order-by__item ${
+          order === 'not-completed' ? 'order-by__item--active' : ''
+        }`}
+        onClick={orderNotCompleted}
+      >
+        Not completed
+      </Button>
+    </form>
   );
 };
 

@@ -5,6 +5,9 @@ body {
         'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    background: hsl(var(--color-body));
+    color: hsl(var(--color-text));
 }
 
 code {
@@ -16,3 +19,24 @@ a {
     text-decoration: none;
     color: currentColor;
 }
+
+html {
+    box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+/* @media (prefers-color-scheme: dark) {
+    body {
+        background: hsl(var(--color-dark));
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    body {
+        background: hsl(var(--color-dark));
+    }
+} */

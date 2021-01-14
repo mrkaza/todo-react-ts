@@ -32,36 +32,37 @@ const TodoForm: React.FC = () => {
 
   return (
     <form className="todo__form" onSubmit={handleSubmit(onSubmit)}>
+      <h3 className="t-center mt-sm mb-sm">Add todo</h3>
       <Input
         name="title"
         validation={register({
           required: true,
         })}
-        className="input input--secondary input--large"
+        className="input input--transparent input--medium"
         labelClass="label"
         id="title"
         type="text"
         htmlFor="title"
-        label="Title"
+        placeholder="Todo title"
       />
       <Input
         name="description"
         validation={register({
           required: true,
         })}
-        className="input input--secondary input--large"
+        className="input input--transparent input--medium"
         labelClass="label"
         id="description"
         type="text"
         htmlFor="description"
-        label="Description"
+        placeholder="Todo description"
       />
       {(errors.description || errors.title) && (
         <p className="t-center t-error">Both fields required</p>
       )}
-      <div className="f f-justify-center">
+      <div className="f f-justify-center mb-sm mt-md">
         <Button
-          className="button button--medium button--primary"
+          className="button button--medium button--primary button--round"
           type="submit"
           name="action"
         >

@@ -1,34 +1,31 @@
 .input-wrapper {
-    margin: calc(var(--unit-8) * 2) 0;
+    margin: var(--unit-8) 0;
+    width: 100%;
+    max-width: 100%;
+    padding: var(--unit-8);
+    overflow: none;
 }
 
 .input {
-    border: 2px solid hsla(var(--color-neutral), 70%);
+    border: none;
     width: 100%;
-    border-radius: 5px;
     outline: none;
+    padding: 0 var(--unit-8);
+    color: var(--color-text);
 }
 
-.input:active {
-    border: 2px solid hsla(var(--color-primary), 100%);
-}
-.input:focus {
-    border: 2px solid hsla(var(--color-primary), 100%);
+.input--transparent {
+    background: transparent;
+    border-bottom: 1px solid hsla(var(--color-light), 50%);
 }
 
-.input--secondary {
-    background: hsla(var(--color-secondary), 35%);
+.input--transparent:active {
+    border-bottom: 1px solid hsl(var(--color-primary));
 }
-.input--large {
-    height: calc(var(--unit-8) * 4);
+.input--transparent:focus {
+    border-bottom: 2px solid hsl(var(--color-primary));
 }
 
 .input--medium {
     height: calc(var(--unit-8) * 3);
-}
-
-.label {
-    font-size: 14px;
-    letter-spacing: 1px;
-    margin-right: var(--unit-8);
 }

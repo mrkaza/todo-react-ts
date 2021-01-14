@@ -4,7 +4,7 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    transition: 0.3s ease-in-out;
+    transition: 0.2s ease-in-out;
 }
 
 .button:hover {
@@ -18,7 +18,58 @@
     outline: none;
 }
 
+.button--text {
+    background: transparent;
+    border: none;
+}
+
+.button--circle {
+    height: var(--unit-8);
+    width: var(--unit-8);
+    border-radius: 50%;
+    padding: calc(var(--unit-8) * 2);
+}
+.button--circle--small {
+    padding: 12px;
+}
+
+.button--light {
+    color: hsl(var(--color-light));
+}
+
+.button--primary {
+    background: hsl(var(--color-primary));
+    color: hsl(var(--color-light));
+}
+
 .button--medium {
+    padding: calc(var(--unit-12)) var(--unit-12);
+}
+
+.button--round {
+    border-radius: 5px;
+}
+
+.button--outline {
+    border: 1px solid hsla(var(--color-light), 30%);
+}
+.button--outline:hover {
+    border: 1px solid hsla(var(--color-primary));
+}
+
+.button--danger {
+    color: hsla(var(--color-danger), 50%);
+    border: 1px solid hsla(var(--color-danger), 50%);
+}
+.button--danger:hover {
+    color: hsla(var(--color-danger), 100%);
+    border: 1px solid hsla(var(--color-danger), 100%);
+}
+
+.button--primary {
+    background: hsl(var(--color-primary));
+}
+/* .button--medium {
     padding: calc(var(--unit-8) * 2) calc(var(--unit-8) * 4);
     font-size: calc(var(--unit-8) * 2);
 }
@@ -142,4 +193,4 @@
     width: calc(var(--unit-8));
     padding: calc(var(--unit-8) * 2.5);
     border-radius: 50%;
-}
+} */ ;
