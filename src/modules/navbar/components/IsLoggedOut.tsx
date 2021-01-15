@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const IsLoggedOut: React.FC = () => {
   return (
-    <ul className="navbar__menu">
+    <ul className="navbar__menu__list">
       <li>
         <NavLink className="navbar__link--action" to="/">
           Login

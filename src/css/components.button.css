@@ -34,7 +34,7 @@
 }
 
 .button--light {
-    color: hsl(var(--color-light));
+    color: hsl(var(--color-light--text));
 }
 
 .button--primary {
