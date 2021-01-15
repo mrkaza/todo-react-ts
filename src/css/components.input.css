@@ -2,7 +2,7 @@
     margin: var(--unit-8) 0;
     width: 100%;
     max-width: 100%;
-    padding: var(--unit-8);
+    padding: var(--unit-8) 0;
     overflow: none;
 }
 

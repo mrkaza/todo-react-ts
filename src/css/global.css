@@ -28,3 +28,10 @@ html {
 *:after {
     box-sizing: inherit;
 }
+
+.content-wrapper {
+    padding: calc(var(--unit-8) * 2);
+    margin: calc(var(--unit-8) * 2) 0;
+    border-radius: 10px;
+    background: hsl(var(--color-background));
+}

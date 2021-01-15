@@ -1,10 +1,3 @@
-.todo__form {
-    margin: calc(var(--unit-8) * 2) 0;
-    background: hsl(var(--color-background));
-    border-radius: 10px;
-    padding: var(--unit-8) 0;
-}
-
 .todo-item {
     border-bottom: 1px solid hsla(var(--color-light), 50%);
     overflow: hidden;
@@ -35,19 +28,6 @@
 
 /* NEW */
 
-.todo__search {
-    background: hsl(var(--color-background));
-    padding: var(--unit-8);
-    border-radius: 10px;
-}
-
-.todo-list {
-    background: hsl(var(--color-background));
-    border-radius: 10px;
-    margin: calc(var(--unit-8) * 2) 0;
-    padding: calc(var(--unit-8) * 2) var(--unit-8);
-}
-
 .todo-item__details {
     padding: 0 calc(var(--unit-8) * 4);
     max-height: 0;
@@ -63,11 +43,6 @@
 
 /* ORDERBY COMPONENT */
 
-.todo__order-by {
-    background: hsl(var(--color-background));
-    border-radius: 10px;
-    padding: calc(var(--unit-8) * 2) var(--unit-8);
-}
 .order-by__item {
     color: hsla(var(--color-light), 60%);
     font-size: 13px;
@@ -84,9 +59,6 @@
 }
 
 .todo__counter {
-    background: hsl(var(--color-background));
-    margin: calc(var(--unit-8) * 2) 0;
-    padding: 0 var(--unit-8);
-    border-radius: 10px;
     font-size: 14px;
+    text-align: center;
 }

@@ -31,7 +31,7 @@ const TodoForm: React.FC = () => {
   };
 
   return (
-    <form className="todo__form" onSubmit={handleSubmit(onSubmit)}>
+    <form className="content-wrapper" onSubmit={handleSubmit(onSubmit)}>
       <h3 className="t-center mt-sm mb-sm">Add todo</h3>
       <Input
         name="title"

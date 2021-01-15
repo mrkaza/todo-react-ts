@@ -11,7 +11,7 @@ export const Navbar: React.FC = () => {
   const user = useSelector((state: RootStore) => state.auth.user);
 
   return (
-    <nav className="navbar">
+    <nav className="navbar content-wrapper">
       <div className="f f-justify-between f-align-items-center">
         <Link to="/my-todos" className="navbar__link navbar__title">
           TODO

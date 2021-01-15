@@ -9,7 +9,7 @@ const Search: React.FC = () => {
 
   return (
     <form
-      className="todo__search f f-justify-between f-align-items-center"
+      className="content-wrapper f f-justify-between f-align-items-center"
       onSubmit={handleSubmit}
     >
       <Input

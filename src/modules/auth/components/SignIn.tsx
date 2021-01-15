@@ -13,7 +13,7 @@ export const SignIn: React.FC = () => {
   return (
     <>
       <TodoCounter />
-      <div className="auth">
+      <div className="content-wrapper">
         <header>
           <h1 className="t-center auth__title">Login</h1>
         </header>

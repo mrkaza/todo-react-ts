@@ -35,7 +35,7 @@ export const SignUp: React.FC = () => {
   }
 
   return (
-    <div className="auth">
+    <div className="content-wrapper">
       <header>
         <h1 className="t-center auth__title">Register</h1>
       </header>
