@@ -12,6 +12,7 @@ body {
     background-position: top;
     background-size: contain;
     color: hsl(var(--color-light));
+    font-family: 'Josefin Sans', sans-serif;
 
     @media (min-width: 600px) {
         background-image: var(--bg-desktop);
