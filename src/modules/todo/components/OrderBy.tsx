@@ -13,7 +13,7 @@ const OrderBy: React.FC = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="content-wrapper f f-justify-around f-align-items-center"
+      className="f f-justify-around f-align-items-center"
     >
       {' '}
       <Button

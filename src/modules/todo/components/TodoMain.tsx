@@ -8,6 +8,7 @@ import OrderBy from './OrderBy';
 import Search from './Search';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
+import { TodoNav } from './TodoNav';
 
 export const Todo: React.FC = () => {
   const dispatch = useDispatch();
@@ -23,11 +24,12 @@ export const Todo: React.FC = () => {
   }, [dispatch, userId]);
 
   return (
-    <section className="todo">
-      <TodoForm />
+    <section className="todo content-wrapper">
+      {/* <TodoForm /> */}
+      <TodoNav />
       <Search />
-      <TodoList />
       <OrderBy />
+      <TodoList />
     </section>
   );
 };

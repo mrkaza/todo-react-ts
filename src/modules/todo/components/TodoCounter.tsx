@@ -12,7 +12,7 @@ export const TodoCounter: React.FC = () => {
 
   const todoStatus = useSelector((state: RootStore) => state.todo.todoCount);
   return (
-    <div className="todo__counter content-wrapper">
+    <div className="todo__counter mt-md">
       {todoStatus ? (
         <div className="f f-justify-between">
           <p>Todos Count: {todoStatus.count}</p>
