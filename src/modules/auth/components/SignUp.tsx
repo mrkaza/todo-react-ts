@@ -1,4 +1,4 @@
-import { Button, Input } from 'components';
+import { AuthLink, Button, Input } from 'components';
 import { registerUser } from 'modules/auth';
 import { RootStore } from 'modules/redux';
 import React from 'react';
@@ -85,6 +85,10 @@ export const SignUp: React.FC = () => {
           >
             Register
           </Button>
+        </div>
+        <div className="f f-justify-center">
+          {' '}
+          <AuthLink to="/" text="Already have an account?" />
         </div>
       </form>
     </div>

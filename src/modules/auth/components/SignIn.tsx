@@ -1,4 +1,4 @@
-import { Button, Input } from 'components';
+import { AuthLink, Button, Input } from 'components';
 import { useSignIn } from 'modules/auth';
 import { TodoCounter } from 'modules/todo';
 import React from 'react';
@@ -63,6 +63,13 @@ export const SignIn: React.FC = () => {
             >
               Login
             </Button>
+          </div>
+          <div className="f f-justify-center">
+            {' '}
+            <AuthLink
+              to="/register"
+              text="Don't have an account? Register here."
+            />
           </div>
         </form>
         <p className="t-center">or</p>
