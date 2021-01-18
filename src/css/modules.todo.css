@@ -67,7 +67,23 @@
 .todo__nav {
     border-bottom: 2px solid hsl(var(--color-light));
     padding: var(--unit-12) 0;
+    position: relative;
 }
+.todo__nav__profile {
+    position: absolute;
+    right: 0;
+    bottom: calc(-3 * var(--unit-8));
+    z-index: 1;
+    display: none;
+    border: 1px solid hsl(var(--color-primary));
+    border-radius: 5px;
+    padding: var(--unit-8);
+    background: hsl(var(--color-background));
+}
+.todo__nav__profile--active {
+    display: block;
+}
+
 .todo-form-modal {
     display: none;
 }
