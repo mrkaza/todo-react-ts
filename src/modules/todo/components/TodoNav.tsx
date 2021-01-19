@@ -28,8 +28,6 @@ export const TodoNav: React.FC = () => {
     dispatch(logout());
   };
 
-  console.log(profile);
-
   return (
     <>
       <div className="todo__nav f f-justify-between f-align-items-center mb-md">
