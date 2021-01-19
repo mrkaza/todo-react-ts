@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import OrderBy from './OrderBy';
 import Search from './Search';
-import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 import { TodoNav } from './TodoNav';
 
@@ -25,7 +24,6 @@ export const Todo: React.FC = () => {
 
   return (
     <section className="todo content-wrapper">
-      {/* <TodoForm /> */}
       <TodoNav />
       <Search />
       <OrderBy />

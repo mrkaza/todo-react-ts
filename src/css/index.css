@@ -10,7 +10,7 @@
 @import 'variables.css';
 @import 'global.css';
 
-@import 'flex.utils.css';
-@import 'margin.utils.css';
-@import 'text.utils.css';
-@import 'color.utils.css';
+@import 'utils.flex.css';
+@import 'utils.margin.css';
+@import 'utils.text.css';
+@import 'utils.color.css';
