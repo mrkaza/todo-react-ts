@@ -8,19 +8,22 @@ const Search: React.FC = () => {
   const [{ search }, { handleSubmit, setSearch }] = useSearch();
 
   return (
-    <form className="todo__filters__items" onSubmit={handleSubmit}>
+    <form
+      className="f f-justify-between f-align-items-center"
+      onSubmit={handleSubmit}
+    >
       <Input
-        className="input input--secondary input--medium"
+        className="input input--transparent input--medium"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         placeholder="Search todos.."
       />
       <div>
         <Button
-          className="button button--neutral button--circle ml-md"
+          className="button button--text button--circle button--light ml-sm"
           type="submit"
         >
-          <FontAwesomeIcon icon={faSearch} />
+          <FontAwesomeIcon icon={faSearch} size="lg" />
         </Button>
       </div>
     </form>

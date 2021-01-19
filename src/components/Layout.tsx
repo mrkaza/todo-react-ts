@@ -1,5 +1,13 @@
+import { Navbar } from 'modules/navbar';
 import React from 'react';
 
 export const Layout: React.FC = ({ children }) => {
-  return <section className="container">{children}</section>;
+  return (
+    <>
+      <main className="container">
+        <Navbar />
+        {children}
+      </main>
+    </>
+  );
 };

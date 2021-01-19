@@ -4,7 +4,7 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    transition: 0.3s ease-in-out;
+    transition: 0.2s ease-in-out;
 }
 
 .button:hover {
@@ -18,128 +18,64 @@
     outline: none;
 }
 
-.button--medium {
-    padding: calc(var(--unit-8) * 2) calc(var(--unit-8) * 4);
-    font-size: calc(var(--unit-8) * 2);
+.button--text {
+    background: transparent;
+    border: none;
+}
+
+.button--circle {
+    height: var(--unit-8);
+    width: var(--unit-8);
+    border-radius: 50%;
+    padding: calc(var(--unit-8) * 2);
+}
+.button--circle--small {
+    padding: 12px;
+}
+
+.button--light {
+    color: hsl(var(--color-light--text));
 }
 
 .button--primary {
     background: hsl(var(--color-primary));
-    color: hsl(var(--color-tertiary));
+    color: hsl(var(--color-light-text));
 }
-.button--primary:active {
-    background: hsl(var(--color-primary));
-    color: hsl(var(--color-tertiary));
+.button--small {
+    padding: var(--unit-8) var(--unit-8);
 }
-.button--primary:focus {
-    background: hsl(var(--color-primary));
-    color: hsl(var(--color-tertiary));
-}
-.button--primary:hover {
-    background: hsla(var(--color-primary), 80%);
+.button--medium {
+    padding: calc(var(--unit-12)) var(--unit-12);
 }
 
-.button--secondary {
-    background: hsl(var(--color-secondary));
-    color: hsl(var(--color-tertiary));
+.button--round {
+    border-radius: 5px;
 }
-.button--secondary:active {
-    background: hsl(var(--color-secondary));
-    color: hsl(var(--color-tertiary));
+
+.button--outline {
+    border: 1px solid hsla(var(--color-light), 30%);
 }
-.button--secondary:focus {
-    background: hsl(var(--color-secondary));
-    color: hsl(var(--color-tertiary));
-}
-.button--secondary:hover {
-    background: hsla(var(--color-secondary), 70%);
+.button--outline:hover {
+    border: 1px solid hsla(var(--color-primary));
 }
 
 .button--danger {
-    background: hsl(var(--color-danger));
-    color: hsl(var(--color-tertiary));
-}
-.button--danger:active {
-    background: hsl(var(--color-danger));
-    color: hsl(var(--color-tertiary));
-}
-.button--danger:focus {
-    background: hsl(var(--color-danger));
-    color: hsl(var(--color-tertiary));
+    color: hsla(var(--color-danger), 50%);
+    border: 1px solid hsla(var(--color-danger), 50%);
 }
 .button--danger:hover {
-    background: hsla(var(--color-danger), 80%);
+    color: hsla(var(--color-danger), 100%);
+    border: 1px solid hsla(var(--color-danger), 100%);
 }
 
-.button--success {
-    background: hsl(var(--color-success));
-    color: hsl(var(--color-tertiary));
-}
-.button--success:active {
-    background: hsl(var(--color-success));
-    color: hsl(var(--color-tertiary));
-}
-.button--success:focus {
-    background: hsl(var(--color-success));
-    color: hsl(var(--color-tertiary));
-}
-.button--success:hover {
-    background: hsla(var(--color-success), 80%);
+.button--primary {
+    background: hsl(var(--color-primary));
 }
 
-.button--neutral {
-    background: hsl(var(--color-neutral));
-    color: hsl(var(--color-tertiary));
+.button--outline-primary {
+    border: 1px solid hsl(var(--color-primary));
 }
-.button--neutral:active {
-    background: hsl(var(--color-neutral));
-    color: hsl(var(--color-tertiary));
-}
-.button--neutral:focus {
-    background: hsl(var(--color-neutral));
-    color: hsl(var(--color-tertiary));
-}
-.button--neutral:hover {
-    background: hsla(var(--color-neutral), 80%);
-}
-
-.button--link {
-    background-color: transparent;
-    color: hsl(var(--color-tertiary));
-    border: 1px solid hsl(var(--color-secondary));
-    padding: calc(var(--unit-8) / 2) var(--unit-8);
-    border-radius: 5px;
-}
-.button--link:active {
-    background-color: transparent;
-    height: 100%;
-    color: hsl(var(--color-tertiary));
-}
-.button--link:focus {
-    background-color: transparent;
-    height: 100%;
-    color: hsl(var(--color-tertiary));
-}
-
-.button--facebook {
-    background: hsl(var(--color-facebook));
-    color: hsl(var(--color-tertiary));
-}
-.button--facebook:active {
-    background: hsl(var(--color-facebook));
-    color: hsl(var(--color-tertiary));
-}
-.button--facebook:focus {
-    background: hsl(var(--color-facebook));
-    color: hsl(var(--color-tertiary));
-}
-.button--facebook:hover {
-    background: hsla(var(--color-facebook), 85%);
-}
-
-.button--circle {
-    height: calc(var(--unit-8));
-    width: calc(var(--unit-8));
-    padding: calc(var(--unit-8) * 2.5);
-    border-radius: 50%;
+.button--outline-primary:hover {
+    background: hsl(var(--color-primary));
+    color: hsl(var(--color-light-text));
 }

@@ -1,4 +1,4 @@
-import { Button, Input } from 'components';
+import { AuthLink, Button, Input } from 'components';
 import { registerUser } from 'modules/auth';
 import { RootStore } from 'modules/redux';
 import React from 'react';
@@ -35,9 +35,9 @@ export const SignUp: React.FC = () => {
   }
 
   return (
-    <div>
+    <div className="content-wrapper">
       <header>
-        <h1 className="t-center">Register</h1>
+        <h1 className="t-center auth__title">Register</h1>
       </header>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input
@@ -49,12 +49,11 @@ export const SignUp: React.FC = () => {
               message: 'Email is not formed correctly',
             },
           })}
-          className="input input--large input--secondary"
-          labelClass="label"
+          className="input input--large input--transparent input--medium"
           id="email"
           type="email"
           htmlFor="email"
-          label="Email"
+          placeholder="Email"
         />
         {errors.email && (
           <p className="t-center t-error">{errors.email.message}</p>
@@ -68,12 +67,11 @@ export const SignUp: React.FC = () => {
               message: 'Minimal length of password is 6 char.',
             },
           })}
-          className="input input--large input--secondary"
-          labelClass="label"
+          className="input input--large input--transparent input--medium"
+          placeholder="Password"
           id="password"
           type="password"
           htmlFor="password"
-          label="Password"
         />
         {errors.password && (
           <p className="t-center text--error">{errors.password.message}</p>
@@ -81,12 +79,16 @@ export const SignUp: React.FC = () => {
 
         <div className="f f-justify-center">
           <Button
-            className="button button--secondary button--medium"
+            className="button button--light button--text button--outline-primary button--round button--medium"
             type="submit"
             name="action"
           >
             Register
           </Button>
+        </div>
+        <div className="f f-justify-center">
+          {' '}
+          <AuthLink to="/" text="Already have an account?" />
         </div>
       </form>
     </div>

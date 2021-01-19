@@ -1,7 +1,6 @@
 import 'react-toastify/dist/ReactToastify.css';
 
 import { Layout } from 'components';
-import { Navbar } from 'modules/navbar';
 import { Error } from 'pages';
 import React from 'react';
 import { Helmet } from 'react-helmet';
@@ -35,7 +34,6 @@ export const Router: React.FC = () => {
         <meta property="og:url" content="http://localhost:3000/" />
         <meta property="og:site_name" content="Todo App" />
       </Helmet>
-      <Navbar />
       <Layout>
         <ToastContainer />
         <Switch>

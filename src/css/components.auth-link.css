@@ -1,0 +1,5 @@
+.auth-link {
+    color: hsl(var(--color-primary));
+    font-size: 14px;
+    margin: 10px 0;
+}

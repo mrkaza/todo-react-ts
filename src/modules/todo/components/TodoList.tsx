@@ -8,7 +8,7 @@ const TodoList: React.FC = () => {
   const todos = useSelector(selector);
 
   return (
-    <div className="todo-list">
+    <div className="todo-list mt-md mb-md">
       {todos && !todos.length ? (
         <div className="t-center t-error">
           No todos matching your parameters.

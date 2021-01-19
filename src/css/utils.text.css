@@ -3,6 +3,6 @@
 }
 
 .t-error {
-    color: red;
+    color: hsl(var(--color-danger));
     font-weight: bold;
 }

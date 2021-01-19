@@ -13,7 +13,7 @@ export const Facebook: React.FC = () => {
   return (
     <Button
       onClick={facebook}
-      className="button button--medium button--facebook"
+      className="button button--medium button--primary button--round"
     >
       Login with Facebook
     </Button>

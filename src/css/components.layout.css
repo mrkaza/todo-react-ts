@@ -1,6 +1,10 @@
 .container {
     height: 100%;
-    max-width: 1024px;
+    max-width: 768px;
     margin: 0 auto;
-    padding: 0 calc(var(--unit-8) * 2);
+    padding: calc(var(--unit-12) * 2) calc(var(--unit-8));
+
+    @media (min-width: 768px) {
+        padding: calc(var(--unit-12) * 4) calc(var(--unit-8) * 2);
+    }
 }

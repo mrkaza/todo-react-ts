@@ -4,9 +4,10 @@ import { getUserTodos } from 'modules/todo';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import TodoFilter from './TodoFilter';
-import TodoForm from './TodoForm';
+import OrderBy from './OrderBy';
+import Search from './Search';
 import TodoList from './TodoList';
+import { TodoNav } from './TodoNav';
 
 export const Todo: React.FC = () => {
   const dispatch = useDispatch();
@@ -22,13 +23,11 @@ export const Todo: React.FC = () => {
   }, [dispatch, userId]);
 
   return (
-    <div>
-      <header>
-        <h1 className="t-center">Todo App</h1>
-      </header>
-      <TodoForm />
-      <TodoFilter />
+    <section className="todo content-wrapper">
+      <TodoNav />
+      <Search />
+      <OrderBy />
       <TodoList />
-    </div>
+    </section>
   );
 };
