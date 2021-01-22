@@ -1,4 +1,4 @@
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import { CustomHook } from 'models';
 import { login } from 'modules/auth';
 import { RootStore } from 'modules/redux';
