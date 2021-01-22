@@ -1,6 +1,8 @@
-import React from "react";
-import { Todo } from "modules/todo";
+import { Todo } from 'modules/todo';
+import React from 'react';
 
-export const Home = () => {
+const Home: React.FC = () => {
   return <Todo />;
 };
+
+export { Home as default };

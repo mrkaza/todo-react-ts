@@ -1,8 +1,9 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { facebookLogin } from "modules/auth";
+import { Button } from 'components';
+import { facebookLogin } from 'modules/auth';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 
-export const Facebook = () => {
+export const Facebook: React.FC = () => {
   const dispatch = useDispatch();
 
   const facebook = () => {
@@ -10,8 +11,11 @@ export const Facebook = () => {
   };
 
   return (
-    <button onClick={facebook} className="btn blue darken-3">
+    <Button
+      onClick={facebook}
+      className="button button--medium button--primary button--round"
+    >
       Login with Facebook
-    </button>
+    </Button>
   );
 };

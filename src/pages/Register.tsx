@@ -1,6 +1,8 @@
-import React from "react";
-import { SignUp } from "modules/auth";
+import { SignUp } from 'modules/auth';
+import React from 'react';
 
-export const Register = () => {
+export const Register: React.FC = () => {
   return <SignUp />;
 };
+
+export { Register as default };

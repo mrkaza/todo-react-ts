@@ -1,6 +1,12 @@
-import React from "react";
-import { SignIn } from "modules/auth";
+import { SignIn } from 'modules/auth';
+import React from 'react';
 
-export const Login = () => {
-  return <SignIn />;
+export const Login: React.FC = () => {
+  return (
+    <div className="content-wrapper">
+      <SignIn />
+    </div>
+  );
 };
+
+export { Login as default };

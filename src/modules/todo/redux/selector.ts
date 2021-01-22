@@ -1,6 +1,6 @@
-import { createSelector } from "reselect";
-import { RootStore } from "consts";
-import { TodoType } from "./todoReducer";
+import { RootStore } from 'modules/redux';
+import { TodoType } from 'modules/todo';
+import { createSelector } from 'reselect';
 
 const getTodos = (state: RootStore) => state.todo.todos;
 const getOrder = (state: RootStore) => state.todo.orderBy;
@@ -12,29 +12,33 @@ export const selectTodos = createSelector(
   (todos, order) => {
     if (todos) {
       switch (order) {
-        case "created.asc":
-          return todos
-            .slice()
-            .sort(
-              (a: TodoType, b: TodoType) =>
-                parseFloat(b.createdAt.seconds) -
-                parseFloat(a.createdAt.seconds)
-            );
-        case "created.desc":
-          return todos
-            .slice()
-            .sort(
-              (a: TodoType, b: TodoType) =>
-                parseFloat(a.createdAt.seconds) -
-                parseFloat(b.createdAt.seconds)
-            );
-        case "completed":
-          return todos.filter((todo: TodoType) => todo.completed);
-        case "not-completed":
-          return todos.filter((todo: TodoType) => !todo.completed);
+        case 'created.asc':
+          return todos.slice().sort((a: TodoType, b: TodoType): number => {
+            let x = 0;
+            if (a && b) {
+              x =
+                parseFloat(b.todo.createdAt.seconds) -
+                parseFloat(a.todo.createdAt.seconds);
+            }
+            return x;
+          });
+        case 'created.desc':
+          return todos.slice().sort((a: TodoType, b: TodoType): number => {
+            let x = 0;
+            if (a && b) {
+              x =
+                parseFloat(a.todo.createdAt.seconds) -
+                parseFloat(b.todo.createdAt.seconds);
+            }
+            return x;
+          });
+        case 'completed':
+          return todos.filter((todo: TodoType) => todo?.todo.completed);
+        case 'not-completed':
+          return todos.filter((todo: TodoType) => !todo?.todo.completed);
       }
     }
-  }
+  },
 );
 
 export const selector = createSelector(
@@ -43,10 +47,10 @@ export const selector = createSelector(
   (orderedTodos, search) => {
     if (search && orderedTodos) {
       return orderedTodos.filter((todo: TodoType) => {
-        return todo.title.includes(search);
+        return todo?.todo.title.includes(search);
       });
     } else {
       return orderedTodos;
     }
-  }
+  },
 );

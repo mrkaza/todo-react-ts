@@ -1,15 +1,23 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { deleteTodo, completeTodo, editTodo, TodoType } from "modules/todo";
-import { format } from "date-fns";
+import { faCheck, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Button, Input } from 'components';
+import { format } from 'date-fns';
+import { completeTodo, deleteTodo, editTodo, TodoType } from 'modules/todo';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
-const TodoItem = (props: { todo: TodoType }) => {
-  const todo: TodoType = props.todo;
+interface Props {
+  todo: TodoType;
+}
+const TodoItem: React.FC<Props> = (props) => {
+  const todo = props.todo.todo;
   const [edit, setEdit] = useState<boolean>(false);
   const dispatch = useDispatch();
-  const id: string = todo.id;
-  const [newDesc, setNewDesc] = useState<string>(todo.description);
+  const id = props.todo.id;
+  const desc = todo?.description ?? '';
+  const [newDesc, setNewDesc] = useState<string>(desc);
+
+  const [details, setDetails] = useState<boolean>(false);
 
   const deleteSelected = () => {
     dispatch(deleteTodo(id));
@@ -17,77 +25,88 @@ const TodoItem = (props: { todo: TodoType }) => {
   const todoCompleted = () => {
     dispatch(completeTodo(id));
   };
-
-  const handleSubmit = (e: React.SyntheticEvent) => {
-    e.preventDefault();
+  const editSelected = () => {
     dispatch(editTodo(newDesc, id));
     setEdit(false);
   };
 
-  return (
-    <div className="row">
-      <div className="col s12 m6 offset-m3">
-        <div className="todo-item">
-          <div className="actions teal">
-            <p className="title">
-              <Link to={"/todo/" + todo.id}>{todo.title}</Link>
-            </p>
-            <div className="action-btn">
-              {!todo.completed && (
-                <button
-                  className="btn-small btn-floating green"
-                  onClick={todoCompleted}
-                >
-                  <i className="material-icons">done</i>
-                </button>
-              )}
-              <button
-                className="btn-small btn-floating red"
-                onClick={deleteSelected}
-              >
-                <i className="material-icons">delete</i>
-              </button>
-            </div>
-          </div>
-          {edit ? (
-            <form onSubmit={handleSubmit}>
-              <div className="input-field col s12">
-                <input
-                  value={newDesc}
-                  type="text"
-                  onChange={(e) => setNewDesc(e.target.value)}
-                />
-              </div>
-            </form>
-          ) : (
-            <p className={`desc ${todo.completed ? "completed" : ""}`}>
-              {todo.description}
-            </p>
-          )}
+  const handleSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    editSelected();
+  };
 
-          <div className="edit">
-            <p className="created">
-              Created at: {format(todo.createdAt.toDate(), "do MMM yyyy, H:mm")}
-            </p>
-            {edit ? (
-              <button
-                className="btn-small btn-floating grey"
-                onClick={handleSubmit}
-              >
-                <i className="material-icons">done_all</i>
-              </button>
-            ) : (
-              <button
-                className="btn-small btn-floating grey"
-                onClick={() => setEdit(true)}
-              >
-                <i className="material-icons">edit</i>
-              </button>
-            )}
+  const showDetails = () => {
+    setDetails(!details);
+  };
+
+  return (
+    <article className="todo-item">
+      <div className="f f-justify-between f-align-items-center">
+        <Button
+          className={`button button--circle button--circle--small button--text button--light button--outline ${
+            todo?.completed ? 'button--primary' : ''
+          }`}
+          onClick={todoCompleted}
+        >
+          {todo.completed ? <FontAwesomeIcon icon={faCheck} size="sm" /> : ''}
+        </Button>
+        <p
+          onClick={showDetails}
+          className={`todo-item__title ${
+            todo?.completed ? 'todo-item__title--completed' : ''
+          }`}
+        >
+          {todo.title}
+        </p>
+        <Button
+          className="button button--circle button--circle--small button--danger button--text"
+          onClick={deleteSelected}
+        >
+          <FontAwesomeIcon icon={faTrash} size="sm" />
+        </Button>
+      </div>
+
+      <div
+        className={`todo-item__details ${
+          details ? 'todo-item__details--active' : ''
+        }`}
+      >
+        {edit ? (
+          <form
+            onSubmit={handleSubmit}
+            className="f f-align-items-center f-justify-between"
+          >
+            <Input
+              className="input input--medium input--transparent"
+              value={newDesc}
+              type="text"
+              onChange={(e) => setNewDesc(e.target.value)}
+            />
+            <Button
+              className="button button--circle button--circle--small button--text button--light"
+              onClick={editSelected}
+            >
+              <FontAwesomeIcon icon={faCheck} size="lg" />
+            </Button>
+          </form>
+        ) : (
+          <div className="f f-justify-between f-align-items-center">
+            <p className="todo-item__description">{todo?.description}</p>
+            <Button
+              className="button button--circle button--circle-small button--text button--outline button--light"
+              onClick={() => setEdit(true)}
+            >
+              <FontAwesomeIcon icon={faEdit} />
+            </Button>
           </div>
+        )}
+        <div>
+          <p className="todo-item__created-at t-center">
+            Created at: {format(todo?.createdAt.toDate(), 'do MMM yyyy, H:mm')}
+          </p>
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 

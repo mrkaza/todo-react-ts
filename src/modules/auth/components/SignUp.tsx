@@ -1,68 +1,96 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { register } from "modules/auth";
-import { RootStore } from "consts";
+import { AuthLink, Button, Input } from 'components';
+import { registerUser } from 'modules/auth';
+import { RootStore } from 'modules/redux';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 
-export const SignUp = () => {
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+export const SignUp: React.FC = () => {
   const dispatch = useDispatch();
 
-  const errorMessage: null | string = useSelector(
-    (state: RootStore) => state.auth.regError
-  );
+  const errorMessage = useSelector((state: RootStore) => state.auth.regError);
 
-  const handleSubmit = (e: React.SyntheticEvent) => {
-    e.preventDefault();
+  const { register, handleSubmit, errors } = useForm();
+
+  const onSubmit = (data: { email: string; password: string }) => {
     type NewUser = {
       email: string;
       password: string;
     };
     const newUser: NewUser = {
-      email: email,
-      password: password,
+      email: data.email,
+      password: data.password,
     };
-    dispatch(register(newUser));
+    dispatch(registerUser(newUser));
   };
+  const notify = () => {
+    toast(errorMessage?.message, {
+      position: 'top-center',
+      autoClose: false,
+    });
+  };
+  if (errorMessage) {
+    notify();
+  }
 
   return (
-    <div className="container">
-      <div className="row">
-        <form className="col s12" onSubmit={handleSubmit}>
-          <div className="input-field col s12">
-            <input
-              value={email}
-              id="email"
-              type="email"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <label htmlFor="email">Email</label>
-          </div>
-          <div className="input-field col s12">
-            <input
-              value={password}
-              id="password"
-              type="password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <label htmlFor="password">Password</label>
-          </div>
-          <div className="facebook col s12">
-            <button
-              className="btn waves-effect waves-light"
-              type="submit"
-              name="action"
-            >
-              Register
-            </button>
-          </div>
-        </form>
-        {errorMessage && (
-          <p className=" col s12 red-text text-darken-1 error-message">
-            {errorMessage}
-          </p>
+    <div className="content-wrapper">
+      <header>
+        <h1 className="t-center auth__title">Register</h1>
+      </header>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Input
+          name="email"
+          validation={register({
+            required: { value: true, message: 'This field is required' },
+            pattern: {
+              value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,10}$/,
+              message: 'Email is not formed correctly',
+            },
+          })}
+          className="input input--large input--transparent input--medium"
+          id="email"
+          type="email"
+          htmlFor="email"
+          placeholder="Email"
+        />
+        {errors.email && (
+          <p className="t-center t-error">{errors.email.message}</p>
         )}
-      </div>
+        <Input
+          name="password"
+          validation={register({
+            required: { value: true, message: 'This field is required' },
+            minLength: {
+              value: 6,
+              message: 'Minimal length of password is 6 char.',
+            },
+          })}
+          className="input input--large input--transparent input--medium"
+          placeholder="Password"
+          id="password"
+          type="password"
+          htmlFor="password"
+        />
+        {errors.password && (
+          <p className="t-center text--error">{errors.password.message}</p>
+        )}
+
+        <div className="f f-justify-center">
+          <Button
+            className="button button--light button--text button--outline-primary button--round button--medium"
+            type="submit"
+            name="action"
+          >
+            Register
+          </Button>
+        </div>
+        <div className="f f-justify-center">
+          {' '}
+          <AuthLink to="/" text="Already have an account?" />
+        </div>
+      </form>
     </div>
   );
 };

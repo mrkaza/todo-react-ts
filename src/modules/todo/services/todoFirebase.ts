@@ -1,32 +1,34 @@
-import { firestore } from "modules/firebase";
-import { Dispatch } from "redux";
-import { TodoDispatchTypes } from "modules/todo";
+import { firestore } from 'modules/firebase';
+import { TodoActions, TodoType } from 'modules/todo';
+import { Slide, toast } from 'react-toastify';
+import { Dispatch } from 'redux';
 
-export const getUserTodos = (userId: any) => {
-  return (dispatch: Dispatch<TodoDispatchTypes>) => {
-    const todos: object[] = [];
+export const getUserTodos = (userId: string) => {
+  return (dispatch: Dispatch<TodoActions>): void => {
+    const todos: TodoType[] = [];
     firestore
-      .collection("todos")
-      .where("userId", "==", userId)
+      .collection('todos')
+      .where('userId', '==', userId)
       .get()
       .then((response) => {
         response.forEach((doc) => {
-          let todo = doc.data();
-          todo.id = doc.id;
-          todos.push(todo);
+          const todo = doc.data();
+          const id = doc.id;
+          const newTodo = { todo: todo, id: id };
+          todos.push(newTodo);
         });
-        dispatch({ type: "GET_TODOS", payload: todos });
+        dispatch(TodoActions.GetTodos(todos));
       });
   };
 };
 
 export const addTodo = (
   todo: { title: string; description: string },
-  userId: string
+  userId: string,
 ) => {
-  return (dispatch: Dispatch<TodoDispatchTypes>) => {
+  return (dispatch: Dispatch<TodoActions>): void => {
     firestore
-      .collection("todos")
+      .collection('todos')
       .add({
         title: todo.title,
         description: todo.description,
@@ -35,65 +37,109 @@ export const addTodo = (
         userId: userId,
       })
       .then(() => {
-        dispatch({ type: "ADD_TODO", payload: "Todo added!" });
+        dispatch(TodoActions.AddTodo());
+        toast.success('Todo Added', {
+          position: 'top-center',
+          transition: Slide,
+          hideProgressBar: true,
+          pauseOnHover: true,
+          autoClose: 2000,
+        });
       })
       .catch(() => {
-        dispatch({
-          type: "ADD_TODO_ERROR",
-          payload: "There was a probem adding todo.",
+        dispatch(TodoActions.AddTodoError());
+        toast.warn('Todo Added', {
+          position: 'top-center',
+          autoClose: 2000,
+          transition: Slide,
+          hideProgressBar: true,
+          pauseOnHover: true,
         });
       });
   };
 };
 
 export const deleteTodo = (id: string) => {
-  return (dispatch: Dispatch<TodoDispatchTypes>) => {
+  return (dispatch: Dispatch<TodoActions>): void => {
     firestore
-      .collection("todos")
+      .collection('todos')
       .doc(id)
       .delete()
       .then(() => {
-        dispatch({ type: "DELETE_TODO", payload: "Todo deleted!" });
+        dispatch(TodoActions.DeleteTodo());
+        toast.success('Todo deleted', {
+          position: 'top-center',
+          autoClose: 2000,
+          transition: Slide,
+          hideProgressBar: true,
+          pauseOnHover: true,
+        });
       });
   };
 };
 
 export const completeTodo = (id: string) => {
-  return (dispatch: Dispatch<TodoDispatchTypes>) => {
+  return (dispatch: Dispatch<TodoActions>): void => {
     firestore
-      .collection("todos")
+      .collection('todos')
       .doc(id)
       .update({
         completed: true,
       })
       .then(() => {
-        dispatch({ type: "COMPLETE_TODO", payload: "Todo Completed!" });
+        dispatch(TodoActions.CompleteTodo());
+        toast.success('Todo Completed', {
+          position: 'top-center',
+          autoClose: 2000,
+          transition: Slide,
+          hideProgressBar: true,
+          pauseOnHover: true,
+        });
       });
   };
 };
 
 export const todoDetails = (id: string) => {
-  return (dispatch: Dispatch<TodoDispatchTypes>) => {
+  return (dispatch: Dispatch<TodoActions>): void => {
     firestore
-      .collection("todos")
+      .collection('todos')
       .doc(id)
       .get()
       .then((doc) => {
-        dispatch({ type: "TODO_DETAILS", payload: doc.data() });
+        dispatch(TodoActions.TodoDetails(doc.data()));
       });
   };
 };
 
 export const editTodo = (newDesc: string, id: string) => {
-  return (dispatch: Dispatch<TodoDispatchTypes>) => {
+  return (dispatch: Dispatch<TodoActions>): void => {
     firestore
-      .collection("todos")
+      .collection('todos')
       .doc(id)
       .update({
         description: newDesc,
       })
       .then(() => {
-        dispatch({ type: "EDIT_TODO", payload: "Todo edited." });
+        dispatch(TodoActions.EditTodo());
+        toast.success('Todo Edited', {
+          position: 'top-center',
+          autoClose: 2000,
+          transition: Slide,
+          hideProgressBar: true,
+          pauseOnHover: true,
+        });
+      });
+  };
+};
+
+export const getTodoCount = () => {
+  return (dispatch: Dispatch<TodoActions>): void => {
+    firestore
+      .collection('todoStatus')
+      .doc('status')
+      .get()
+      .then((doc) => {
+        dispatch(TodoActions.GetCount(doc.data()));
       });
   };
 };
